@@ -108,7 +108,7 @@ var RR = (function (parent, $){
 
             TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.5, onComplete: function () {
                     TweenMax.set('body', { backgroundColor: '#f8f8f8' });
-                    $('.preloader').remove();
+                    $('.preloader-wrapper').remove();
                     animate();
                 }
             });

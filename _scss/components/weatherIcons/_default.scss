@@ -8,9 +8,37 @@
 }
 
 .climacon_component-fill {
-    fill: #aedef4;
+    fill: #fff;
     stroke-width: 0%;
     stroke: $ui-black;
+}
+
+.climacon {
+    .climacon_component-stroke_sunBody{
+        fill: #ffc233;
+        stroke: #ffc233;
+    }
+
+    .climacon_componentWrap-sunSpoke,
+    .climacon_componentWrap_sunSpoke {
+        path {
+            fill: #ffc233;
+            stroke: #ffc233;
+        }
+    }
+
+    .climacon_component-stroke_lightning {
+        // fill: #2D353E;
+        // stroke: #2D353E;
+        fill: $blue;
+        stroke: $blue;
+    }
+
+    .climacon_component-stroke_drizzle,
+    .climacon_component-stroke_rain {
+        fill: $blue;
+        stroke: $blue;
+    }
 }
 
 /* SVG GLOBAL */
