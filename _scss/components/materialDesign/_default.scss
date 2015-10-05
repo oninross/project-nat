@@ -1,0 +1,416 @@
+// body { background: $material-background; }
+
+// Buttons and CTAs
+.btn {
+	@include transition( all, 0.25s, $easeOutExpo );
+
+	background: $white;
+	border: 0;
+	border-radius: 3px;
+	color: $ui-black;
+	font-size: 1.6em;
+	overflow: hidden;
+	padding: 10px;
+	position: relative;
+	width: auto;
+
+	&.colored {
+		background: $ui-black;
+		color: $white;
+
+		svg.ripple circle { fill: $white; }
+
+		&:hover { background: darken( $ui-black, 10%); }
+	}
+
+	&.disabled {
+		background: lighten( $grey, 30%);
+		color: lighten( $grey, 10%);
+		cursor: default;
+
+		&:hover { @extend .shadow-z0; }
+	}
+
+	&:hover { @extend .shadow-z1; }
+
+	svg.ripple circle { fill: $grey; }
+}
+
+.cta {
+	color: $ui-black;
+	display: block;
+	padding: 10px;
+	position: relative;
+
+	&:hover { text-decoration: underline; }
+}
+
+.flat {
+	@extend .shadow-z0;
+
+	&:hover { @extend .shadow-z0; }
+}
+
+.raised {
+	@extend .shadow-z1;
+
+	&:hover { @extend .shadow-z2; }
+
+	&.disabled {
+		@extend .shadow-z1;
+
+		&:hover { @extend .shadow-z1; }
+	}
+}
+
+.action {
+	@extend .shadow-z1;
+	@include transition( all, 0.75s, $easeOutExpo );
+
+	background: $ui-black;
+	border: 0;
+	border-radius: 50%;
+	color: $white;
+	height: 45px;
+	width: 45px;
+
+	&:hover { @extend .shadow-z2; }
+}
+
+.menu {
+	.line {
+        @include transition( all, 0.75s, $easeOutExpo );
+
+        background: $white;
+        display: block;
+        height: 2px;
+        margin: 2px auto;
+        position: relative;
+        top: 0;
+        width: 15px;
+    }
+}
+
+
+// Print Button
+.btn-print {
+	@extend .btn;
+	@extend .colored;
+}
+
+.table-wrapper {
+	.btn-print { @extend .action; }
+}
+
+
+// Cards
+.card-container { margin: 0 -15px; }
+
+.card {
+	padding: 15px;
+
+	.card-wrapper {
+		background: $white;
+		border-radius: 2px;
+		min-height: 100px;
+		padding: 15px;
+	}
+}
+
+
+// Shadows
+.shadow-z0 { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+.shadow-z1 { box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12); }
+.shadow-z2 { box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) }
+.shadow-z3 { box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
+.shadow-z4 { box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21); }
+.shadow-z5 { box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22) }
+
+
+// Input
+input[type="text"] {
+	@include transition( all, 0.75s, $easeOutExpo );
+
+	background: $material-background;
+	border: none;
+	border-bottom: 1px solid $border-color;
+	font-size: $default-font-size;
+	font-weight: $light;
+	padding: 10px 0;
+	width: 100%;
+	z-index: 10;
+
+	&:focus {
+		border-bottom: 2px solid $ui-black;
+		color: $black;
+		outline: 0;
+	}
+
+	&[disabled]  {
+		background: none;
+		border-bottom: 1px dotted $border-color;
+
+		&:hover { cursor: not-allowed; }
+	}
+}
+
+.floating {
+	position: relative;
+
+	.placeholder {
+		@include transition( all, 0.75s, $easeOutExpo );
+
+		font-size: $default-font-size;
+		position: absolute;
+		top: 13px;
+	}
+
+	.hint {
+		@include transition( all, 0.75s, $easeOutExpo );
+		display: block;
+		opacity: 0;
+		padding: 5px 0;
+		position: relative;
+		top: -5px;
+		width: 100%;
+	}
+
+	&.focus {
+		.placeholder {
+			color: $ui-black;
+			font-size: 1em;
+			top: -10px;
+		}
+
+		.hint {
+			opacity: 1;
+			top: 0;
+		}
+	}
+}
+
+
+// Radio Buttons / Checkboxes
+label {
+	display: block;
+	font-size: $default-font-size;
+    line-height: normal;
+	padding-left: 28px;
+	position: relative;
+	margin-bottom: 10px;
+	width: 100%;
+
+	&.radio-button {
+		&:before {
+			@include transition( all, 0.5s, $easeOutExpo );
+			@include inline-block;
+
+			content: "";
+			border: 1px solid #b7b7b7;
+			border-radius: 50%;
+			height: 14px;
+            left: 0;
+			margin-right: 20px;
+            position: absolute;
+			width: 14px;
+		}
+
+		&:after {
+			@include transition( all, 0.5s, $easeOutExpo );
+			@include scale(1);
+			@include inline-block;
+
+			background: transparent;
+			content: "";
+			border-radius: 50%;
+			height: 16px;
+			left: -1px;
+			margin: auto;
+			position: absolute;
+			top: -1px;
+			width: 16px;
+		}
+	}
+
+	&.checkbox {
+		&:before {
+			@include transition( all, 0.75s, $easeOutExpo );
+            @include inline-block;
+
+			content: "";
+			border: 2px solid $grey;
+			border-radius: 3px;
+			height: 14px;
+			left: 0;
+			position: absolute;
+			width: 14px;
+		}
+
+		&:after {
+			@include transition( all, 0.75s, $easeOutExpo );
+			@include scale (3);
+            @include inline-block;
+
+			color: transparent;
+			content: "\e28a";
+			font-size: 0.6em;
+			height: 10px;
+			left: 2px;
+			margin: auto;
+			position: absolute;
+			top: 2px;
+			width: 10px;
+
+			font-family: "icomoon";
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+
+			/* Better Font Rendering =========== */
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+}
+
+input[type="radio"],
+input[type="checkbox"] { display: none; }
+
+input[type="radio"]{
+	&:checked + label {
+		&:before { border: 2px solid $ui-black; }
+		&:after {
+			@include scale (0.5);
+
+			background: $ui-black;
+		}
+	}
+}
+
+input[type="checkbox"]{
+	&:checked + label {
+		&:before { border: 2px solid $ui-black; }
+		&:after {
+			@include scale (1);
+
+			background: $ui-black;
+			color: $white;
+		}
+	}
+}
+
+
+// Progress Bar
+.progress {
+	background: lighten( $ui-black, 30% );
+	border-radius: 0;
+	height: 4px;
+	width: 100%;
+
+	.progress-bar {
+		@include transition( width, 0.5s, $easeInOutExpo );
+
+		background: $ui-black;
+		height: 100%;
+		margin-left: 0;
+		width: 0;
+	}
+}
+
+
+// Select
+.material-select-wrapper {
+	border-bottom: 1px solid $border-color;
+	font-size: $default-font-size !important;
+	padding: 10px 0;
+	position: relative;
+    width: 100%;
+
+    select {
+        height: inherit;
+        left: 0;
+        opacity: 0;
+        padding: 6px;
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        z-index: 10;
+
+        &.material { display: none; }
+    }
+
+    .icon-arrow_drop_down {
+    	bottom: 0;
+    	color: #bdbdbd;
+    	font-size: 1.5em;
+    	height: 26px;
+    	margin: auto;
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    }
+
+    .material-label {
+    	display: block;
+        overflow: hidden;
+        padding: 10px 0;
+        position: relative;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        white-space: nowrap;
+        width: 100%;
+        z-index: 5;
+    }
+
+    .card-wrapper {
+    	@include scale(0.5);
+    	@extend .shadow-z1;
+
+    	background: $white;
+    	overflow: hidden;
+        opacity: 0;
+    	padding: 0;
+    	position: absolute;
+    	right: 0;
+    	top: -20px;
+    	visibility: hidden;
+    	width: 50%;
+    	z-index: 10;
+
+    	ul {
+    		@include normalise-list;
+
+    		li {
+    			font-size: 1em;
+    			opacity: 0;
+    			position: relative;
+    			top: -20px;
+    		}
+    	}
+
+    	button {
+    		@include transition( all, 0.75s, $easeOutExpo );
+
+    		background: none;
+    		border: 0;
+    		border-bottom: 1px solid $border-color;
+    		font-size: 1em;
+    		padding: 15px 25px;
+    		text-align: left;
+    		width: 100%;
+
+    		&:hover,
+    		&.active {
+    			background: lighten( $grey, 25% );
+    		}
+    	}
+    }
+}
+
+
+
+
+
