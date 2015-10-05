@@ -313,6 +313,7 @@ svg.ripple {
 
         input {
             background: none;
+            border-radius: 0;
             font-size: 2em;
         }
     }
@@ -320,6 +321,7 @@ svg.ripple {
     .btn {
         display: block;
         font-weight: $bold;
+        margin: auto;
         max-width: 100px;
         width: 100%;
 
