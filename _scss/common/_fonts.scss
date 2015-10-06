@@ -81,6 +81,18 @@ $ultra-bold: 900;
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ic_close:before {
+	content: "\e803";
+}
+.icon-ic_arrow_drop_down:before {
+	content: "\e802";
+}
+.icon-ic_check:before {
+	content: "\e801";
+}
+.icon-ic_warning:before {
+	content: "\e800";
+}
 .icon-ic_my_location:before {
 	content: "\e600";
 }

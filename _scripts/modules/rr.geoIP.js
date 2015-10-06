@@ -10,14 +10,14 @@ var RR = (function (parent, $){
     var $location = $('.location');
 
     var setup = function (){
-        if ( RR.cookie.getGeoIpData() === undefined ) {
+        if ( RR.localStorage.getGeoIpData() === undefined ) {
             $.ajax({
                 // url: 'https://www.telize.com/geoip',
                 // url: 'https://freegeoip.net/json/',
                 url: 'http://www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
                 success: function(data) {
-                    RR.cookie.setGeoIpData( data );
+                    RR.localStorage.setGeoIpData( data );
                     populateLocation(data);
                 },
                 error: function (error){
@@ -29,7 +29,7 @@ var RR = (function (parent, $){
                 }
             });
         } else {
-            populateLocation( RR.cookie.getGeoIpData() );
+            populateLocation( RR.localStorage.getGeoIpData() );
         }
     };
 

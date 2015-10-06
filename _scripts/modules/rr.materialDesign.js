@@ -12,7 +12,7 @@ var RR = (function (parent, $){
         return this.each(function() {
             var $this = $(this),
                 $label = $('<span class = "material-label"/>'),
-                $arrow = $('<span class = "icon-arrow_drop_down"/>'),
+                $arrow = $('<span class = "icon-ic_arrow_drop_down"/>'),
                 $wrapper = $('<div class = "material-select-wrapper"/>');
 
             $this
@@ -29,7 +29,7 @@ var RR = (function (parent, $){
         return this.each(function() {
             var $this = $(this),
                 $label = $('<span class = "material-label"/>'),
-                $arrow = $('<span class = "icon-arrow_drop_down"/>'),
+                $arrow = $('<span class = "icon-ic_arrow_drop_down"/>'),
                 $wrapper = $('<div class = "material-select-wrapper js-material-drop"/>'),
                 _markup = '';
 
@@ -82,48 +82,6 @@ var RR = (function (parent, $){
     };
 
     var setup = function (){
-
-        // Ripple Effect
-        var $rippleEffect = $('button, .cta');
-
-        $rippleEffect.on('click', function (e){
-            var $this = $(this);
-
-            if ( !$this.hasClass('disabled') ){
-                ripple(e, $this);
-            }
-        });
-
-
-        // Hamburger Menu
-        var $materialMenu = $('.material-menu');
-
-        // TimelineMax the menu-icon animation for easier control on Touch/Mouse Events
-        var tl = new TimelineMax();
-
-        tl.to( $materialMenu.find('.top'), 0.2, { top: 4, ease: Expo.easeInOut });
-        tl.to( $materialMenu.find('.bot'), 0.2, { top: -4, ease: Expo.easeInOut }, '-=0.2');
-
-        tl.to( $materialMenu.find('.mid'), 0.2, { opacity: 0, ease: Expo.easeInOut });
-        tl.to( $materialMenu.find('.top'), 0.2, { rotation: 45, ease: Expo.easeInOut }, '-=0.2');
-        tl.to( $materialMenu.find('.bot'), 0.2, { rotation: -45, ease: Expo.easeInOut }, '-=0.2');
-
-
-        // Stop the Timeline at 0 else the animation will play after initiation
-        tl.pause();
-
-        $materialMenu.on('click', function (){
-            var $this = $(this);
-
-            $this.toggleClass('active');
-
-            if ( $this.hasClass('active') ) {
-                tl.reverse();
-            } else {
-                tl.play();
-            }
-        });
-
 
         // Floating Label Input Box
         $('.floating-input').each(function (){

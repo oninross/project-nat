@@ -10,7 +10,7 @@
     </div>
 
     <div class="preloader-input">
-        <input id="username" class="floating-input" type="text" placeholder="Hello! May I know your name?" required/>
+        <input id="username" class="floating-input" type="text" placeholder="Hello! May I know your name?"/>
     </div>
 
     <button class="btn colored js-enter">Enter</button>

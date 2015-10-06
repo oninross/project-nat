@@ -1,0 +1,87 @@
+/* global RR: true, TweenMax: true, TimelineMax: true, jQuery: true, ripple: true, Ease: true, Expo: true */
+/* jshint unused: false */
+
+/**
+ * RR - Cookie
+ */
+var RR = (function (parent, $) {
+    'use strict';
+
+
+    var setDefault = function () {
+        if ( !localStorage.length ) {
+            localStorage.username = '';
+            localStorage.audio = true;
+            localStorage.sidebar = true;
+        }
+    };
+
+
+    // GeoIP Data
+    var setGeoIpData = function (data) {
+        localStorage.geoIpData = JSON.stringify(data);
+    };
+
+    var getGeoIpData = function () {
+        var cookieData = localStorage.geoIpData;
+
+        if ( cookieData === undefined ) {
+            return undefined;
+        } else {
+            return JSON.parse( cookieData );
+        }
+    };
+
+
+    // UserName
+    var setUsername = function (username) {
+        localStorage.username = username;
+    };
+
+    var getUsername = function () {
+        return localStorage.username;
+    };
+
+
+    // Audio On/Off
+    var getAudio = function () {
+        return $.parseJSON( localStorage.audio );
+    };
+
+    var setAudio = function (bool) {
+        localStorage.audio = $.parseJSON( bool );
+    };
+
+
+    // Side bar On/Off
+    var getSidebar = function () {
+        return $.parseJSON( localStorage.sidebar );
+    };
+
+    var setSidebar = function (bool) {
+        localStorage.sidebar = $.parseJSON( bool );
+    };
+
+
+    // Cookies.set('name', 'value');
+    // Export module method
+    parent.localStorage = {
+        getGeoIpData: getGeoIpData,
+        setGeoIpData: setGeoIpData,
+        getUsername: getUsername,
+        setUsername: setUsername,
+        getAudio: getAudio,
+        setAudio: setAudio,
+        getSidebar: getSidebar,
+        setSidebar: setSidebar,
+        setDefault: setDefault
+    };
+
+    return parent;
+
+}(RR || {}, jQuery));
+
+jQuery(function($){
+    // Self-init Call
+    RR.localStorage.setDefault();
+});

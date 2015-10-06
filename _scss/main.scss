@@ -235,7 +235,7 @@ svg.ripple {
     z-index: 1;
 
     circle {
-        fill: $red;
+        fill: $ui-white;
         opacity: 0;
     }
 }
@@ -349,8 +349,13 @@ svg.ripple {
     padding: 0 $gutter;
 }
 
+.mainbar {
+    overflow: hidden;
+}
+
 .sidebar {
     display: none;
+    overflow: hidden;
 }
 
 .lines {
@@ -634,6 +639,148 @@ svg.ripple {
 
     span {
         float: left;
+    }
+}
+
+.settings {
+    float: right;
+    margin-left: 15px;
+    padding-left: 10px;
+    position: relative;
+
+    button {
+        background: none;
+        border: 0;
+        color: $ui-black;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .line {
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+
+        height: 0;
+    }
+}
+
+.dashboard {
+    background: $ui-black;
+    color: $ui-white;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 150;
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        @include inline-block;
+
+        background: none;
+        color: $ui-white;
+        font-size: 1em;
+        padding: 0;
+        width: auto;
+
+        &:focus {
+            color: inherit;
+        }
+    }
+
+    label {
+        &.checkbox:before {
+            border: 2px solid $ui-white;
+        }
+    }
+
+    input[type="checkbox"]{
+        &:checked + label {
+            &:before { border: 2px solid $ui-white; }
+            &:after {
+                background: $ui-white;
+                color: $ui-black;
+            }
+        }
+    }
+
+    .wrap {
+        @include clearfix();
+
+        margin-bottom: 10px;
+    }
+
+    .close {
+        background: none;
+        border: 0;
+        color: $ui-white;
+        font-size: 2em;
+        height: 40px;
+        padding: 8px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 40px;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .username {
+        font-weight: $light;
+    }
+
+    .material-select-wrapper {
+        padding: 0;
+
+        .material-label {
+            padding-top: 0;
+        }
+
+        .card-wrapper {
+            color: $ui-black;
+            width: 100%;
+
+            button:hover {
+                background: $ui-black;
+                color: $ui-white;
+            }
+        }
+    }
+
+    .rssSelection {
+        padding: 0 $gutter;
     }
 }
 

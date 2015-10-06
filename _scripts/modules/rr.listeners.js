@@ -8,7 +8,8 @@ var RR = (function (parent, $){
     'use strict';
 
     var debug = false,
-        moduleCompletes = 0;
+        moduleCompletes = 0,
+        $dashboard = $('.dashboard');
 
     if ( debug ) {
         var el = '.dateStamp .day, ';
@@ -31,9 +32,12 @@ var RR = (function (parent, $){
         TweenMax.set( el, { opacity: 1, top: 0 });
         TweenMax.set( '.line-b', { width: '100%' });
         TweenMax.set( '.line-r', { height: '100%' });
+        TweenMax.set( '.line-l', { height: '100%' });
     }
 
     var setup = function () {
+        var getUsername = RR.localStorage.getUsername();
+
         if ( !debug ) {
             TweenMax.set( '.preloader', { boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12)' });
             TweenMax.to('.preloader .icon', 2, { rotation: -360, repeat:-1, ease: Power0.easeNone });
@@ -41,9 +45,11 @@ var RR = (function (parent, $){
 
             TweenMax.to('.time .colon', 1, { alpha: 0, repeat:-1, ease: Power0.easeNone, yoyo: true });
 
-            if ( RR.cookie.getUsername() === undefined || RR.cookie.getUsername() === null ) {
+            if ( getUsername === '' ) {
                 TweenMax.to('.preloader-input', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.25 });
                 TweenMax.to('.btn', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.6 });
+            } else {
+                $dashboard.find('.username').text( getUsername );
             }
         }
 
@@ -65,10 +71,55 @@ var RR = (function (parent, $){
                 return false;
             }
 
-            RR.cookie.setUsername($username);
+            RR.localStorage.setUsername($username);
+            $dashboard.find('.username').val($username);
 
             splash();
         });
+
+        var $jsSettings = $('.js-settings');
+        $jsSettings.on( 'click', function (e) {
+            e.preventDefault();
+
+            var $this = $(this);
+
+            $this.toggleClass('active');
+
+            if ( $this.hasClass('active') ) {
+                TweenMax.set( '.dashboard', { height: 'auto' });
+                TweenMax.from( '.dashboard', 1, { height: 0, ease: Expo.easeOut, onComplete: function (){
+                        TweenMax.set( '.dashboard', { overflow: 'visible' });
+                    }
+                });
+            } else {
+                TweenMax.to( '.dashboard', 1, { height: 0, overflow: 'hidden', ease: Expo.easeOut });
+            }
+        });
+
+        toggleSideBar( RR.localStorage.getSidebar() );
+
+        $dashboard
+            .find('.username').val( RR.localStorage.getUsername() ).end()
+            .find('#audio').attr( 'checked', RR.localStorage.getAudio() ).end()
+            .find('#sidebar').attr( 'checked', RR.localStorage.getSidebar() ).end()
+            .on('blur', '.username', function () {
+                RR.localStorage.setUsername( $(this).val() );
+            }).on('change', '#audio', function () {
+                var $value = $(this).is(':checked');
+
+                RR.localStorage.setAudio($value);
+            }).on('change', '#sidebar', function () {
+                var $value = $(this).is(':checked');
+
+                RR.localStorage.setSidebar($value);
+
+                toggleSideBar($value);
+            }).on('click', '.js-close', function (e) {
+                e.preventDefault();
+
+                $jsSettings.trigger('click');
+            });
+
     };
 
     var moduleComplete = function () {
@@ -77,7 +128,7 @@ var RR = (function (parent, $){
         if ( moduleCompletes === 6 ) {
             $.fn.matchHeight._update();
 
-            if ( RR.cookie.getUsername() === undefined || RR.cookie.getUsername() === null ) {
+            if ( RR.localStorage.getUsername() === undefined || RR.localStorage.getUsername() === null ) {
                 TweenMax.to( '.preloader', 0.5, { boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0), 0 1px 6px 0 rgba(0, 0, 0, 0)', scale: 0, ease: Expo.easeIn });
                 TweenMax.to( '.preloader .icon', 0.5, { scale: 0, ease: Expo.easeIn });
             } else {
@@ -119,6 +170,7 @@ var RR = (function (parent, $){
 
         TweenMax.staggerTo( '.line-b', 0.75, { width: '100%', ease: Expo.easeOut }, 0.2 );
         TweenMax.staggerTo( '.line-r', 0.75, { height: '100%', ease: Expo.easeOut, delay: 0.5 }, 0.2 );
+        TweenMax.staggerTo( '.line-l', 0.75, { height: '100%', ease: Expo.easeOut, delay: 1 }, 0.2 );
 
         TweenMax.staggerTo( '.batch1', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1 }, 0.1 );
         TweenMax.staggerTo( '.batch2', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.25 }, 0.1 );
@@ -148,6 +200,16 @@ var RR = (function (parent, $){
         TweenMax.staggerTo( '.widget .lines-lr', 0.75, { scale: 1, ease: Expo.easeOut, delay: 2.7 }, 0.1);
 
         TweenMax.staggerTo( '.batch9', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.75 }, 0.1 );
+    };
+
+    var toggleSideBar = function (bool) {
+        if ( bool ) {
+            TweenMax.to( '.mainbar', 0.75, { width: '75%', ease: Expo.easeOut });
+            TweenMax.to( '.sidebar', 0.75, { autoAlpha: 1, padding: '0 15px', width: '25%', ease: Expo.easeOut });
+        } else {
+            TweenMax.to( '.mainbar', 0.75, { width: '100%', ease: Expo.easeOut });
+            TweenMax.to( '.sidebar', 0.75, { autoAlpha: 0, padding: 0, width: 0, ease: Expo.easeOut });
+        }
     };
 
     // Export module method
