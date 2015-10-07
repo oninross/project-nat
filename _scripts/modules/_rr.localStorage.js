@@ -10,9 +10,13 @@ var RR = (function (parent, $) {
 
     var setDefault = function () {
         if ( !localStorage.length ) {
+            console.log('localStorage is empty')
             localStorage.username = '';
             localStorage.audio = true;
             localStorage.sidebar = true;
+            localStorage.newsFeedUrl0 = 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml';
+            localStorage.newsFeedUrl1 = 'http://feeds.bbci.co.uk/news/world/rss.xml';
+            localStorage.newsFeedUrl2 = 'http://www.theguardian.com/world/rss';
         }
     };
 
@@ -63,7 +67,38 @@ var RR = (function (parent, $) {
     };
 
 
-    // Cookies.set('name', 'value');
+    // News Feed URL
+    var getNewsFeedURL = function (idx) {
+        switch ( idx ) {
+            case 0:
+                return localStorage.newsFeedUrl0;
+
+            case 1:
+                return localStorage.newsFeedUrl1;
+
+            case 2:
+                return localStorage.newsFeedUrl2;
+
+        }
+    };
+
+    var setNewsFeedURL = function (idx, url) {
+        switch ( idx ) {
+            case 0:
+                localStorage.newsFeedUrl0 = url;
+                break;
+
+            case 1:
+                localStorage.newsFeedUrl1 = url;
+                break;
+
+            case 2:
+                localStorage.newsFeedUrl2 = url;
+                break;
+
+        }
+    };
+
     // Export module method
     parent.localStorage = {
         getGeoIpData: getGeoIpData,
@@ -74,6 +109,8 @@ var RR = (function (parent, $) {
         setAudio: setAudio,
         getSidebar: getSidebar,
         setSidebar: setSidebar,
+        getNewsFeedURL: getNewsFeedURL,
+        setNewsFeedURL: setNewsFeedURL,
         setDefault: setDefault
     };
 

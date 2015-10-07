@@ -60,40 +60,64 @@
 
                     <div class="col-8">
                         <div class="wrap">
-                            <div class="rssSelection col-4">
+                            <div class="rssSelection rssCol-1 col-4">
                                 <select class="material">
-                                    <option value="yahoonews">Yahoo! News</option>
-                                    <option value="googlenews">Google News</option>
-                                    <option value="cnn">CNN</option>
-                                    <option value="bbc">BBC</option>
-                                    <option value="newyorktimes" selected="">New York Times</option>
-                                    <option value="theguardian">The Guardian</option>
-                                    <option value="huffingtonPost">HuffingtonPost</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="https://news.google.com/news?cf=all&hl=en&pz=1&ned=en_sg&output=rss">Google News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="others">Others</option>
                                 </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
                             </div>
 
-                            <div class="rssSelection col-4">
+                            <div class="rssSelection rssCol-2 col-4">
                                 <select class="material">
-                                    <option value="yahoonews">Yahoo! News</option>
-                                    <option value="googlenews">Google News</option>
-                                    <option value="cnn">CNN</option>
-                                    <option value="bbc" selected>BBC</option>
-                                    <option value="newyorktimes">New York Times</option>
-                                    <option value="theguardian">The Guardian</option>
-                                    <option value="huffingtonPost">HuffingtonPost</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="https://news.google.com/news?cf=all&hl=en&pz=1&ned=en_sg&output=rss">Google News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="others">Others</option>
                                 </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
                             </div>
 
-                            <div class="rssSelection col-4">
+                            <div class="rssSelection rssCol-3 col-4">
                                 <select class="material">
-                                    <option value="yahoonews">Yahoo! News</option>
-                                    <option value="googlenews">Google News</option>
-                                    <option value="cnn">CNN</option>
-                                    <option value="bbc">BBC</option>
-                                    <option value="newyorktimes">New York Times</option>
-                                    <option value="theguardian" selected="">The Guardian</option>
-                                    <option value="huffingtonPost">HuffingtonPost</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="https://news.google.com/news?cf=all&hl=en&pz=1&ned=en_sg&output=rss">Google News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="others">Others</option>
                                 </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
                             </div>
                         </div>
                     </div>

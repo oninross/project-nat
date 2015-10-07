@@ -126,6 +126,16 @@
 .shadow-z4 { box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21); }
 .shadow-z5 { box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22) }
 
+// Material Wrapper
+.material-wrapper {
+	margin: 10px 0;
+
+	input[type="text"] {
+		font-size: 1.4em;
+		padding: 10px 30px 10px 0;
+		width: 100%;
+	}
+}
 
 // Input
 input[type="text"] {
@@ -373,7 +383,7 @@ input[type="checkbox"]{
     	top: -20px;
     	visibility: hidden;
     	width: 50%;
-    	z-index: 10;
+    	z-index: 20;
 
     	ul {
     		@include normalise-list;

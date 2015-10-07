@@ -300,7 +300,18 @@ svg.ripple {
         }
     }
 
+    .preloader-text {
+        display: none;
+        font-size: 1.4em;
+        font-weight: $light;
+        opacity: 0;
+        position: relative;
+        text-align: center;
+        top: 25px;
+    }
+
     .preloader-input {
+        display: none;
         opacity: 0;
         position: relative;
         top: 25px;
@@ -319,7 +330,7 @@ svg.ripple {
     }
 
     .btn {
-        display: block;
+        display: none;
         font-weight: $bold;
         margin: auto;
         max-width: 100px;
@@ -726,8 +737,6 @@ svg.ripple {
 
     .wrap {
         @include clearfix();
-
-        margin-bottom: 10px;
     }
 
     .close {
@@ -759,6 +768,42 @@ svg.ripple {
 
     .username {
         font-weight: $light;
+    }
+
+    .material-wrapper {
+        height: 0;
+        overflow: hidden;
+        position: relative;
+
+        button {
+            background: none;
+            border: 0;
+            bottom: 0;
+            color: $ui-white;
+            font-size: 1.8em;
+            height: 25px;
+            margin: auto;
+            padding: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 25px;
+            z-index: 25;
+
+            &:hover {
+                .icon {
+                    @include rotate(180deg);
+                }
+            }
+
+            .icon {
+                @include transition( all, 0.5s, $easeOutExpo );
+                @include rotate(0);
+
+                height: 23px;
+                width: 23px;
+            }
+        }
     }
 
     .material-select-wrapper {
@@ -972,7 +1017,7 @@ svg.ripple {
 
 .news-reports {
     h2 {
-        height: 45px;
+        // height: 45px;
         float: none;
         margin-bottom: 20px;
         margin-top: 15px;
@@ -1015,6 +1060,15 @@ svg.ripple {
     //     // width: 100%;
     //     width: 0;
     // }
+}
+
+.news-source {
+    display: block;
+    font-size: 0.75em;
+
+    opacity: 0;
+    position: relative;
+    top: 25px;
 }
 
 .feedEkList {

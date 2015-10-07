@@ -55,19 +55,22 @@ var RR = (function (parent, $){
 
             $this.after( _markup );
 
-            var $jsMaterialDrop = $('.js-material-drop');
-
-            $jsMaterialDrop.on('click', '.material-label', function (){
+            $this.prev().prev().on('click', function (){
                 var $this = $(this),
                     $card = $this.parent().find('.card-wrapper');
 
                 TweenMax.to( $card, 0.25, { autoAlpha: 1, scale: 1, top: 0, ease: Expo.easeInOut } );
                 TweenMax.staggerTo( $card.find('li'), 1, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 0.3 }, 0.1 );
-            }).on('click', 'button', function (){
+            });
+
+            $this.next().on('click', 'button', function (e){
+                e.preventDefault();
+
                 var $this = $(this),
                     $card = $this.parent().parent().parent(),
+                    $materialWrapper = $card.parent(),
                     ind = $this.parent().index() + 1,
-                    selectedValue = $jsMaterialDrop.find('select option:nth-child('+ ind +')').val();
+                    selectedValue = $card.parent().find('select option:nth-child('+ ind +')').val();
 
                 $card.find('.active').removeClass('active');
                 $this.addClass('active');
@@ -75,8 +78,8 @@ var RR = (function (parent, $){
                 TweenMax.to( $card, 0.25, { autoAlpha: 0, scale: 0.5, top: -20, ease: Expo.easeInOut } );
                 TweenMax.to( $this.parent().parent().find('li'), 0.5, { opacity: 0, top: -20, ease: Expo.easeOut, delay: 0.25 });
 
-                $jsMaterialDrop.find('select').val( selectedValue );
-                $jsMaterialDrop.find('.material-label').text( selectedValue );
+                $materialWrapper.find('select').val( selectedValue ).trigger('change');
+                $materialWrapper.find('.material-label').text( $card.parent().find('select option:nth-child('+ ind +')').text() );
             });
         });
     };
