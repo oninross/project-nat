@@ -10,26 +10,26 @@ var RR = (function (parent, $){
     var $location = $('.location');
 
     var setup = function (){
-        if ( RR.cookie.getGeoIpData() === undefined ) {
+        if ( RR.localStorage.getGeoIpData() === undefined ) {
             $.ajax({
                 // url: 'https://www.telize.com/geoip',
                 // url: 'https://freegeoip.net/json/',
                 url: 'http://www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
                 success: function(data) {
-                    RR.cookie.setGeoIpData( data );
+                    RR.localStorage.setGeoIpData( data );
                     populateLocation(data);
                 },
                 error: function (error){
                     console.log(error);
-                    $('.icon-ic_my_location').addClass('inactive');
+                    ajaxError();
                 },
                 statusCode: function (code) {
                     console.log(code);
                 }
             });
         } else {
-            populateLocation( RR.cookie.getGeoIpData() );
+            populateLocation( RR.localStorage.getGeoIpData() );
         }
     };
 
@@ -45,8 +45,21 @@ var RR = (function (parent, $){
         $location.find('.lat').text( deg_to_dms(data.geoplugin_latitude, false) );
         $location.find('.loc').text( data.geoplugin_countryName );
 
+        $('.preloader-input').show();
+
         RR.weatherAPI.setup(data);
         RR.newsFeeds.setup(data);
+    };
+
+    var ajaxError = function () {
+        TweenMax.killTweensOf('.preloader .icon');
+        TweenMax.set('.preloader .icon', { rotation: 0 });
+        TweenMax.set('.preloader', { background: '#f44336', color: '#f8f8f8' });
+
+        $('.preloader .icon').removeClass('icon-ic_cached').addClass('icon-ic_warning');
+        $('.preloader-text').show();
+
+        TweenMax.to('.preloader-text', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.25 });
     };
 
     var deg_to_dms = function (deg, _bool) {
@@ -83,7 +96,7 @@ var RR = (function (parent, $){
         }
 
         return (d + '° ' + m + '\' ' + s + '" ' + _dir);
-    }
+    };
 
     // Export module method
     parent.geoIP = {

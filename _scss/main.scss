@@ -235,7 +235,7 @@ svg.ripple {
     z-index: 1;
 
     circle {
-        fill: $red;
+        fill: $ui-white;
         opacity: 0;
     }
 }
@@ -300,7 +300,18 @@ svg.ripple {
         }
     }
 
+    .preloader-text {
+        display: none;
+        font-size: 1.4em;
+        font-weight: $light;
+        opacity: 0;
+        position: relative;
+        text-align: center;
+        top: 25px;
+    }
+
     .preloader-input {
+        display: none;
         opacity: 0;
         position: relative;
         top: 25px;
@@ -319,7 +330,7 @@ svg.ripple {
     }
 
     .btn {
-        display: block;
+        display: none;
         font-weight: $bold;
         margin: auto;
         max-width: 100px;
@@ -349,8 +360,13 @@ svg.ripple {
     padding: 0 $gutter;
 }
 
+.mainbar {
+    overflow: hidden;
+}
+
 .sidebar {
     display: none;
+    overflow: hidden;
 }
 
 .lines {
@@ -637,6 +653,182 @@ svg.ripple {
     }
 }
 
+.settings {
+    float: right;
+    margin-left: 15px;
+    padding-left: 10px;
+    position: relative;
+
+    button {
+        background: none;
+        border: 0;
+        color: $ui-black;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .line {
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+
+        height: 0;
+    }
+}
+
+.dashboard {
+    background: $ui-black;
+    color: $ui-white;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 150;
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        @include inline-block;
+
+        background: none;
+        color: $ui-white;
+        font-size: 1em;
+        padding: 0;
+        width: auto;
+
+        &:focus {
+            color: inherit;
+        }
+    }
+
+    label {
+        &.checkbox:before {
+            border: 2px solid $ui-white;
+        }
+    }
+
+    input[type="checkbox"]{
+        &:checked + label {
+            &:before { border: 2px solid $ui-white; }
+            &:after {
+                background: $ui-white;
+                color: $ui-black;
+            }
+        }
+    }
+
+    .wrap {
+        @include clearfix();
+    }
+
+    .close {
+        background: none;
+        border: 0;
+        color: $ui-white;
+        font-size: 2em;
+        height: 40px;
+        padding: 8px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 40px;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .username {
+        font-weight: $light;
+    }
+
+    .material-wrapper {
+        height: 0;
+        overflow: hidden;
+        position: relative;
+
+        button {
+            background: none;
+            border: 0;
+            bottom: 0;
+            color: $ui-white;
+            font-size: 1.8em;
+            height: 25px;
+            margin: auto;
+            padding: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 25px;
+            z-index: 25;
+
+            &:hover {
+                .icon {
+                    @include rotate(180deg);
+                }
+            }
+
+            .icon {
+                @include transition( all, 0.5s, $easeOutExpo );
+                @include rotate(0);
+
+                height: 23px;
+                width: 23px;
+            }
+        }
+    }
+
+    .material-select-wrapper {
+        padding: 0;
+
+        .material-label {
+            padding-top: 0;
+        }
+
+        .card-wrapper {
+            color: $ui-black;
+            width: 100%;
+
+            button:hover {
+                background: $ui-black;
+                color: $ui-white;
+            }
+        }
+    }
+
+    .rssSelection {
+        padding: 0 $gutter;
+    }
+}
+
 
 /* =======================================================================
 04 Main Navigation
@@ -825,7 +1017,7 @@ svg.ripple {
 
 .news-reports {
     h2 {
-        height: 45px;
+        // height: 45px;
         float: none;
         margin-bottom: 20px;
         margin-top: 15px;
@@ -868,6 +1060,15 @@ svg.ripple {
     //     // width: 100%;
     //     width: 0;
     // }
+}
+
+.news-source {
+    display: block;
+    font-size: 0.75em;
+
+    opacity: 0;
+    position: relative;
+    top: 25px;
 }
 
 .feedEkList {

@@ -10,6 +10,20 @@
         <meta name="description" content="">
         <title>Project N.A.T.</title>
 
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/project-nat/images/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/project-nat/images/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/project-nat/images/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/project-nat/images/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/project-nat/images/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/project-nat/images/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/project-nat/images/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/project-nat/images/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/project-nat/images/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/project-nat/images/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/project-nat/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/project-nat/images/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/project-nat/images/favicon/favicon-16x16.png">
+
         <!-- build:css /assets/project-nat/css/main.min.css -->
         <link href="/assets/project-nat/css/main.css" rel="stylesheet">
         <!-- /build -->
@@ -21,13 +35,114 @@
         <script src="/assets/project-nat/js/vendor/modernizr.js"></script>
     </head>
     <body>
+        <div class="dashboard">
+            <div class="container">
+                <h2>Settings</h2>
+
+                <button class="close js-close">
+                    <i class="icon icon-ic_close"></i>
+                </button>
+
+                <h3>Hello <input id="dashboard-username" class="username" type="text" /></h3>
+
+                <p>Lorem ipsum Adipisicing est consequat culpa ad dolor ut anim est do nulla nostrud in anim.</p>
+
+                <div class="wrap">
+                    <div class="col-2">
+                        <input type="checkbox" name="name" id="audio" checked>
+                        <label for="audio" class="checkbox">Mute N.A.T.</label>
+                    </div>
+
+                    <div class="col-2">
+                        <input type="checkbox" name="name" id="sidebar" checked>
+                        <label for="sidebar" class="checkbox">Side Bar</label>
+                    </div>
+
+                    <div class="col-8">
+                        <div class="wrap">
+                            <div class="rssSelection rssCol-1 col-4">
+                                <select class="material">
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="others">Others</option>
+                                </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
+                            </div>
+
+                            <div class="rssSelection rssCol-2 col-4">
+                                <select class="material">
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="others">Others</option>
+                                </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
+                            </div>
+
+                            <div class="rssSelection rssCol-3 col-4">
+                                <select class="material">
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="others">Others</option>
+                                </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <header class="header lines">
             <h1 class="visuallyhidden">
                 <a href="/">Project NAT</a>
             </h1>
 
             <div class="container">
+
                 <div class="clearfix">
+
                     <div class="dateStamp">
                         <span class="batch1 day"></span>
                         <span class="batch1 date"></span>
@@ -43,6 +158,16 @@
                             <span class="colon">:</span>
                             <span class="m">00</span>
                             <span class="dn">pm</span>
+                        </div>
+
+                        <div class="settings">
+                            <div class="line line-l"></div>
+
+                            <button class="js-settings">
+                                <i class="batch1 icon icon-ic_settings"></i>
+                                <span class="visuallyhidden">Settings</span>
+                            </button>
+
                         </div>
                     </div>
                 </div>
