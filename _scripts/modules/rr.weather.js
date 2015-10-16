@@ -11,8 +11,11 @@ var RR = (function (parent, $){
         weatherTodayData;
 
     var setup = function (data){
-        var lng = data.geoplugin_longitude,
-            lat = data.geoplugin_latitude,
+        var lng = data.longitude,
+            lat = data.latitude,
+
+        // var lng = data.geoplugin_longitude,
+        //     lat = data.geoplugin_latitude,
             APIKEY = 'ec8c210ade1ba212ae6222699ef2f00c';
 
         $.ajax({
