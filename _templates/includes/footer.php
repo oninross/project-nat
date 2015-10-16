@@ -1,4 +1,4 @@
-        <!-- build:js //ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js -->
+        <!-- build:js https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js -->
         <script src="/assets/project-nat/js/vendor/jquery-1.11.3.min.js"></script>
         <!-- /build -->
 

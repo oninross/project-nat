@@ -97,7 +97,7 @@ var RR = (function (parent, $){
     };
 
     var speak = function (txt) {
-        if ( RR.mobileCheck.isMobile.iOS() ){
+        if ( RR.mobileCheck.isMobile.iOS() || !RR.localStorage.getAudio() ){
             return false;
         }
 
@@ -129,9 +129,7 @@ var RR = (function (parent, $){
             weatherTodayStatus = weatherTodayData.weather[0].main,
             msg;
 
-        console.log(weatherTodayStatus);
-
-        speak('Good ' + timeOfDay + ' ' + RR.cookie.getUsername() + '!');
+        speak('Good ' + timeOfDay + ' ' + RR.localStorage.getUsername() + '!');
 
         speak('Looks like there is ' + weatherTodayStatus.toLowerCase() + ' outside.');
 

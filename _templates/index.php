@@ -9,8 +9,12 @@
         <i class="icon icon-ic_cached"></i>
     </div>
 
+    <div class="preloader-text">
+        <p>Oops! This is embarrasing. Can you please refresh the page? Thank you!</p>
+    </div>
+
     <div class="preloader-input">
-        <input id="username" class="floating-input" type="text" placeholder="Hello! May I know your name?" required/>
+        <input id="username" class="floating-input" type="text" placeholder="Hello! May I know your name?"/>
     </div>
 
     <button class="btn colored js-enter">Enter</button>
@@ -81,48 +85,36 @@
 
                     <div class="wrapper">
                         <div class="news-listing col-4">
-                            <h2 class="lines clearfix">
-                                <span class="visuallyhidden">New York Times</span>
-                                <img class="batch6" src="/assets/project-nat/images/logos/nyt.svg" alt="New York Times" >
-
-                                <!-- <button class="refresh js-refresh">
-                                    <i class="icon icon-ic_cached"></i>
-                                </button> -->
+                            <h2 class="lines matchHeight clearfix">
+                                <span class="news-source batch6"></span>
+                                <!-- <img class="batch6" src="/assets/project-nat/images/logos/nyt.svg" alt="" > -->
 
                                 <div class="line line-b"></div>
                             </h2>
 
-                            <div id="nytRss"></div>
+                            <div id="rssFeed1"></div>
                         </div>
 
                         <div class="news-listing col-4">
-                            <h2 class="lines clearfix">
-                                <span class="visuallyhidden">BBC</span>
-                                <img class="batch6" src="/assets/project-nat/images/logos/bbc.svg" alt="BBC" >
-
-                                <!-- <button class="refresh js-refresh">
-                                    <i class="icon icon-ic_cached"></i>
-                                </button> -->
+                            <h2 class="lines matchHeight clearfix">
+                                <span class="news-source batch6"></span>
+                                <!-- <img class="batch6" src="/assets/project-nat/images/logos/bbc.svg" alt="" > -->
 
                                 <div class="line line-b"></div>
                             </h2>
 
-                            <div id="bbcRss"></div>
+                            <div id="rssFeed2"></div>
                         </div>
 
                         <div class="news-listing col-4">
-                            <h2 class="lines clearfix">
-                                <span class="visuallyhidden">The Guardian</span>
-                                <img class="batch6" src="/assets/project-nat/images/logos/theguardian.svg" alt="The Guardian" >
-
-                                <!-- <button class="refresh js-refresh">
-                                    <i class="icon icon-ic_cached"></i>
-                                </button> -->
+                            <h2 class="lines matchHeight clearfix">
+                                <span class="news-source batch6"></span>
+                                <!-- <img class="batch6" src="/assets/project-nat/images/logos/theguardian.svg" alt="" > -->
 
                                 <div class="line line-b"></div>
                             </h2>
 
-                            <div id="guardianRss"></div>
+                            <div id="rssFeed3"></div>
                         </div>
                     </div>
                 </section>
