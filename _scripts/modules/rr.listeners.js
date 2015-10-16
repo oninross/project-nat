@@ -7,9 +7,10 @@
 var RR = (function (parent, $){
     'use strict';
 
-    var debug = true,
+    var debug = false,
         moduleCompletes = 0,
-        $dashboard = $('.dashboard');
+        $dashboard = $('.dashboard'),
+        isLoaded = false;
 
     if ( debug ) {
         var el = '.dateStamp .day, ';
@@ -63,6 +64,25 @@ var RR = (function (parent, $){
                 $('.js-enter').trigger('click');
             }
         });
+
+        $('#dashboard-username').on('blur', function () {
+            var $this = $(this),
+                $val = $this.val();
+
+            if ( $val == '' ) {
+                TweenMax.set($this, { 'border-bottom': '1px solid #f44336' });
+            } else {
+                TweenMax.set($this, { 'border-bottom': '1px solid #ffffff' });
+                RR.localStorage.setUsername($this.val());
+            }
+        }).on('keyup', function (e) {
+            e.preventDefault();
+
+            if (e.keyCode == 13) {
+                $(this).blur();
+            }
+        });
+
 
         $('.js-enter').on('click', function (e) {
             e.preventDefault();
@@ -145,9 +165,9 @@ var RR = (function (parent, $){
                 $url = $this.next().val(),
                 $rrsSelectionIdx = $this.parent().parent().index();
 
-            if ( $url !== '' && RR.newsFeeds.checkValidRSS($url) ) {
-                RR.newsFeeds.setNewsFeedValue($rrsSelectionIdx, $url);
-                TweenMax.set($this.next(), { 'border-bottom': '1px solid #4caf50' });
+            if ( $url !== '' ) {
+                RR.newsFeeds.checkValidRSS($rrsSelectionIdx, $url);
+                TweenMax.set($this.next(), { 'border-bottom': '1px solid #ffffff' });
             } else {
                 TweenMax.set($this.next(), { 'border-bottom': '1px solid #f44336' });
             };
@@ -161,12 +181,14 @@ var RR = (function (parent, $){
         if ( moduleCompletes === 6 ) {
             $.fn.matchHeight._update();
 
-            if ( RR.localStorage.getUsername() === undefined || RR.localStorage.getUsername() === null ) {
+            if ( RR.localStorage.getUsername() === undefined || RR.localStorage.getUsername() === '' ) {
                 TweenMax.to( '.preloader', 0.5, { boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0), 0 1px 6px 0 rgba(0, 0, 0, 0)', scale: 0, ease: Expo.easeIn });
                 TweenMax.to( '.preloader .icon', 0.5, { scale: 0, ease: Expo.easeIn });
             } else {
                 splash();
             }
+
+            isLoaded = true;
         }
     };
 
@@ -176,26 +198,26 @@ var RR = (function (parent, $){
                 b = 0,
                 f = 0;
 
-            if ( vw > vh ) {
-                b = vw;
-            } else {
-                b = vh;
+        if ( vw > vh ) {
+            b = vw;
+        } else {
+            b = vh;
+        }
+
+        f = Math.ceil(b / $('.preloader').height()) + 2;
+
+        TweenMax.to( '.preloader', 0.5, { boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0), 0 1px 6px 0 rgba(0, 0, 0, 0)' });
+        TweenMax.to( '.preloader .icon', 0.5, { scale: 0, ease: Expo.easeIn });
+
+        TweenMax.to('.preloader-input', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut });
+        TweenMax.to('.btn', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.5 });
+
+        TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.5, onComplete: function () {
+                TweenMax.set('body', { backgroundColor: '#f8f8f8' });
+                $('.preloader-wrapper').remove();
+                animate();
             }
-
-            f = Math.ceil(b / $('.preloader').height()) + 2;
-
-            TweenMax.to( '.preloader', 0.5, { boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0), 0 1px 6px 0 rgba(0, 0, 0, 0)' });
-            TweenMax.to( '.preloader .icon', 0.5, { scale: 0, ease: Expo.easeIn });
-
-            TweenMax.to('.preloader-input', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut });
-            TweenMax.to('.btn', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.5 });
-
-            TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.5, onComplete: function () {
-                    TweenMax.set('body', { backgroundColor: '#f8f8f8' });
-                    $('.preloader-wrapper').remove();
-                    animate();
-                }
-            });
+        });
     };
 
     var animate = function () {
@@ -245,11 +267,16 @@ var RR = (function (parent, $){
         }
     };
 
+    var getIsLoaded = function () {
+        return isLoaded;
+    };
+
     // Export module method
     parent.listeners = {
         setup: setup,
         moduleComplete: moduleComplete,
         splash: splash,
+        getIsLoaded: getIsLoaded
     };
 
     return parent;

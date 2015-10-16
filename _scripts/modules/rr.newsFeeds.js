@@ -36,8 +36,12 @@ var RR = (function (parent, $){
     };
 
     var updateNewsFeed = function (idx, url) {
-        TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemTitle', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut }, 0.1 );
-        TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemContent', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut }, 0.1, function () {
+        TweenMax.to( '.news-listing:nth-child('+ (idx + 1) +') .news-source', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, onComplete: function () {
+                TweenMax.set( '.news-listing:nth-child('+ (idx + 1) +') .news-source', { top: 25 });
+            }
+        });
+        TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemTitle', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.2 }, 0.1 );
+        TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemContent', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.4 }, 0.1, function () {
             switch (idx) {
                 case 0:
                     $('#rssFeed1').empty();
@@ -75,18 +79,33 @@ var RR = (function (parent, $){
         });
     };
 
-    var checkValidRSS = function (url) {
+    var checkValidRSS = function (idx, url) {
         var xhr;
 
         xhr = $.ajax({
             url: "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1&output=json&q=" + encodeURIComponent(url) + "&hl=en&callback=?",
             dataType: "json",
-            success: function () {
+            success: function (data) {
                 xhr.abort();
-                return true;
+
+                console.log(idx)
+
+                switch ( data.responseStatus ) {
+                    case 200:
+                        // valid
+                        TweenMax.set( '.rssSelection:nth-child('+ idx + 1 +') input[type="text"]', { 'border-bottom': '1px solid #4caf50' });
+                        updateNewsFeed( idx, url );
+                        setNewsFeedValue( idx, url );
+                        break;
+
+                    case 400:
+                        // invalid
+                        TweenMax.set( '.rssSelection:nth-child('+ idx + 1 +') input[type="text"]', { 'border-bottom': '1px solid #f44336' });
+                        break;
+                }
             },
-            error: function () {
-                return false;
+            error: function (error) {
+                console.log(error);
             }
         });
     };

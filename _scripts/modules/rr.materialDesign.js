@@ -109,6 +109,10 @@ var RR = (function (parent, $){
             if ( $this.data('hint') !== undefined && $this.data('hint') !== '' ){
                 $this.after('<span class="hint"><strong>*Hint: </strong>' + $this.data('hint') + '</span>');
             }
+
+            $('.placeholder').on('click', function () {
+                $(this).next().focus();
+            });
         });
 
 

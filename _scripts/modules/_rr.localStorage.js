@@ -10,13 +10,14 @@ var RR = (function (parent, $) {
 
     var setDefault = function () {
         if ( !localStorage.length ) {
-            console.log('localStorage is empty')
+            console.log('localStorage is empty');
             localStorage.username = '';
             localStorage.audio = true;
             localStorage.sidebar = true;
             localStorage.newsFeedUrl0 = 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml';
             localStorage.newsFeedUrl1 = 'http://feeds.bbci.co.uk/news/world/rss.xml';
             localStorage.newsFeedUrl2 = 'http://www.theguardian.com/world/rss';
+            $('.preloader-wrapper .btn').show();
         }
     };
 

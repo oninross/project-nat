@@ -129,8 +129,6 @@ var RR = (function (parent, $){
             weatherTodayStatus = weatherTodayData.weather[0].main,
             msg;
 
-        console.log(weatherTodayStatus);
-
         speak('Good ' + timeOfDay + ' ' + RR.localStorage.getUsername() + '!');
 
         speak('Looks like there is ' + weatherTodayStatus.toLowerCase() + ' outside.');

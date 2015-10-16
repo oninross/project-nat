@@ -43,7 +43,7 @@
                     <i class="icon icon-ic_close"></i>
                 </button>
 
-                <h3>Hello <input class="username" type="text" /></h3>
+                <h3>Hello <input id="dashboard-username" class="username" type="text" /></h3>
 
                 <p>Lorem ipsum Adipisicing est consequat culpa ad dolor ut anim est do nulla nostrud in anim.</p>
 
@@ -63,12 +63,15 @@
                             <div class="rssSelection rssCol-1 col-4">
                                 <select class="material">
                                     <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="https://news.google.com/news?cf=all&hl=en&pz=1&ned=en_sg&output=rss">Google News</option>
                                     <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
                                     <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 
@@ -83,12 +86,15 @@
                             <div class="rssSelection rssCol-2 col-4">
                                 <select class="material">
                                     <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="https://news.google.com/news?cf=all&hl=en&pz=1&ned=en_sg&output=rss">Google News</option>
                                     <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
                                     <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 
@@ -103,12 +109,15 @@
                             <div class="rssSelection rssCol-3 col-4">
                                 <select class="material">
                                     <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="https://news.google.com/news?cf=all&hl=en&pz=1&ned=en_sg&output=rss">Google News</option>
                                     <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
                                     <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 
