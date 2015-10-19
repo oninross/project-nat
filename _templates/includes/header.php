@@ -53,12 +53,12 @@
                         <label for="audio" class="checkbox">Mute N.A.T.</label>
                     </div>
 
-                    <div class="col-2">
+                    <div class="sidebar-icon col-2">
                         <input type="checkbox" name="name" id="sidebar" checked>
                         <label for="sidebar" class="checkbox">Side Bar</label>
                     </div>
 
-                    <div class="col-8">
+                    <div class="col-8 rssSelections">
                         <div class="wrap">
                             <div class="rssSelection rssCol-1 col-4">
                                 <select class="material">

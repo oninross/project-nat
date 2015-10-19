@@ -824,6 +824,12 @@ svg.ripple {
         }
     }
 
+    .rssSelections {
+        .wrap {
+            margin: 20px (-$gutter);
+        }
+    }
+
     .rssSelection {
         padding: 0 $gutter;
     }
