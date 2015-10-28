@@ -178,7 +178,7 @@ var RR = (function (parent, $){
     var moduleComplete = function () {
         moduleCompletes++;
 
-        if ( moduleCompletes === 6 ) {
+        if ( moduleCompletes === 5 ) {
             $.fn.matchHeight._update();
 
             if ( RR.localStorage.getUsername() === undefined || RR.localStorage.getUsername() === '' ) {

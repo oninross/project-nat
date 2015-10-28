@@ -126,7 +126,7 @@ var RR = (function (parent, $){
     var greetUser = function () {
         var timeOfDay = RR.dateWidget.getTimeOfDay(),
             weatherTodayData = RR.weatherAPI.getWeatherTodayData(),
-            weatherTodayStatus = weatherTodayData.weather[0].main,
+            weatherTodayStatus = weatherTodayData.query.results.channel.item.condition.text,
             msg;
 
         speak('Good ' + timeOfDay + ' ' + RR.localStorage.getUsername() + '!');
