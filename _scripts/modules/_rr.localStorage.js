@@ -19,6 +19,10 @@ var RR = (function (parent, $) {
             localStorage.newsFeedUrl2 = 'http://www.theguardian.com/world/rss';
             $('.preloader-wrapper .btn').show();
         }
+
+        if ( localStorage.username == '' ) {
+            $('.preloader-wrapper .btn').show();
+        }
     };
 
 

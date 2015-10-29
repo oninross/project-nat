@@ -33,15 +33,12 @@ var RR = (function (parent, $){
     };
 
     var setWeatherForecast = function (json) {
-
-        console.log(json)
-
         var dataMain = json.query.results.channel.item;
 
         $weather.find('.current .temp').text( Math.round(dataMain.condition.temp) + '°' );
         $weather.find('.current .hilow').text( Math.round(dataMain.forecast[0].high) + '° / ' + Math.round(dataMain.forecast[0].low) + '°' );
         $weather.find('.current-wrapper .text').text( dataMain.forecast[0].text );
-        console.log(dataMain.condition.code)
+
         $weather.find('.condition .icon').html( getWeatherIcon(dataMain.condition.code) );
 
         var days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'],

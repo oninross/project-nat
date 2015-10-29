@@ -7,7 +7,7 @@
 var RR = (function (parent, $){
     'use strict';
 
-    var debug = false,
+    var debug = true,
         moduleCompletes = 0,
         $dashboard = $('.dashboard'),
         isLoaded = false;
@@ -259,11 +259,15 @@ var RR = (function (parent, $){
 
     var toggleSideBar = function (bool) {
         if ( bool ) {
-            TweenMax.to( '.mainbar', 0.75, { width: '75%', ease: Expo.easeOut });
-            TweenMax.to( '.sidebar', 0.75, { autoAlpha: 1, padding: '0 15px', width: '25%', ease: Expo.easeOut });
+            $('.mainbar').addClass('full-width');
+            $('.sidebar').addClass('hide');
+            // TweenMax.to( '.mainbar', 0.75, { width: '75%', ease: Expo.easeOut });
+            // TweenMax.to( '.sidebar', 0.75, { autoAlpha: 1, padding: '0 15px', width: '25%', ease: Expo.easeOut });
         } else {
-            TweenMax.to( '.mainbar', 0.75, { width: '100%', ease: Expo.easeOut });
-            TweenMax.to( '.sidebar', 0.75, { autoAlpha: 0, padding: 0, width: 0, ease: Expo.easeOut });
+            $('.mainbar').removeClass('full-width');
+            $('.sidebar').removeClass('hide');
+            // TweenMax.to( '.mainbar', 0.75, { width: '100%', ease: Expo.easeOut });
+            // TweenMax.to( '.sidebar', 0.75, { autoAlpha: 0, padding: 0, width: 0, ease: Expo.easeOut });
         }
     };
 

@@ -50,6 +50,10 @@ img {
 03 Header
 ========================================================================== */
 .dashboard {
+	.container {
+		padding: 0 $gutterTablet;
+	}
+
 	.rssSelections {
         .wrap {
             margin: 0 (-$gutterTablet);

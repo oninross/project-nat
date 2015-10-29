@@ -47,10 +47,6 @@ DEPENDENCIES
 	.container {
 		padding: 0 $gutter;
 	}
-
-	.sidebar-icon {
-		display: none;
-	}
 }
 
 .rssSelections {
@@ -158,9 +154,12 @@ DEPENDENCIES
 		    // margin-bottom: 20px;
 		}
 
-		.text,
 		.hilow {
 			font-size: 1.8em;
+		}
+
+		.text {
+			font-size: 1.3em;
 		}
 	}
 

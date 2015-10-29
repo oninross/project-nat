@@ -146,6 +146,7 @@ var RR = (function (parent, $){
 
     var offline = function () {
         $('.camera .offline').show();
+        $('.camera').addClass('off');
         $('.emotion .offline').show();
     };
 

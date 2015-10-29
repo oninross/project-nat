@@ -88,8 +88,6 @@ var RR = (function (parent, $){
             success: function (data) {
                 xhr.abort();
 
-                console.log(idx)
-
                 switch ( data.responseStatus ) {
                     case 200:
                         // valid

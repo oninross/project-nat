@@ -81,6 +81,12 @@ $ultra-bold: 900;
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-quote-open:before {
+	content: "\e900";
+}
+.icon-quote-close:before {
+	content: "\e901";
+}
 .icon-ic_close:before {
 	content: "\e803";
 }

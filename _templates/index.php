@@ -14,7 +14,7 @@
     </div>
 
     <div class="preloader-input">
-        <input id="username" class="floating-input" type="text" placeholder="Hello! May I know your name?"/>
+        <input id="username" class="floating-input" type="text" placeholder="Hello! May I know your name?" autocomplete="off"/>
     </div>
 
     <button class="btn colored js-enter">Enter</button>
@@ -51,7 +51,7 @@
 
                         <div class="col-8 matchHeight">
                             <div class="clearfix">
-                                <div class="forecast col-4">
+                                <div class="forecast matchHeight col-4">
                                     <h3 class="batch3"></h3>
                                     <div class="batch3 icon"></div>
                                     <div class="batch3 hilow">0° / 0°</div>
@@ -59,7 +59,7 @@
 
                                     <div class="line line-r"></div>
                                 </div>
-                                <div class="forecast col-4">
+                                <div class="forecast matchHeight col-4">
                                     <h3 class="batch4"></h3>
                                     <div class="batch4 icon"></div>
                                     <div class="batch4 hilow">0° / 0°</div>
@@ -67,7 +67,7 @@
 
                                     <div class="line line-r"></div>
                                 </div>
-                                <div class="forecast col-4">
+                                <div class="forecast matchHeight col-4">
                                     <h3 class="batch5"></h3>
                                     <div class="batch5 icon"></div>
                                     <div class="batch5 hilow">0° / 0°</div>
