@@ -7,7 +7,7 @@
 var RR = (function (parent, $){
     'use strict';
 
-    var debug = true,
+    var debug = false,
         moduleCompletes = 0,
         $dashboard = $('.dashboard'),
         isLoaded = false;
