@@ -55,7 +55,7 @@
 
                 <h3>Hello <input id="dashboard-username" class="username" type="text" /></h3>
 
-                <p>Lorem ipsum Adipisicing est consequat culpa ad dolor ut anim est do nulla nostrud in anim.</p>
+                <p>To change the news feed, select any of the dropdown items below or key in your preferred RSS feed.  You can show or hide the sidebar as well by ticking on the checkbox below.</p>
 
                 <div class="wrap">
                     <div class="col-2">

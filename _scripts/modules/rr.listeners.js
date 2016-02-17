@@ -258,7 +258,7 @@ var RR = (function (parent, $){
     };
 
     var toggleSideBar = function (bool) {
-        if ( bool ) {
+        if ( !bool ) {
             $('.mainbar').addClass('full-width');
             $('.sidebar').addClass('hide');
             // TweenMax.to( '.mainbar', 0.75, { width: '75%', ease: Expo.easeOut });

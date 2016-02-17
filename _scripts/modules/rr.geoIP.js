@@ -12,8 +12,7 @@ var RR = (function (parent, $){
     var setup = function (){
         if ( RR.localStorage.getGeoIpData() === undefined ) {
             $.ajax({
-                url: 'https://www.telize.com/geoip',
-                // url: 'https://freegeoip.net/json/',
+                url: 'https://freegeoip.net/json/',
                 // url: 'https://www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
                 success: function(data) {

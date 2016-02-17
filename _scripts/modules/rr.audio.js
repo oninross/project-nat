@@ -9,12 +9,6 @@ var RR = (function (parent, $){
 
     var voices;
 
-    // var audio = new Audio();
-    // audio.src = 'Walk The Moon - Shut Up and Dance.mp3';
-    // audio.controls = true;
-    // audio.loop = true;
-    // audio.autoplay = true;
-
     // Establish all variables that your Analyser will use
     var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 
@@ -30,12 +24,6 @@ var RR = (function (parent, $){
         analyser = context.createAnalyser(); // AnalyserNode method
         canvas = document.getElementById('analyser_render');
         ctx = canvas.getContext('2d');
-
-        // Re-route audio playback into the processing graph of the AudioContext
-        // source = context.createMediaElementSource(audio);
-        // source.connect(analyser);
-        // analyser.connect(context.destination);
-
 
         navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
@@ -110,12 +98,14 @@ var RR = (function (parent, $){
         var msg = new SpeechSynthesisUtterance(),
             voices = window.speechSynthesis.getVoices();
 
-        msg.voiceURI = 'native';
+        // msg.voice = voices[4]; // Note: some voices don't support altering params
+        msg.voiceURI = 'Google UK English Male';
         msg.volume = 1; // 0 to 1
         msg.rate = 1; // 0.1 to 10
-        msg.pitch = 1; //0 to 2
+        msg.pitch = 2; //0 to 2
         msg.text = txt;
         msg.lang = 'en-GB';
+
         speechSynthesis.speak(msg);
 
         // msg.onend = function(e) {
@@ -126,23 +116,208 @@ var RR = (function (parent, $){
     var greetUser = function () {
         var timeOfDay = RR.dateWidget.getTimeOfDay(),
             weatherTodayData = RR.weatherAPI.getWeatherTodayData(),
-            weatherTodayStatus = weatherTodayData.query.results.channel.item.condition.text,
+            weatherCode = weatherTodayData.query.results.channel.item.condition.code,
             msg;
 
         speak('Good ' + timeOfDay + ' ' + RR.localStorage.getUsername() + '!');
 
-        speak('Looks like there is ' + weatherTodayStatus.toLowerCase() + ' outside.');
-
-        if ( weatherTodayStatus.toLowerCase() == 'rain' || weatherTodayStatus.toLowerCase() == 'thunderstorm' || weatherTodayStatus.toLowerCase() == 'drizzle' ) {
-            speak('Don\'t forget to bring your umbrella.');
-        } else if ( weatherTodayStatus.toLowerCase() == 'snow' ) {
-            speak('Don\'t forget to keep warm outside.');
-        } else if ( weatherTodayStatus.toLowerCase() == 'clouds' ) {
-            speak('You might want to consider bringing an umbrella.');
-        } else if ( weatherTodayStatus.toLowerCase() == 'haze' ) {
-            speak('Keep yourself hydrated all the time.');
-        } else if ( weatherTodayStatus.toLowerCase() == 'clear' ) {
-            speak('Time to go outside and have some fun!');
+        switch (weatherCode.toLowerCase()) {
+            case '0':
+                // 'tornado'
+                speak('Take cover now, NOWWWW! Before you get sucked away.');
+                break;
+            case '1':
+                // 'tropical storm'
+                speak('Heavy showers accompanied with lightning and thunder. Take cover now!');
+                break;
+            case '2':
+                // 'hurricane'
+                speak('Take cover now, NOWWWW! Before you get sucked away.');
+                break;
+            case '3':
+                // 'severe thunderstorms'
+                speak('Heavy showers accompanied with lightning and thunder. Take cover now!');
+                break;
+            case '4':
+                // 'thunderstorms'
+                speak('Heavy showers accompanied with lightning and thunder. Take cover now!');
+                break;
+            case '5':
+                // 'mixed rain and snow'
+                speak('It\'s raining ice. Bring along a raincoat.');
+                break;
+            case '6':
+                // 'mixed rain and sleet'
+                speak('It\'s raining ice. Bring along a raincoat.');
+                break;
+            case '7':
+                // 'mixed snow and sleet'
+                speak('It\'s raining ice. Bring along a raincoat.');
+                break;
+            case '8':
+                // 'freezing drizzle'
+                speak('Looks like there\'s a drizzle. Make sure you bring an umbrella with you and keep yourself warm!');
+                break;
+            case '9':
+                // 'drizzle'
+                speak('Looks like there\'s a drizzle. Make sure you bring an umbrella with you!');
+                break;
+            case '10':
+                // 'freezing rain'
+                speak('The rain is freezing. Make sure you bring an umbrella with you and keep yourself warm!');
+                break;
+            case '11':
+                // 'showers'
+                speak('When life throws you a rainy day, play in the puddles!');
+                break;
+            case '12':
+                // 'showers'
+                speak('When life throws you a rainy day, play in the puddles!');
+                break;
+            case '13':
+                // 'snow flurries'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '14':
+                // 'light snow showers'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '15':
+                // 'blowing snow'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '16':
+                // 'snow'
+                speak('It\'s time to build a snowman!');
+                break;
+            case '17':
+                // 'hail'
+                speak('It\'s raining snowballs, take cover!');
+                break;
+            case '18':
+                // 'sleet'
+                speak('It\'s raining ice. Bring along a raincoat.');
+                break;
+            case '19':
+                // 'dust'
+                speak('There\'s dust in the air today. Better to get some masks prepared.');
+                break;
+            case '20':
+                // 'foggy'
+                speak('Low visibility everywhere. Take care especially if you\'re on the road.');
+                break;
+            case '21':
+                // 'haze'
+                speak('Air quality is poor today. Some masks may come in handy.');
+                break;
+            case '22':
+                // 'smoky'
+                speak('Air quality is poor today. Some masks may come in handy.');
+                break;
+            case '23':
+                // 'blustery'
+                speak('Make sure you hold tight to your belongings. The wind is quite strong outside');
+                break;
+            case '24':
+                // 'windy'
+                speak('It\'s a perfect day for kite-flying!');
+                break;
+            case '25':
+                // 'cold'
+                speak('BBBRRRRRRR!!! Keep yourself warm all the time!');
+                break;
+            case '26':
+                // 'cloudy'
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                break;
+            case '27':
+                // 'mostly cloudy (night)'
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                break;
+            case '28':
+                // 'mostly cloudy (day)'
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                break;
+            case '29':
+                // 'partly cloudy (night)'
+                speak('Looks like it may rain. You might want to consider bringing an umbrella.');
+                break;
+            case '30':
+                // 'partly cloudy (day)'
+                speak('Looks like it may rain. You might want to consider bringing an umbrella.');
+                break;
+            case '31':
+                // 'clear (night)'
+                speak('There\'s no better time than now for stargazing.');
+                break;
+            case '32':
+                // 'sunny'
+                speak('Put on your swimsuit and sunscreen. What are you waiting for!');
+                break;
+            case '33':
+                // 'fair (night)'
+                speak('There\'s no better time than now for stargazing.');
+                break;
+            case '34':
+                // 'fair (day)'
+                speak('Time to go outside and play!');
+                break;
+            case '35':
+                // 'mixed rain and hail'
+                speak('It\'s raining ice. Bring along a raincoat and a helmet.');
+                break;
+            case '36':
+                // 'hot'
+                speak('It\'s blazong hot outsite. Don\'t forget to drink lots of water!');
+                break;
+            case '37':
+                // 'isolated thunderstorms'
+                speak('Isolated showers accompanied with lightning and thunder.');
+                break;
+            case '38':
+                // 'scattered thunderstorms'
+                speak('Scattered showers accompanied with lightning and thunder.');
+                break;
+            case '39':
+                // 'scattered thunderstorms'
+                speak('Scattered showers accompanied with lightning and thunder.');
+                break;
+            case '40':
+                // 'scattered showers'
+                speak('When life throws you a rainy day, play in the puddles!');
+                break;
+            case '41':
+                // 'heavy snow'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '42':
+                // 'scattered snow showers'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '43':
+                // 'heavy snow'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '44':
+                // 'partly cloudy'
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                break;
+            case '45':
+                // 'thundershowers'
+                speak('Shower accompanied with lightning and thunder. Take cover now!');
+                break;
+            case '46':
+                // 'snow showers'
+                speak('It\'s time to build a snowman! But keep yourself warm all the time.');
+                break;
+            case '47':
+                // 'isolated thundershowers'
+                speak('Shower accompanied with lightning and thunder. Take cover now!');
+                break;
+            case '3200':
+                // "not available"
+                speak('Bullocks! I can\'t seem to see the weather.');
+                break;
         }
     };
 
