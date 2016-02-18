@@ -52,6 +52,10 @@ var RR = (function (parent, $){
         };
 
         frameLooper();
+
+        canITalk();
+
+        window.speechSynthesis.onvoiceschanged = function(e) {};
     };
 
     // frameLooper() animates any style of graphics you wish to the audio frequency
@@ -84,29 +88,47 @@ var RR = (function (parent, $){
         $('.voice .offline').show();
     };
 
-    var speak = function (txt) {
-        if ( RR.mobileCheck.isMobile.iOS() || !RR.localStorage.getAudio() ){
-            return false;
-        }
+    var speak = function (string) {
+        canITalk();
 
-        var SpeechSynthesisUtterance = window.webkitSpeechSynthesisUtterance || window.mozSpeechSynthesisUtterance || window.msSpeechSynthesisUtterance || window.oSpeechSynthesisUtterance || window.SpeechSynthesisUtterance;
+        // Create a new instance of SpeechSynthesisUtterance.
+        var msg = new SpeechSynthesisUtterance();
 
-        if ( SpeechSynthesisUtterance === undefined ) {
-            return false;
-        }
+        // Set the text.
+        msg.text = string;
 
-        var msg = new SpeechSynthesisUtterance(),
-            voices = window.speechSynthesis.getVoices();
-
-        // msg.voice = voices[4]; // Note: some voices don't support altering params
-        msg.voiceURI = 'Google UK English Male';
         msg.volume = 1; // 0 to 1
         msg.rate = 1; // 0.1 to 10
-        msg.pitch = 2; //0 to 2
-        msg.text = txt;
-        msg.lang = 'en-GB';
+        msg.pitch = 1; //0 to 2
 
-        speechSynthesis.speak(msg);
+        // If a voice has been selected, find the voice and set the
+        // utterance instance's voice attribute.
+        msg.voice = speechSynthesis.getVoices().filter(function(voice) {
+            return voice.name == 'Google UK English Female';
+            // native
+            // Google Deutsch
+            // Google US English
+            // Google UK English Female
+            // Google UK English Male
+            // Google español
+            // Google español de Estados Unidos
+            // Google français
+            // Google हिन्दी
+            // Google Bahasa Indonesia
+            // Google italiano
+            // Google 日本語
+            // Google 한국의
+            // Google Nederlands
+            // Google polski
+            // Google português do Brasil
+            // Google русский
+            // Google 普通话（中国大陆）
+            // Google 粤語（香港）
+            // Google 國語（臺灣）
+        })[0];
+
+
+        window.speechSynthesis.speak(msg);
 
         // msg.onend = function(e) {
         //     console.log('Finished in ' + event.elapsedTime + ' seconds.');
@@ -116,8 +138,7 @@ var RR = (function (parent, $){
     var greetUser = function () {
         var timeOfDay = RR.dateWidget.getTimeOfDay(),
             weatherTodayData = RR.weatherAPI.getWeatherTodayData(),
-            weatherCode = weatherTodayData.query.results.channel.item.condition.code,
-            msg;
+            weatherCode = weatherTodayData.query.results.channel.item.condition.code;
 
         speak('Good ' + timeOfDay + ' ' + RR.localStorage.getUsername() + '!');
 
@@ -228,15 +249,15 @@ var RR = (function (parent, $){
                 break;
             case '26':
                 // 'cloudy'
-                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloud today!');
                 break;
             case '27':
                 // 'mostly cloudy (night)'
-                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloud today!');
                 break;
             case '28':
                 // 'mostly cloudy (day)'
-                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloud today!');
                 break;
             case '29':
                 // 'partly cloudy (night)'
@@ -300,7 +321,7 @@ var RR = (function (parent, $){
                 break;
             case '44':
                 // 'partly cloudy'
-                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloudy today!');
+                speak('As you gaze up at the clouds in the sky, be a rainbow in someone else\'s cloud today!');
                 break;
             case '45':
                 // 'thundershowers'
@@ -318,6 +339,18 @@ var RR = (function (parent, $){
                 // "not available"
                 speak('Bullocks! I can\'t seem to see the weather.');
                 break;
+        }
+    };
+
+    var canITalk = function () {
+        if ( RR.mobileCheck.isMobile.iOS() || !RR.localStorage.getAudio() ){
+            return false;
+        }
+
+        var SpeechSynthesisUtterance = window.webkitSpeechSynthesisUtterance || window.mozSpeechSynthesisUtterance || window.msSpeechSynthesisUtterance || window.oSpeechSynthesisUtterance || window.SpeechSynthesisUtterance;
+
+        if ( SpeechSynthesisUtterance === undefined ) {
+            return false;
         }
     };
 

@@ -218,6 +218,8 @@ var RR = (function (parent, $){
                 animate();
             }
         });
+
+        RR.audio.speak('Loading all information. Please wait.');
     };
 
     var animate = function () {
