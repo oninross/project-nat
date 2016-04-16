@@ -147,7 +147,6 @@ var RR = (function (parent, $){
             var $this = $(this);
 
             $this.find('select option[value="' + RR.localStorage.getNewsFeedURL(idx) + '"]').attr('selected', true);
-
         }).on('change', 'select', function () {
             var $this = $(this),
                 $url = $this.val(),
@@ -194,9 +193,9 @@ var RR = (function (parent, $){
 
     var splash = function (){
         var vh = $(window).height(),
-                vw = $(window).width(),
-                b = 0,
-                f = 0;
+            vw = $(window).width(),
+            b = 0,
+            f = 0;
 
         if ( vw > vh ) {
             b = vw;
@@ -212,10 +211,14 @@ var RR = (function (parent, $){
         TweenMax.to('.preloader-input', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut });
         TweenMax.to('.btn', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.5 });
 
-        TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.5, onComplete: function () {
+        console.log(f)
+
+        TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.75, onComplete: function () {
                 TweenMax.set('body', { backgroundColor: '#f8f8f8' });
                 $('.preloader-wrapper').remove();
+                console.log('adasd')
                 animate();
+
             }
         });
 

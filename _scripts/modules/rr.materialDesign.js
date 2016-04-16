@@ -229,6 +229,10 @@ var RR = (function (parent, $) {
         var ripplePosX = e.pageX - el.parent().offset().left;
         var ripplePosY = e.pageY - el.parent().offset().top;
 
+        if (isNaN(ripplePosX)) {
+            return false;
+        }
+
         var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         g.setAttributeNS(null, 'transform', 'translate(' + ripplePosX + ', ' + ripplePosY + ')');
 

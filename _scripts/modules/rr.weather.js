@@ -11,12 +11,13 @@ var RR = (function (parent, $){
         weatherTodayData;
 
     var setup = function (data){
-        var lng = data.longitude,
-            lat = data.latitude,
-            country = data.country_name;
+        var lng = data.geoplugin_longitude,
+            lat = data.geoplugin_latitude,
+            city = data.geoplugin_city,
+            country = data.geoplugin_countryName;
 
         $.ajax({
-            url: 'https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + country + '") and u="c" | truncate(count=4)&format=json',
+            url: 'https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + city + ', ' + country + '") and u="c" | truncate(count=4)&format=json',
             dataType: 'json',
             crossDomain: true,
             success: function(data){

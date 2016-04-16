@@ -12,8 +12,8 @@ var RR = (function (parent, $){
     var setup = function (){
         if ( RR.localStorage.getGeoIpData() === undefined ) {
             $.ajax({
-                url: 'https://freegeoip.net/json/',
-                // url: 'https://www.geoplugin.net/json.gp?jsoncallback=?',
+                // url: 'https://freegeoip.net/json/',
+                url: 'http://www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
                 success: function(data) {
                     RR.localStorage.setGeoIpData( data );
@@ -33,16 +33,10 @@ var RR = (function (parent, $){
     };
 
     var populateLocation = function (data) {
-        $location.find('.ip').text( data.ip );
-        $location.find('.long').text( deg_to_dms(data.longitude, true) );
-        $location.find('.lat').text( deg_to_dms(data.latitude, false) );
-        $location.find('.loc').text( data.country );
-        $location.find('.loc').text( data.country_name );
-
-        // $location.find('.ip').text( data.geoplugin_request );
-        // $location.find('.long').text( deg_to_dms(data.geoplugin_longitude, true) );
-        // $location.find('.lat').text( deg_to_dms(data.geoplugin_latitude, false) );
-        // $location.find('.loc').text( data.geoplugin_countryName );
+        $location.find('.ip').text( data.geoplugin_request );
+        $location.find('.long').text( deg_to_dms(data.geoplugin_longitude, true) );
+        $location.find('.lat').text( deg_to_dms(data.geoplugin_latitude, false) );
+        $location.find('.loc').text( data.geoplugin_countryName );
 
         $('.preloader-input').show();
 
