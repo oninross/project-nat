@@ -146,7 +146,17 @@ DEPENDENCIES
 	.forecast {
 		border-bottom: 0 !important;
 		float: left;
-		width: 33.3333%;
+		width: 50%;
+
+		&:nth-child(even) {
+			.line {
+				display: none;
+			}
+		}
+
+		&:nth-child(5) {
+			display: none;
+		}
 
 		.icon {
 		    font-size: 5em;

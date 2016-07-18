@@ -202,7 +202,15 @@ var RR = (function (parent, $){
         TweenMax.to('.preloader-input', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut });
         TweenMax.to('.btn', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.5 });
 
-        TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.75, onComplete: function () {
+        console.log(f)
+
+        // Will not trigger for some weird reason
+        TweenMax.to('.preloader', 0.5, {
+            scale: f,
+            ease: Expo.easeIn,
+            delay: 1,
+            onComplete: function () {
+                console.log("bar")
                 TweenMax.set('body', { backgroundColor: '#f8f8f8' });
                 $('.preloader-wrapper').remove();
                 animate();
