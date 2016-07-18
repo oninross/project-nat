@@ -3,16 +3,7 @@
 <!--[if IE 8]><html class="no-js is-ie lt-ie9 lt-ie10"> <![endif]-->
 <!--[if IE 9]><html class="no-js is-ie lt-ie10"> <![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js"><!--<![endif]-->
-<!--
-                     _                 _ _   _                           _              _           _ _     _
- _ __ ___   __ _  __| | ___  __      _(_) |_| |__    _ __ ___   __ _ ___| |_ ___ _ __  | |__  _   _(_) | __| | ___ _ __
-| '_ ` _ \ / _` |/ _` |/ _ \ \ \ /\ / / | __| '_ \  | '_ ` _ \ / _` / __| __/ _ \ '__| | '_ \| | | | | |/ _` |/ _ \ '__|
-| | | | | | (_| | (_| |  __/  \ V  V /| | |_| | | | | | | | | | (_| \__ \ ||  __/ |    | |_) | |_| | | | (_| |  __/ |
-|_| |_| |_|\__,_|\__,_|\___|   \_/\_/ |_|\__|_| |_| |_| |_| |_|\__,_|___/\__\___|_|    |_.__/ \__,_|_|_|\__,_|\___|_|
 
-                                                                              https://github.com/oninross/master_builder
-
-                                                                                                                         -->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,7 +46,7 @@
 
                 <h3>Hello <input id="dashboard-username" class="username" type="text" /></h3>
 
-                <p>To change the news feed, select any of the dropdown items below or key in your preferred RSS feed.  You can show or hide the sidebar as well by ticking on the checkbox below.</p>
+                <p>To change the news feed, select any of the dropdown items below or key in your preferred RSS feed.</p>
 
                 <div class="wrap">
                     <div class="col-2">
@@ -63,14 +54,9 @@
                         <label for="audio" class="checkbox">Mute N.A.T.</label>
                     </div>
 
-                    <div class="sidebar-icon col-2">
-                        <input type="checkbox" name="name" id="sidebar" checked>
-                        <label for="sidebar" class="checkbox">Side Bar</label>
-                    </div>
-
-                    <div class="col-8 rssSelections">
+                    <div class="col-8 col-offset-2 rssSelections">
                         <div class="wrap">
-                            <div class="rssSelection rssCol-1 col-4">
+                            <div class="rssSelection rssCol-1 col-3">
                                 <select class="material">
                                     <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
                                     <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
@@ -93,7 +79,7 @@
                                 </div>
                             </div>
 
-                            <div class="rssSelection rssCol-2 col-4">
+                            <div class="rssSelection rssCol-2 col-3">
                                 <select class="material">
                                     <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
                                     <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
@@ -116,7 +102,30 @@
                                 </div>
                             </div>
 
-                            <div class="rssSelection rssCol-3 col-4">
+                            <div class="rssSelection rssCol-3 col-3">
+                                <select class="material">
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
+                                    <option value="http://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="http://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="http://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="http://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="http://feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="others">Others</option>
+                                </select>
+
+                                <div class="material-wrapper">
+                                    <button class="js-refresh">
+                                        <i class="icon icon-ic_cached"></i>
+                                    </button>
+                                    <input class="othersUrl" type="text" placeholder="URL of your preferred RSS Feed" />
+                                </div>
+                            </div>
+
+                            <div class="rssSelection rssCol-4 col-3">
                                 <select class="material">
                                     <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
                                     <option value="http://rss.cnn.com/rss/edition_world.rss">CNN</option>
@@ -160,8 +169,6 @@
 
                     <div class="timeStamp">
                         <span class="batch1 icon icon-ic_my_location"></span>
-                        <span class="batch1 icon icon-ic_videocam"></span>
-                        <span class="batch1 icon icon-ic_keyboard_voice"></span>
 
                         <div class="batch1 time">
                             <span class="h">12</span>

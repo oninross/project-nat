@@ -119,24 +119,15 @@ var RR = (function (parent, $){
             }
         });
 
-        toggleSideBar( RR.localStorage.getSidebar() );
-
         $dashboard
             .find('.username').val( RR.localStorage.getUsername() ).end()
             .find('#audio').attr( 'checked', RR.localStorage.getAudio() ).end()
-            .find('#sidebar').attr( 'checked', RR.localStorage.getSidebar() ).end()
             .on('blur', '.username', function () {
                 RR.localStorage.setUsername( $(this).val() );
             }).on('change', '#audio', function () {
                 var $value = $(this).is(':checked');
 
                 RR.localStorage.setAudio($value);
-            }).on('change', '#sidebar', function () {
-                var $value = $(this).is(':checked');
-
-                RR.localStorage.setSidebar($value);
-
-                toggleSideBar($value);
             }).on('click', '.js-close', function (e) {
                 e.preventDefault();
 
@@ -211,14 +202,10 @@ var RR = (function (parent, $){
         TweenMax.to('.preloader-input', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut });
         TweenMax.to('.btn', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.5 });
 
-        console.log(f)
-
         TweenMax.to( '.preloader', 0.5, { scale: f, ease: Expo.easeIn, delay: 0.75, onComplete: function () {
                 TweenMax.set('body', { backgroundColor: '#f8f8f8' });
                 $('.preloader-wrapper').remove();
-                console.log('adasd')
                 animate();
-
             }
         });
 
@@ -237,9 +224,9 @@ var RR = (function (parent, $){
         TweenMax.staggerTo( '.batch3', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.5 }, 0.1 );
         TweenMax.staggerTo( '.batch4', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.75 }, 0.1 );
         TweenMax.staggerTo( '.batch5', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.0 }, 0.1 );
+        TweenMax.staggerTo( '.batch6', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.25 }, 0.1 );
+        TweenMax.staggerTo( '.batch7', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.5 }, 0.1 );
 
-        TweenMax.staggerTo( '.batch6', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.0 }, 0.1 );
-        TweenMax.staggerTo( '.batch7', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.25 }, 0.1 );
 
         TweenMax.staggerTo( '.news-listing:nth-child(1) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.5 }, 0.1 );
         TweenMax.staggerTo( '.news-listing:nth-child(1) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.75 }, 0.1 );
@@ -249,6 +236,9 @@ var RR = (function (parent, $){
 
         TweenMax.staggerTo( '.news-listing:nth-child(3) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 3.5 }, 0.1 );
         TweenMax.staggerTo( '.news-listing:nth-child(3) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 3.75 }, 0.1 );
+
+        TweenMax.staggerTo( '.news-listing:nth-child(4) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 4.0 }, 0.1 );
+        TweenMax.staggerTo( '.news-listing:nth-child(4) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 4.25 }, 0.1 );
 
         TweenMax.staggerTo( '.batch8', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.5 }, 0.1 );
         TweenMax.staggerTo( '.widget .ui-ul', 0.75, { opacity: 1, left: 0, top: 0, ease: Expo.easeOut, delay: 2.6 }, 0.1);
@@ -260,20 +250,6 @@ var RR = (function (parent, $){
         TweenMax.staggerTo( '.widget .lines-lr', 0.75, { scale: 1, ease: Expo.easeOut, delay: 2.7 }, 0.1);
 
         TweenMax.staggerTo( '.batch9', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.75 }, 0.1 );
-    };
-
-    var toggleSideBar = function (bool) {
-        if ( !bool ) {
-            $('.mainbar').addClass('full-width');
-            $('.sidebar').addClass('hide');
-            // TweenMax.to( '.mainbar', 0.75, { width: '75%', ease: Expo.easeOut });
-            // TweenMax.to( '.sidebar', 0.75, { autoAlpha: 1, padding: '0 15px', width: '25%', ease: Expo.easeOut });
-        } else {
-            $('.mainbar').removeClass('full-width');
-            $('.sidebar').removeClass('hide');
-            // TweenMax.to( '.mainbar', 0.75, { width: '100%', ease: Expo.easeOut });
-            // TweenMax.to( '.sidebar', 0.75, { autoAlpha: 0, padding: 0, width: 0, ease: Expo.easeOut });
-        }
     };
 
     var getIsLoaded = function () {

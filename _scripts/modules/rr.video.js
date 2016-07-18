@@ -193,5 +193,5 @@ var RR = (function (parent, $){
 
 jQuery(function($){
     // Self-init Call
-    RR.video.setup();
+    // RR.video.setup();
 });

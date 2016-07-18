@@ -28,6 +28,13 @@ var RR = (function (parent, $){
             ShowPubDate: false,
             TitleLinkTarget: '_blank'
         });
+
+        $('#rssFeed4').FeedEk({
+            FeedUrl: RR.localStorage.getNewsFeedURL(3),
+            ShowDesc: true,
+            ShowPubDate: false,
+            TitleLinkTarget: '_blank'
+        });
     };
 
     var setNewsFeedValue = function (idx, url) {
@@ -66,6 +73,16 @@ var RR = (function (parent, $){
                 case 2:
                     $('#rssFeed3').empty();
                     $('#rssFeed3').FeedEk({
+                        FeedUrl: url,
+                        ShowDesc: true,
+                        ShowPubDate: false,
+                        TitleLinkTarget: '_blank'
+                    });
+                    break;
+
+                case 3:
+                    $('#rssFeed4').empty();
+                    $('#rssFeed4').FeedEk({
                         FeedUrl: url,
                         ShowDesc: true,
                         ShowPubDate: false,

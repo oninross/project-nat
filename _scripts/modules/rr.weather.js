@@ -8,7 +8,8 @@ var RR = (function (parent, $){
     'use strict';
 
     var $weather = $('.weather'),
-        weatherTodayData;
+        weatherTodayData,
+        ajaxURL;
 
     var setup = function (data){
         var lng = data.geoplugin_longitude,
@@ -16,8 +17,14 @@ var RR = (function (parent, $){
             city = data.geoplugin_city,
             country = data.geoplugin_countryName;
 
+        if (city == '') {
+            ajaxURL = 'http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + country + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
+        } else {
+            ajaxURL = 'http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + city + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
+        }
+
         $.ajax({
-            url: 'https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + city + ', ' + country + '") and u="c" | truncate(count=4)&format=json',
+            url: ajaxURL,
             dataType: 'json',
             crossDomain: true,
             success: function(data){
@@ -34,6 +41,7 @@ var RR = (function (parent, $){
     };
 
     var setWeatherForecast = function (json) {
+
         var dataMain = json.query.results.channel.item;
 
         $weather.find('.current .temp').text( Math.round(dataMain.condition.temp) + '°' );
@@ -45,7 +53,7 @@ var RR = (function (parent, $){
         var days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'],
             forecastDay;
 
-        for ( var i = 1, l = 3; i <= l; i++ ) {
+        for ( var i = 1, l = 5; i <= l; i++ ) {
             var $forecast = $('.forecast:nth-child(' + i + ')'),
                 dataForecast = dataMain.forecast[i],
                 d = new Date();

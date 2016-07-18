@@ -366,11 +366,6 @@ svg.ripple {
     overflow: hidden;
 }
 
-.sidebar {
-    display: none;
-    overflow: hidden;
-}
-
 .lines {
     display: block;
     height: 100%;
@@ -776,10 +771,6 @@ svg.ripple {
 
     .username {
         font-weight: $light;
-    }
-
-    .sidebar-icon {
-        display: none;
     }
 
     .material-wrapper {

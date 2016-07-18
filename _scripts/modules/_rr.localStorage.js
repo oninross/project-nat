@@ -13,10 +13,10 @@ var RR = (function (parent, $) {
             console.log('localStorage is empty');
             localStorage.username = '';
             localStorage.audio = true;
-            localStorage.sidebar = false;
             localStorage.newsFeedUrl0 = 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml';
             localStorage.newsFeedUrl1 = 'http://feeds.bbci.co.uk/news/world/rss.xml';
             localStorage.newsFeedUrl2 = 'http://www.theguardian.com/world/rss';
+            localStorage.newsFeedUrl3 = 'http://rss.cnn.com/rss/edition_world.rss';
             $('.preloader-wrapper .btn').show();
         }
 
@@ -61,17 +61,6 @@ var RR = (function (parent, $) {
         localStorage.audio = $.parseJSON( bool );
     };
 
-
-    // Side bar On/Off
-    var getSidebar = function () {
-        return $.parseJSON( localStorage.sidebar );
-    };
-
-    var setSidebar = function (bool) {
-        localStorage.sidebar = $.parseJSON( bool );
-    };
-
-
     // News Feed URL
     var getNewsFeedURL = function (idx) {
         switch ( idx ) {
@@ -84,6 +73,8 @@ var RR = (function (parent, $) {
             case 2:
                 return localStorage.newsFeedUrl2;
 
+            case 3:
+                return localStorage.newsFeedUrl3;
         }
     };
 
@@ -112,8 +103,6 @@ var RR = (function (parent, $) {
         setUsername: setUsername,
         getAudio: getAudio,
         setAudio: setAudio,
-        getSidebar: getSidebar,
-        setSidebar: setSidebar,
         getNewsFeedURL: getNewsFeedURL,
         setNewsFeedURL: setNewsFeedURL,
         setDefault: setDefault
