@@ -12,8 +12,8 @@ var RR = (function (parent, $){
     var setup = function (){
         if ( RR.localStorage.getGeoIpData() === undefined ) {
             $.ajax({
-                url: 'https://freegeoip.net/json/',
-                // url: 'http://www.geoplugin.net/json.gp?jsoncallback=?',
+                url: '//freegeoip.net/json/',
+                // url: '//www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
                 success: function(data) {
                     RR.localStorage.setGeoIpData( data );

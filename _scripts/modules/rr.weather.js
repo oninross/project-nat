@@ -25,9 +25,9 @@ var RR = (function (parent, $){
         //     country = data.geoplugin_countryName;
 
         if (city == '') {
-            ajaxURL = 'http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + country + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
+            ajaxURL = '//query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + country + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
         } else {
-            ajaxURL = 'http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + city + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
+            ajaxURL = '//query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + city + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
         }
 
         $.ajax({
