@@ -14,14 +14,14 @@
         <meta name="robots" content="follow">
         <meta name="author" content="Nino Ross Rodriguez">
         <meta name="copyright" content="infinite imaginations 2016">
-        <meta name="description" content="One page application that tells the wather and aggregates news to your preference">
+        <meta name="description" content="One page application that tells the weather and aggregates news to your preference">
         <meta name="keywords" content="news aggrigator, one page, weather" />
 
         <meta property="og:title" content="Project N.A.T.">
         <meta property="og:type" content="website">
         <meta property="og:url" content="">
         <meta property="og:image" content="">
-        <meta property="og:description" content="One page application that tells the wather and aggregates news to your preference">
+        <meta property="og:description" content="One page application that tells the weather and aggregates news to your preference">
         <meta property="og:site_name" content="">
 
         <meta name="twitter:card" content="summary"/>
@@ -29,7 +29,7 @@
         <meta name="twitter:url" content=""/>
 
         <meta name="twitter:title" content="Project N.A.T."/>
-        <meta name="twitter:description" content="One page application that tells the wather and aggregates news to your preference"/>
+        <meta name="twitter:description" content="One page application that tells the weather and aggregates news to your preference"/>
         <meta name="twitter:image" content="" />
 
         <link rel="apple-touch-icon" sizes="57x57" href="assets/project-nat/images/favicon/apple-icon-57x57.png">
