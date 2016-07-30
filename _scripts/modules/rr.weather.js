@@ -12,10 +12,17 @@ var RR = (function (parent, $){
         ajaxURL;
 
     var setup = function (data){
-        var lng = data.geoplugin_longitude,
-            lat = data.geoplugin_latitude,
-            city = data.geoplugin_city,
-            country = data.geoplugin_countryName;
+        // https://freegeoip.net/json/
+        var lng = data.longitude,
+            lat = data.latitude,
+            city = data.city,
+            country = data.country_name;
+
+        // http://www.geoplugin.net/json.gp?jsoncallback=?
+        // var lng = data.geoplugin_longitude,
+        //     lat = data.geoplugin_latitude,
+        //     city = data.geoplugin_city,
+        //     country = data.geoplugin_countryName;
 
         if (city == '') {
             ajaxURL = 'http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + country + ', ' + country + '") and u="c" | truncate(count=4)&format=json'
@@ -41,7 +48,6 @@ var RR = (function (parent, $){
     };
 
     var setWeatherForecast = function (json) {
-
         var dataMain = json.query.results.channel.item;
 
         $weather.find('.current .temp').text( Math.round(dataMain.condition.temp) + '°' );

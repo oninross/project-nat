@@ -87,13 +87,32 @@ DEPENDENCIES
     }
 
     .condition  {
+        margin-top: 25px;
         .icon { height: 121px; }
     }
 
-    .forecast .icon {
-    	margin-bottom: 5px;
-    }
+    .forecast {
+        width: 20%;
 
+        &:nth-child(4),
+        &:nth-child(5) {
+            display: block;
+
+            .line {
+                display: block;
+            }
+        }
+
+        &:nth-child(5) {
+            .line {
+                display: none;
+            }
+        }
+
+        .icon {
+    	   margin-bottom: 5px;
+        }
+    }
 }
 
 .widget {

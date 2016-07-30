@@ -937,7 +937,7 @@ svg.ripple {
 
     .line-b {
         height: 2px;
-        margin-top: 30px;
+        margin-top: 25px;
         position: static;
     }
 
@@ -1010,9 +1010,13 @@ svg.ripple {
     }
 
     .forecast {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         position: relative;
         text-align: center;
+
+        &:nth-child(5) {
+            display: none;
+        }
 
         .icon {
             @extend %icomoon;
@@ -1026,7 +1030,7 @@ svg.ripple {
         }
 
         .text {
-            font-size: 1.8em;
+            font-size: 1.6em;
             font-weight: $light;
         }
     }
