@@ -39,6 +39,7 @@ var RR = (function (parent, $){
 
     var setNewsFeedValue = function (idx, url) {
         updateNewsFeed(idx, url);
+        console.log("setNewsFeedValue")
         RR.localStorage.setNewsFeedURL(idx, url);
     };
 
@@ -47,6 +48,7 @@ var RR = (function (parent, $){
                 TweenMax.set( '.news-listing:nth-child('+ (idx + 1) +') .news-source', { top: 25 });
             }
         });
+
         TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemTitle', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.2 }, 0.1 );
         TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemContent', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.4 }, 0.1, function () {
             switch (idx) {

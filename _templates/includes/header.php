@@ -83,16 +83,16 @@
                         <div class="wrap">
                             <div class="rssSelection rssCol-1 col-3">
                                 <select class="material">
-                                    <option value="//news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="//rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="//www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
-                                    <option value="//rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
-                                    <option value="//rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="//www.dailymail.co.uk/articles.rss">Mail Online</option>
-                                    <option value="//feeds.foxnews.com/foxnews/latest">Fox News</option>
-                                    <option value="//feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="//www.theguardian.com/world/rss">The Guardian</option>
-                                    <option value="//feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition.rss">CNN</option>
+                                    <option value="https://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="https://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="https://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="https://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="https://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="https://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="https://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="https://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 
@@ -106,16 +106,16 @@
 
                             <div class="rssSelection rssCol-2 col-3">
                                 <select class="material">
-                                    <option value="//news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="//rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="//www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
-                                    <option value="//rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
-                                    <option value="//rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="//www.dailymail.co.uk/articles.rss">Mail Online</option>
-                                    <option value="//feeds.foxnews.com/foxnews/latest">Fox News</option>
-                                    <option value="//feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="//www.theguardian.com/world/rss">The Guardian</option>
-                                    <option value="//feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition.rss">CNN</option>
+                                    <option value="https://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="https://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="https://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="https://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="https://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="https://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="https://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="https://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 
@@ -129,16 +129,16 @@
 
                             <div class="rssSelection rssCol-3 col-3">
                                 <select class="material">
-                                    <option value="//news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="//rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="//www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
-                                    <option value="//rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
-                                    <option value="//rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="//www.dailymail.co.uk/articles.rss">Mail Online</option>
-                                    <option value="//feeds.foxnews.com/foxnews/latest">Fox News</option>
-                                    <option value="//feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="//www.theguardian.com/world/rss">The Guardian</option>
-                                    <option value="//feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition.rss">CNN</option>
+                                    <option value="https://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="https://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="https://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="https://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="https://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="https://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="https://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="https://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 
@@ -152,16 +152,16 @@
 
                             <div class="rssSelection rssCol-4 col-3">
                                 <select class="material">
-                                    <option value="//news.yahoo.com/rss/world">Yahoo! News</option>
-                                    <option value="//rss.cnn.com/rss/edition_world.rss">CNN</option>
-                                    <option value="//www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
-                                    <option value="//rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
-                                    <option value="//rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
-                                    <option value="//www.dailymail.co.uk/articles.rss">Mail Online</option>
-                                    <option value="//feeds.foxnews.com/foxnews/latest">Fox News</option>
-                                    <option value="//feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
-                                    <option value="//www.theguardian.com/world/rss">The Guardian</option>
-                                    <option value="//feeds2.feedburner.com/time/topstories">Time</option>
+                                    <option value="https://news.yahoo.com/rss/world">Yahoo! News</option>
+                                    <option value="http://rss.cnn.com/rss/edition.rss">CNN</option>
+                                    <option value="https://www.huffingtonpost.com/feeds/index.xml">HuffingtonPost</option>
+                                    <option value="https://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories">USA Today</option>
+                                    <option value="https://rss.nytimes.com/services/xml/rss/nyt/World.xml">New York Times</option>
+                                    <option value="https://www.dailymail.co.uk/articles.rss">Mail Online</option>
+                                    <option value="https://feeds.foxnews.com/foxnews/latest">Fox News</option>
+                                    <option value="https://feeds.bbci.co.uk/news/world/rss.xml">BBC</option>
+                                    <option value="https://www.theguardian.com/world/rss">The Guardian</option>
+                                    <option value="https://feeds2.feedburner.com/time/topstories">Time</option>
                                     <option value="others">Others</option>
                                 </select>
 

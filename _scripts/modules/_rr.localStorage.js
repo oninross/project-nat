@@ -10,13 +10,12 @@ var RR = (function (parent, $) {
 
     var setDefault = function () {
         if ( !localStorage.length ) {
-            console.log('localStorage is empty');
             localStorage.username = '';
             localStorage.audio = true;
-            localStorage.newsFeedUrl0 = '//rss.nytimes.com/services/xml/rss/nyt/World.xml';
-            localStorage.newsFeedUrl1 = '//feeds.bbci.co.uk/news/world/rss.xml';
-            localStorage.newsFeedUrl2 = '//www.theguardian.com/world/rss';
-            localStorage.newsFeedUrl3 = '//rss.cnn.com/rss/edition_world.rss';
+            localStorage.newsFeedUrl0 = 'http://rss.cnn.com/rss/edition.rss';
+            localStorage.newsFeedUrl1 = 'https://feeds.bbci.co.uk/news/world/rss.xml';
+            localStorage.newsFeedUrl2 = 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml';
+            localStorage.newsFeedUrl3 = 'https://www.theguardian.com/world/rss';
             $('.preloader-wrapper .btn').show();
         }
 
@@ -90,6 +89,10 @@ var RR = (function (parent, $) {
 
             case 2:
                 localStorage.newsFeedUrl2 = url;
+                break;
+
+            case 3:
+                localStorage.newsFeedUrl3 = url;
                 break;
 
         }
