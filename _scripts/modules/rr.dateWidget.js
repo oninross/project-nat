@@ -27,17 +27,21 @@ var RR = (function (parent, $){
         $dateStamp.find('.day').html( days[d.getDay()] + '<span class="comma">,</span> ' );
         $dateStamp.find('.date').text( d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear() );
 
+        if (hours >= 18 || hours <= 6) {
+            $('body').addClass('pm');
+        }
+
+
         if ( hours >= 12){
             dn = 'pm';
 
             if ( hours > 12 ) {
                 hours = hours - 12;
             }
-
-            // $('body').addClass('pm');
         } else if ( hours == 0 ) {
             hours = 12;
         }
+
 
         if ( minutes <= 9 ) {
             minutes = '0' + minutes

@@ -243,32 +243,27 @@ svg.ripple {
 /* =======================================================================
 02 Layout
 ========================================================================== */
-// .pm {
-//     background: $ui-black;
-//     color: #eee;
+.pm {
+    color: $ui-white;
 
-//     .line:after {
-//         background: #eee;
-//     }
+    .lines .line {
+        background: $ui-white;
+    }
 
-//     .lines-tb,
-//     .lines-lr {
-//         &:before,
-//         &:after {
-//             background: #eee;
-//         }
-//     }
+    .settings button,
+    .news-reports a {
+        color: $ui-white;
+    }
 
-//     .header {
-//         .container {
-//             &:after {
-//                 background: #eee;
-//             }
-//         }
-//     }
+    .climacon_component-stroke {
+        fill: $ui-white;
+        stroke: $ui-white;
+    }
 
-//     .news-reports a { color: #eee; }
-// }
+    .preloader-wrapper .preloader {
+        background: $ui-black;
+    }
+}
 
 .preloader-wrapper {
     @include centering-the-unknown();
@@ -281,7 +276,7 @@ svg.ripple {
     .preloader {
         @include scale(0);
 
-        background: $material-background;
+        background: $ui-white;
         border-radius: 50%;
         // box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
         color: $ui-black;

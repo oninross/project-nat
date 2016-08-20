@@ -208,7 +208,12 @@ var RR = (function (parent, $){
             ease: Expo.easeIn,
             delay: 1,
             onComplete: function () {
-                TweenMax.set('body', { backgroundColor: '#f8f8f8' });
+                if ($('.pm').length) {
+                    TweenMax.set('body', { backgroundColor: '#54606e' });
+                } else {
+                    TweenMax.set('body', { backgroundColor: '#f8f8f8' });
+                }
+
                 $('.preloader-wrapper').remove();
                 animate();
             }
