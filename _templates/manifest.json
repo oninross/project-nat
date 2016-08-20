@@ -1,0 +1,7 @@
+{
+  "name": "News Aggrigator Terminal",
+  "short_name": "NAT",
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "1068573378116"
+}

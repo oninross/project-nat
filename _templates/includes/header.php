@@ -32,6 +32,19 @@
         <meta name="twitter:description" content="One page application that tells the weather and aggregates news to your preference"/>
         <meta name="twitter:image" content="" />
 
+        <link rel="manifest" href="/manifest.json">
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+        <script>
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(["init", {
+                appId: "e0f7f2e5-dfb8-44cb-8b78-75b624a4b1ab",
+                autoRegister: false,
+                notifyButton: {
+                    enable: false /* Set to false to hide */
+                }
+            }]);
+        </script>
+
         <link rel="apple-touch-icon" sizes="57x57" href="assets/project-nat/images/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="assets/project-nat/images/favicon/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="assets/project-nat/images/favicon/apple-icon-72x72.png">
@@ -45,6 +58,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/project-nat/images/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="assets/project-nat/images/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/project-nat/images/favicon/favicon-16x16.png">
+
         <link rel="manifest" href="assets/project-nat/images/favicon/manifest.json">
         <meta name="msapplication-TileColor" content="#54606e">
         <meta name="msapplication-TileImage" content="assets/project-nat/images/favicon/ms-icon-144x144.png">
