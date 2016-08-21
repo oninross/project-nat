@@ -128,10 +128,10 @@ var RR = (function (parent, $){
                 // ["happy", "sad", "surprised", "angry"]
 
                 data: [
-                  { y: 0, color: '#ffeb3b'},
-                  { y: 0, color: '#2196f3'},
-                  { y: 0, color: '#3f51b5'},
-                  { y: 0, color: '#f44336'}
+                  { y: 0, color: '#54606e'},
+                  { y: 0, color: '#54606e'},
+                  { y: 0, color: '#54606e'},
+                  { y: 0, color: '#54606e'}
                 ],
                 marker: {
                     states: {
@@ -193,5 +193,5 @@ var RR = (function (parent, $){
 
 jQuery(function($){
     // Self-init Call
-    // RR.video.setup();
+    RR.video.setup();
 });

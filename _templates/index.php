@@ -149,6 +149,80 @@
                     </div>
                 </section>
             </div>
+
+            <div class="sidebar col">
+                <div class="batch8 location lines">
+                    <table>
+                        <tr>
+                            <td class="batch6">IP:</td>
+                            <td class="batch7 ip">0.0.0.0</td>
+                        </tr>
+                        <tr>
+                            <td class="batch6">Long:</td>
+                            <td class="batch7 long">0.0</td>
+                        </tr>
+                        <tr>
+                            <td class="batch6">Lat:</td>
+                            <td class="batch7 lat">0.0</td>
+                        </tr>
+                        <tr>
+                            <td class="batch6">Location:</td>
+                            <td class="batch7 loc">Unknown</td>
+                        </tr>
+                    </table>
+
+                    <div class="line line-b"></div>
+                </div>
+
+                <div class="batch8 widget voice">
+                    <div class="offline">OFFLINE</div>
+
+                    <span class="ui">
+                        <span class="ui-ul"></span>
+                        <span class="ui-ur"></span>
+                        <span class="ui-dr"></span>
+                        <span class="ui-dl"></span>
+                    </span>
+                    <span class="lines lines-tb"></span>
+                    <span class="lines lines-lr"></span>
+
+                    <!-- <div id="audio_box"></div> -->
+                    <canvas id="analyser_render"></canvas>
+                </div>
+
+                <div class="batch8 widget camera">
+                    <div class="offline">OFFLINE</div>
+
+                    <span class="ui">
+                        <span class="ui-ul"></span>
+                        <span class="ui-ur"></span>
+                        <span class="ui-dr"></span>
+                        <span class="ui-dl"></span>
+                    </span>
+
+                    <span class="lines lines-tb"></span>
+                    <span class="lines lines-lr"></span>
+
+                    <div class="video-wrapper">
+                        <video id="videoel" width="400" height="300" preload="auto" loop></video>
+                    </div>
+                </div>
+
+                <div class="batch8 widget emotion">
+                    <div class="offline">OFFLINE</div>
+
+                    <span class="ui">
+                        <span class="ui-ul"></span>
+                        <span class="ui-ur"></span>
+                        <span class="ui-dr"></span>
+                        <span class="ui-dl"></span>
+                    </span>
+                    <span class="lines lines-tb"></span>
+                    <span class="lines lines-lr"></span>
+
+                    <div class="emotion-wrapper"></div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

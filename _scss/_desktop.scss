@@ -60,6 +60,13 @@ DEPENDENCIES
 ========================================================================== */
 .mainbar {
 	float: left;
+    width: 75%;
+}
+
+.sidebar {
+    display: block;
+    float: left;
+    width: 25%;
 }
 
 .timeStamp {
@@ -67,6 +74,13 @@ DEPENDENCIES
         @include inline-block;
     }
 }
+
+.dashboard {
+    .sidebar-icon {
+        display: block;
+    }
+}
+
 
 
 /* =======================================================================

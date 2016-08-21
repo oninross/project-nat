@@ -14,44 +14,44 @@ var RR = (function (parent, $){
 
     var setup = function() {
 
-        // if ( RR.mobileCheck.isMobile.any() ) {
-        //     offline();
-        //     return false;
-        // }
+        if ( RR.mobileCheck.isMobile.any() ) {
+            offline();
+            return false;
+        }
 
-        // // document.getElementById('audio_box').appendChild(audio);
-        // context = new AudioContext(); // AudioContext object instance
-        // analyser = context.createAnalyser(); // AnalyserNode method
-        // canvas = document.getElementById('analyser_render');
-        // ctx = canvas.getContext('2d');
+        // document.getElementById('audio_box').appendChild(audio);
+        context = new AudioContext(); // AudioContext object instance
+        analyser = context.createAnalyser(); // AnalyserNode method
+        canvas = document.getElementById('analyser_render');
+        ctx = canvas.getContext('2d');
 
-        // navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+        navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
-        // if (navigator.getUserMedia) {
-        //     navigator.getUserMedia(
-        //         {
-        //             video:false,
-        //             audio:true
-        //         },
-        //         function(stream) {
-        //             var mic = context.createMediaStreamSource(stream);
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia(
+                {
+                    video:false,
+                    audio:true
+                },
+                function(stream) {
+                    var mic = context.createMediaStreamSource(stream);
 
-        //             mic.connect(analyser);
+                    mic.connect(analyser);
 
-        //             analyser.connect(context.destination);
-        //         },
-        //         function(error) {
-        //             console.log("There was some problem trying to fetch audio from your microphone. If you have a microphone, please make sure to accept when the browser asks for access to your microphone.");
-        //             offline();
-        //         }
-        //     );
-        // } else {
-        //     console.log('Sorry, the browser you are using doesn\'t support getUserMedia');
-        //     offline();
-        //     return;
-        // };
+                    analyser.connect(context.destination);
+                },
+                function(error) {
+                    console.log("There was some problem trying to fetch audio from your microphone. If you have a microphone, please make sure to accept when the browser asks for access to your microphone.");
+                    offline();
+                }
+            );
+        } else {
+            console.log('Sorry, the browser you are using doesn\'t support getUserMedia');
+            offline();
+            return;
+        };
 
-        // frameLooper();
+        frameLooper();
 
         canITalk();
 
