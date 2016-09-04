@@ -260,6 +260,12 @@ svg.ripple {
         stroke: $ui-white;
     }
 
+
+    p,
+    .floating .placeholder {
+        color: $ui-black;
+    }
+
     .preloader-wrapper .preloader {
         background: $ui-black;
     }

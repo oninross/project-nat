@@ -16,8 +16,15 @@ var RR = (function (parent, $){
                 // url: '//www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
                 success: function(data) {
-                    RR.localStorage.setGeoIpData( data );
-                    populateLocation(data);
+                    console.log(data);
+                    if (data.city == '') {
+                        ajaxError();
+                        $('.preloader-text p').text('Whoops! We can\'t determine your location.  Did you enable your location?');
+                        $('.preloader-wrapper .btn').hide();
+                    } else {
+                        RR.localStorage.setGeoIpData( data );
+                        populateLocation(data);
+                    }
                 },
                 error: function (error){
                     console.log(error);

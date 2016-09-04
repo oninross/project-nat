@@ -66,7 +66,7 @@ var RR = (function (parent, $){
 
             var n = new Date( d.setDate(d.getDate() + i) );
 
-            $forecast.find('h3').text( days[n.getDay()] + ', ' + n.getDate() + '/' + n.getMonth() );
+            $forecast.find('h3').html( days[n.getDay()] + '<br/>' + n.getDate() + '/' + n.getMonth() );
             $forecast.find('.icon').html( getWeatherIcon(dataForecast.code) );
             $forecast.find('.hilow').text( Math.round(dataForecast.high) + '° / ' + Math.round(dataForecast.low) + '°' );
             $forecast.find('.text').text( dataForecast.text );
@@ -86,7 +86,7 @@ var RR = (function (parent, $){
 
             var n = new Date( d.setDate(d.getDate() + i) );
 
-            $forecast.find('h3').text( days[n.getDay()] + ', ' + n.getDate() + '/' + n.getMonth() );
+            $forecast.find('h3').html( days[n.getDay()] + '<br/>' + n.getDate() + '/' + n.getMonth() );
             $forecast.find('.icon').html( getWeatherIcon(dataWeather.weather[0].icon) );
             $forecast.find('.hilow').text( Math.round(dataWeather.temp.max) + '° / ' + Math.round(dataWeather.temp.min) + '°' );
             $forecast.find('.text').text( dataWeather.weather[0].main );

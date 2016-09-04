@@ -132,10 +132,8 @@ img {
 		padding: 0 $gutterTablet;
 		width: 20%;
 
-		&:nth-child(4) {
-			.line {
-				display: none;
-			}
+		&:nth-child(5) {
+			display: block;
 		}
 
 		.icon {
