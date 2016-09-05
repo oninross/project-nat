@@ -156,3 +156,18 @@ window.addEventListener('load', function() {
         outputElement.textContent = 'beforeinstallprompt Event fired';
     });
 });
+
+window.addEventListener('beforeinstallprompt', function(e) {
+    outputElement.textContent = 'beforeinstallprompt Event fired';
+
+    // e.userChoice will return a Promise. For more details read: http://www.html5rocks.com/en/tutorials/es6/promises/
+    e.userChoice.then(function(choiceResult) {
+        console.log(choiceResult.outcome);
+
+        if (choiceResult.outcome == 'dismissed') {
+            console.log('User cancelled homescreen install');
+        } else {
+            console.log('User added to homescreen');
+        }
+    });
+});
