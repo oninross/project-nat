@@ -38,7 +38,7 @@
         <meta name="description" content="One page application that tells the weather and aggregates news to your preference">
         <meta name="keywords" content="news aggrigator, one page, weather" />
 
-        <meta property="og:title" content="Project N.A.T.">
+        <meta property="og:title" content="News Aggregator Terminal">
         <meta property="og:type" content="website">
         <meta property="og:url" content="">
         <meta property="og:image" content="">
@@ -49,7 +49,7 @@
         <meta name="twitter:creator" content="Nino Ross Rodriguez"/>
         <meta name="twitter:url" content=""/>
 
-        <meta name="twitter:title" content="Project N.A.T."/>
+        <meta name="twitter:title" content="News Aggregator Terminal"/>
         <meta name="twitter:description" content="One page application that tells the weather and aggregates news to your preference"/>
         <meta name="twitter:image" content="" />
 
