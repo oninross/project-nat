@@ -19,7 +19,7 @@
             var id = window.setTimeout(function() {
                 callback(currTime + timeToCall);
             },
-                    timeToCall);
+            timeToCall);
             lastTime = currTime + timeToCall;
             return id;
         };
@@ -61,17 +61,17 @@
                 var $inputText = $('input[type="text"]');
 
                 $inputText
-                    .each(function () {
-                        var $this = $(this);
-                        $this.addClass('blur').attr('value' , $this.attr('placeholder'));
-                    })
-                    .on('focus', function (){
-                        var $this = $(this);
-                        if ( $this.val() ===  $this.attr('placeholder')) $this.val('').removeClass('blur');
-                    })
-                    .on('blur', function (){
-                        var $this = $(this);
-                        if ( $this.val() ===  '') $this.val($this.attr('placeholder')).addClass('blur');
+                .each(function () {
+                    var $this = $(this);
+                    $this.addClass('blur').attr('value' , $this.attr('placeholder'));
+                })
+                .on('focus', function (){
+                    var $this = $(this);
+                    if ( $this.val() ===  $this.attr('placeholder')) $this.val('').removeClass('blur');
+                })
+                .on('blur', function (){
+                    var $this = $(this);
+                    if ( $this.val() ===  '') $this.val($this.attr('placeholder')).addClass('blur');
                 });
             // }
         })();
@@ -94,19 +94,19 @@
 
         /* JRespond Breakpoints */
         var jRes = jRespond([
-            {
-                label: 'mobile',
-                enter: 0,
-                exit: 767
-            },{
-                label: 'tablet',
-                enter: 768,
-                exit: 1023
-            },{
-                label: 'desktop',
-                enter: 1024,
-                exit: 10000
-            }
+        {
+            label: 'mobile',
+            enter: 0,
+            exit: 767
+        },{
+            label: 'tablet',
+            enter: 768,
+            exit: 1023
+        },{
+            label: 'desktop',
+            enter: 1024,
+            exit: 10000
+        }
         ]);
 
         /* JRespond Functions(Desktop) */
@@ -137,3 +137,22 @@
         });
     });
 }(jQuery));
+
+
+// Simple Service Worker to make App Install work
+window.addEventListener('load', function() {
+    var outputElement = document.getElementById('output');
+
+    navigator.serviceWorker.register('service-worker.js', { scope: './' })
+        .then(function(r) {
+          console.log('registered service worker');
+      })
+    .catch(function(whut) {
+        console.error('uh oh... ');
+        console.error(whut);
+    });
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+        outputElement.textContent = 'beforeinstallprompt Event fired';
+    });
+});
