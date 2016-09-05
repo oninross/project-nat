@@ -177,9 +177,6 @@ window.addEventListener('beforeinstallprompt', function(e) {
 // Caching stuff
 'use strict';
 
-//Cache polyfil to support cacheAPI in all browsers
-importScripts('./cache-polyfill.js');
-
 var cacheName = 'initial-cache-v1';
 
 //Files to save in cache
