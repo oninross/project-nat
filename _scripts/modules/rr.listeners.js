@@ -47,7 +47,7 @@ var RR = (function (parent, $){
             TweenMax.to('.preloader .icon', 2, { rotation: -360, repeat:-1, ease: Power0.easeNone });
             TweenMax.to('.preloader', 0.75, { scale: 1, ease: Expo.easeOut, delay: 1 });
 
-            TweenMax.to('.time .colon', 1, { alpha: 0, repeat:-1, ease: Power0.easeNone, yoyo: true });
+            // TweenMax.to('.time .colon', 1, { alpha: 0, repeat:-1, ease: Power0.easeNone, yoyo: true });
 
             if ( getUsername === '' ) {
                 TweenMax.to('.preloader-input', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.25 });
