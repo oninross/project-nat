@@ -10,13 +10,16 @@ var RR = (function (parent, $) {
 
     var setDefault = function () {
         if ( !localStorage.length ) {
-            localStorage.username = '';
-            localStorage.audio = true;
-            localStorage.sidebar = true;
-            localStorage.newsFeedUrl0 = 'http://rss.cnn.com/rss/edition.rss';
-            localStorage.newsFeedUrl1 = 'https://feeds.bbci.co.uk/news/world/rss.xml';
-            localStorage.newsFeedUrl2 = 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml';
-            localStorage.newsFeedUrl3 = 'https://www.theguardian.com/world/rss';
+            localStorage = {
+                'username' : '',
+                'audio' : true,
+                'sidebar' : true,
+                'newsFeedUrl0' : 'http://rss.cnn.com/rss/edition.rss',
+                'newsFeedUrl1' : 'https://feeds.bbci.co.uk/news/world/rss.xml',
+                'newsFeedUrl2' : 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml',
+                'newsFeedUrl3' : 'https://www.theguardian.com/world/rss'
+            }
+
             $('.preloader-wrapper .btn').show();
         }
 

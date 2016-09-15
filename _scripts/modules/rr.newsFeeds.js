@@ -39,7 +39,6 @@ var RR = (function (parent, $){
 
     var setNewsFeedValue = function (idx, url) {
         updateNewsFeed(idx, url);
-        console.log("setNewsFeedValue")
         RR.localStorage.setNewsFeedURL(idx, url);
     };
 

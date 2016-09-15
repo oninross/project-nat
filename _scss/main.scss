@@ -698,7 +698,7 @@ svg.ripple {
 }
 
 .dashboard {
-    background: $ui-black;
+    background: darken($ui-black, 10%);
     color: $ui-white;
     height: 0;
     overflow: hidden;
