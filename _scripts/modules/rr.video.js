@@ -14,9 +14,9 @@ var RR = (function (parent, $){
 
     var setup = function (){
 
-
         if ( RR.mobileCheck.isMobile.any() ) {
             offline();
+            $('.widget').remove();
             $('.icon-ic_videocam').addClass('inactive');
             return false;
         }

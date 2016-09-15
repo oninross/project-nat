@@ -57,12 +57,12 @@
 
                 xhr.abort();
 
-                if ( !RR.listeners.getIsLoaded() ) {
-                    RR.listeners.moduleComplete();
-                } else {
+                if ( RR.listeners.getModuleCompletes() === 5 ) {
                     TweenMax.to( '.news-listing .news-source', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut });
                     TweenMax.staggerTo( '.news-listing .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 0.2 }, 0.1 );
                     TweenMax.staggerTo( '.news-listing .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 0.4 }, 0.1 );
+                } else {
+                    RR.listeners.moduleComplete();
                 }
             },
             error: function (error) {

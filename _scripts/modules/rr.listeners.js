@@ -287,8 +287,8 @@ var RR = (function (parent, $){
     };
 
 
-    var getIsLoaded = function () {
-        return isLoaded;
+    var getModuleCompletes = function () {
+        return moduleCompletes;
     };
 
     // Export module method
@@ -296,7 +296,7 @@ var RR = (function (parent, $){
         setup: setup,
         moduleComplete: moduleComplete,
         splash: splash,
-        getIsLoaded: getIsLoaded
+        getModuleCompletes: getModuleCompletes
     };
 
     return parent;
