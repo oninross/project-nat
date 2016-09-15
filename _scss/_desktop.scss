@@ -33,6 +33,21 @@ DEPENDENCIES
 /* =======================================================================
 02 Layout
 ========================================================================== */
+#main {
+	.col {
+		@include transition( all, 0.5s, $easeOutExpo );
+	}
+
+	.full-width {
+		width: 100%;
+	}
+
+	.hide {
+		padding: 0;
+		width: 0;
+	}
+}
+
 .wrapper {
 	@include clearfix;
 
@@ -60,6 +75,13 @@ DEPENDENCIES
     }
 }
 
+.dashboard {
+    .sidebar-icon {
+        display: block;
+    }
+}
+
+
 
 /* =======================================================================
 04 Main Navigation
@@ -79,13 +101,32 @@ DEPENDENCIES
     }
 
     .condition  {
+        margin-top: 25px;
         .icon { height: 121px; }
     }
 
-    .forecast .icon {
-    	margin-bottom: 5px;
-    }
+    .forecast {
+        width: 20%;
 
+        &:nth-child(4),
+        &:nth-child(5) {
+            display: block;
+
+            .line {
+                display: block;
+            }
+        }
+
+        &:nth-child(5) {
+            .line {
+                display: none;
+            }
+        }
+
+        .icon {
+    	   margin-bottom: 5px;
+        }
+    }
 }
 
 .widget {

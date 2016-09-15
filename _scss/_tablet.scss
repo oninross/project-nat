@@ -26,9 +26,31 @@ DEPENDENCIES
 /* =======================================================================
 01 Global
 ========================================================================== */
-@for $i from 1 through $colNum {
-    .col-#{$i} { width: percentage($i / $colNum); }
-}
+.col-1 { width: 8.333333%; }
+.col-2 { width: 16.666667%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.333333%; }
+.col-5 { width: 41.666667%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.333333%; }
+.col-8 { width: 66.666667%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.333333%; }
+.col-11 { width: 91.666667%; }
+.col-12 { width: 100%; }
+
+.col-offset-1 { margin-left: 8.333333%; }
+.col-offset-2 { margin-left: 16.666667%; }
+.col-offset-3 { margin-left: 25%; }
+.col-offset-4 { margin-left: 33.333333%; }
+.col-offset-5 { margin-left: 41.666667%; }
+.col-offset-6 { margin-left: 50%; }
+.col-offset-7 { margin-left: 58.333333%; }
+.col-offset-8 { margin-left: 66.666667%; }
+.col-offset-9 { margin-left: 75%; }
+.col-offset-10 { margin-left: 83.333333%; }
+.col-offset-11 { margin-left: 91.666667%; }
+.col-offset-12 { margin-left: 100%; }
 
 [class^="col-"],
 [class*=" col-"] { float: left; }
@@ -49,7 +71,17 @@ img {
 /* =======================================================================
 03 Header
 ========================================================================== */
+.dashboard {
+	.container {
+		padding: 0 $gutterTablet;
+	}
 
+	.rssSelections {
+        .wrap {
+            margin: 0 (-$gutterTablet);
+        }
+    }
+}
 
 
 /* =======================================================================
@@ -72,6 +104,10 @@ img {
 		margin-top: 4px;
 	}
 
+	.hilow {
+		font-size: 2.27em;
+	}
+
 	.current-wrapper {
 		.line-b {
 			display: none;
@@ -82,13 +118,24 @@ img {
 		font-size: 10em;
 	}
 
-	.condition	{
+	.condition{
+		margin-top: 50px;
+
 		.icon {
 			height: 96px;
 		}
 	}
 
 	.forecast {
+		float: left;
+		margin-bottom: 0;
+		padding: 0 $gutterTablet;
+		width: 20%;
+
+		&:nth-child(5) {
+			display: block;
+		}
+
 		.icon {
 			margin-top: 15px;
 			margin-bottom: 8px;
@@ -108,6 +155,10 @@ img {
 	img {
 		height: 25px;
 	}
+}
+
+.news-listing {
+	padding: 0 $gutterTablet;
 }
 
 

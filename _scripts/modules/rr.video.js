@@ -14,9 +14,9 @@ var RR = (function (parent, $){
 
     var setup = function (){
 
-
         if ( RR.mobileCheck.isMobile.any() ) {
             offline();
+            $('.widget').remove();
             $('.icon-ic_videocam').addClass('inactive');
             return false;
         }
@@ -128,10 +128,10 @@ var RR = (function (parent, $){
                 // ["happy", "sad", "surprised", "angry"]
 
                 data: [
-                  { y: 0, color: '#ffeb3b'},
-                  { y: 0, color: '#2196f3'},
-                  { y: 0, color: '#3f51b5'},
-                  { y: 0, color: '#f44336'}
+                  { y: 0, color: '#54606e'},
+                  { y: 0, color: '#54606e'},
+                  { y: 0, color: '#54606e'},
+                  { y: 0, color: '#54606e'}
                 ],
                 marker: {
                     states: {
@@ -146,6 +146,7 @@ var RR = (function (parent, $){
 
     var offline = function () {
         $('.camera .offline').show();
+        $('.camera').addClass('off');
         $('.emotion .offline').show();
     };
 

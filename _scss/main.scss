@@ -235,7 +235,7 @@ svg.ripple {
     z-index: 1;
 
     circle {
-        fill: $red;
+        fill: $ui-white;
         opacity: 0;
     }
 }
@@ -243,32 +243,33 @@ svg.ripple {
 /* =======================================================================
 02 Layout
 ========================================================================== */
-// .pm {
-//     background: $ui-black;
-//     color: #eee;
+.pm {
+    color: $ui-white;
 
-//     .line:after {
-//         background: #eee;
-//     }
+    .lines .line {
+        background: $ui-white;
+    }
 
-//     .lines-tb,
-//     .lines-lr {
-//         &:before,
-//         &:after {
-//             background: #eee;
-//         }
-//     }
+    p,
+    .settings button,
+    .news-reports a {
+        color: $ui-white;
+    }
 
-//     .header {
-//         .container {
-//             &:after {
-//                 background: #eee;
-//             }
-//         }
-//     }
+    .climacon_component-stroke {
+        fill: $ui-white;
+        stroke: $ui-white;
+    }
 
-//     .news-reports a { color: #eee; }
-// }
+    .preloader-text p,
+    .floating .placeholder {
+        color: $ui-black;
+    }
+
+    .preloader-wrapper .preloader {
+        background: $ui-black;
+    }
+}
 
 .preloader-wrapper {
     @include centering-the-unknown();
@@ -281,7 +282,7 @@ svg.ripple {
     .preloader {
         @include scale(0);
 
-        background: $material-background;
+        background: $ui-white;
         border-radius: 50%;
         // box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
         color: $ui-black;
@@ -300,7 +301,18 @@ svg.ripple {
         }
     }
 
+    .preloader-text {
+        display: none;
+        font-size: 1.4em;
+        font-weight: $light;
+        opacity: 0;
+        position: relative;
+        text-align: center;
+        top: 25px;
+    }
+
     .preloader-input {
+        display: none;
         opacity: 0;
         position: relative;
         top: 25px;
@@ -319,7 +331,9 @@ svg.ripple {
     }
 
     .btn {
-        display: block;
+        @include no-transition;
+
+        display: none;
         font-weight: $bold;
         margin: auto;
         max-width: 100px;
@@ -349,9 +363,15 @@ svg.ripple {
     padding: 0 $gutter;
 }
 
+.mainbar {
+    overflow: hidden;
+}
+
 .sidebar {
     display: none;
+    overflow: hidden;
 }
+
 
 .lines {
     display: block;
@@ -624,6 +644,12 @@ svg.ripple {
     .inactive {
         color: #d6d6d6;
     }
+
+    button {
+        .icon {
+            display: block;
+        }
+    }
 }
 
 .time {
@@ -634,6 +660,193 @@ svg.ripple {
 
     span {
         float: left;
+    }
+}
+
+.settings {
+    float: right;
+    margin-left: 15px;
+    padding-left: 10px;
+    position: relative;
+
+    button {
+        background: none;
+        border: 0;
+        color: $ui-black;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .line {
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+
+        height: 0;
+    }
+}
+
+.dashboard {
+    background: darken($ui-black, 10%);
+    color: $ui-white;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 150;
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        @include inline-block;
+
+        background: none;
+        color: $ui-white;
+        font-size: 1em;
+        padding: 0;
+        width: auto;
+
+        &:focus {
+            color: inherit;
+        }
+    }
+
+    label {
+        &.checkbox:before {
+            border: 2px solid $ui-white;
+        }
+    }
+
+    input[type="checkbox"]{
+        &:checked + label {
+            &:before { border: 2px solid $ui-white; }
+            &:after {
+                background: $ui-white;
+                color: $ui-black;
+            }
+        }
+    }
+
+    .wrap {
+        @include clearfix();
+    }
+
+    .close {
+        background: none;
+        border: 0;
+        color: $ui-white;
+        font-size: 2em;
+        height: 40px;
+        padding: 8px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 40px;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .username {
+        font-weight: $light;
+    }
+
+    .sidebar-icon {
+        display: none;
+    }
+
+
+    .material-wrapper {
+        height: 0;
+        overflow: hidden;
+        position: relative;
+
+        button {
+            background: none;
+            border: 0;
+            bottom: 0;
+            color: $ui-white;
+            font-size: 1.8em;
+            height: 25px;
+            margin: auto;
+            padding: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 25px;
+            z-index: 25;
+
+            &:hover {
+                .icon {
+                    @include rotate(180deg);
+                }
+            }
+
+            .icon {
+                @include transition( all, 0.5s, $easeOutExpo );
+                @include rotate(0);
+
+                height: 23px;
+                width: 23px;
+            }
+        }
+    }
+
+    .material-select-wrapper {
+        padding: 0;
+
+        .material-label {
+            padding-top: 0;
+        }
+
+        .card-wrapper {
+            color: $ui-black;
+            width: 100%;
+
+            button:hover {
+                background: $ui-black;
+                color: $ui-white;
+            }
+        }
+    }
+
+    .rssSelections {
+        .wrap {
+            margin: 20px (-$gutter);
+        }
+    }
+
+    .rssSelection {
+        padding: 0 $gutter;
     }
 }
 
@@ -658,18 +871,25 @@ svg.ripple {
     top: 25px;
 
     &.camera {
+        &.off {
+            height: 75%;
 
-        .video-wrapper {
-            -webkit-filter: grayscale(1);
-            filter: grayscale(1);
-            position: relative;
-            z-index: 0;
+            video {
+                display: none;
+            }
         }
 
         video {
             height: 100%;
             opacity: 0.8;
             width: 100%;
+        }
+
+        .video-wrapper {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            position: relative;
+            z-index: 0;
         }
     }
 
@@ -729,7 +949,7 @@ svg.ripple {
 
     .line-b {
         height: 2px;
-        margin-top: 30px;
+        margin-top: 25px;
         position: static;
     }
 
@@ -802,8 +1022,13 @@ svg.ripple {
     }
 
     .forecast {
+        margin-bottom: 20px;
         position: relative;
         text-align: center;
+
+        &:nth-child(5) {
+            display: none;
+        }
 
         .icon {
             @extend %icomoon;
@@ -817,7 +1042,7 @@ svg.ripple {
         }
 
         .text {
-            font-size: 1.8em;
+            font-size: 1.6em;
             font-weight: $light;
         }
     }
@@ -825,7 +1050,7 @@ svg.ripple {
 
 .news-reports {
     h2 {
-        height: 45px;
+        // height: 45px;
         float: none;
         margin-bottom: 20px;
         margin-top: 15px;
@@ -870,6 +1095,15 @@ svg.ripple {
     // }
 }
 
+.news-source {
+    display: block;
+    font-size: 0.75em;
+
+    opacity: 0;
+    position: relative;
+    top: 25px;
+}
+
 .feedEkList {
     @include normalise-list;
 
@@ -911,11 +1145,46 @@ svg.ripple {
         position: relative;
         top: 25px;
 
-        p,
-        a {
+        p, a, br {
             display: none;
 
             &:first-child { display: block; }
+        }
+
+        table {
+            border: 0;
+
+            td {
+                padding: 0;
+            }
+        }
+
+        blockquote {
+            margin: 0 32px 20px;
+            position: relative;
+
+            &:before,
+            &:after {
+                @extend %icomoon;
+
+                height: 32px;
+                font-size: 2em;
+                opacity: 0.25;
+                position: absolute;
+                width: 32px;
+            }
+
+            &:before {
+                content: "\e900";
+                left: -32px;
+                top: -15px;
+            }
+
+            &:after {
+                bottom: -15px;
+                content: "\e901";
+                right: -32px;
+            }
         }
     }
 }
@@ -985,3 +1254,4 @@ svg.ripple {
 ========================================================================== */
 @import 'components/materialDesign/default';
 @import 'components/weatherIcons/default';
+@import 'components/mCustomScrollbar/default';
