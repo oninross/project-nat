@@ -1,10 +1,12 @@
 {
+	"lang": "en",
 	"short_name": "NAT",
   	"name": "News Aggregator Terminal",
   	"description": "One page application that tells the weather and aggregates news to your preference",
   	"start_url": "./index.html",
 	"display": "standalone",
 	"orientation": "portrait",
+	"background_color" : "#ffffff",
 	"theme_color": "#54606e",
 	"icons": [
 		{
