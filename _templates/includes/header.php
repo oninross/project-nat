@@ -64,7 +64,17 @@
 
         <script src="assets/project-nat/js/vendor/modernizr.js"></script>
 
-        <script charset="UTF-8" src="//cdn.sendpulse.com/js/push/861e3e602aed72062a4127c5bccc28a8_0.js" async></script>
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+        <script>
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(["init", {
+                appId: "e3c2737a-097b-4eb8-9fcc-6efb23b66ca4",
+                autoRegister: true,
+                notifyButton: {
+                    enable: false /* Set to false to hide */
+                }
+            }]);
+        </script>
     </head>
     <body>
         <div class="dashboard">
