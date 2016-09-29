@@ -17,6 +17,7 @@ var offlineFundamentals = [
     'assets/project-nat/js/plugins.min.js',
     'assets/project-nat/js/modules.min.js',
     'assets/project-nat/js/main.min.js',
+    'index.html'
 ];
 
 /* The install event fires when the service worker is first installed.
@@ -198,4 +199,11 @@ self.addEventListener("activate", function(event) {
             console.log('WORKER: activate completed.');
         })
     );
+});
+
+/* Push Notifications
+*/
+self.addEventListener("push", function(event) {
+  console.log('Push message received', event);
+  // TODO
 });
