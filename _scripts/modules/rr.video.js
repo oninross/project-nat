@@ -128,10 +128,10 @@ var RR = (function (parent, $){
                 // ["happy", "sad", "surprised", "angry"]
 
                 data: [
-                  { y: 0, color: '#54606e'},
-                  { y: 0, color: '#54606e'},
-                  { y: 0, color: '#54606e'},
-                  { y: 0, color: '#54606e'}
+                  { y: 0, color: '#383838'},
+                  { y: 0, color: '#383838'},
+                  { y: 0, color: '#383838'},
+                  { y: 0, color: '#383838'}
                 ],
                 marker: {
                     states: {

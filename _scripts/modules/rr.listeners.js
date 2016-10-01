@@ -219,7 +219,7 @@ var RR = (function (parent, $){
             delay: 1,
             onComplete: function () {
                 if ($('.pm').length) {
-                    TweenMax.set('body', { backgroundColor: '#54606e' });
+                    TweenMax.set('body', { backgroundColor: '#383838' });
                 } else {
                     TweenMax.set('body', { backgroundColor: '#f8f8f8' });
                 }

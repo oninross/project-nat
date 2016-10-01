@@ -65,7 +65,7 @@ var RR = (function (parent, $){
         fbc_array = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(fbc_array);
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-        ctx.fillStyle = '#54606e'; // Color of the bars
+        ctx.fillStyle = '#383838'; // Color of the bars
 
         var bars = 50,
             barWidth = canvas.width / bars;
