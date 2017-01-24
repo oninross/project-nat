@@ -5,18 +5,19 @@
 (function () {
     'use strict';
 
-    var lastTime = 0;
-    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    var lastTime = 0,
+        vendors = ['ms', 'moz', 'webkit', 'o'];
+
     for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
         window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
         window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
     }
 
-    if (!window.requestAnimationFrame){
-        window.requestAnimationFrame = function(callback, element) {
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function (callback, element) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() {
+            var id = window.setTimeout(function () {
                 callback(currTime + timeToCall);
             },
             timeToCall);
@@ -25,19 +26,19 @@
         };
     }
 
-    if (!window.cancelAnimationFrame){
-        window.cancelAnimationFrame = function(id) {
+    if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function (id) {
             clearTimeout(id);
         };
     }
 }());
 
-(function($, undefined){
+(function ($, undefined) {
     'use strict';
 
     // document ready begin
     // Using the shorthand method to save characters
-    $(function() {
+    $(function () {
 
         // Set framerate to 60fps
         TweenMax.ticker.fps(60);
@@ -50,43 +51,45 @@
 
         // Match Height
         $('.matchHeight').matchHeight();
-        $.fn.matchHeight._afterUpdate = function(event, groups) {
+        $.fn.matchHeight._afterUpdate = function (event, groups) {
             RR.listeners.moduleComplete();
         };
 
 
         /* Placeholder Alternative */
-        (function (){
-            // if ( Modernizr.placeholder === true ){
-                var $inputText = $('input[type="text"]');
+        (function () {
+            // if (Modernizr.placeholder === true ) {
+            var $inputText = $('input[type="text"]');
 
-                $inputText
-                .each(function () {
-                    var $this = $(this);
-                    $this.addClass('blur').attr('value' , $this.attr('placeholder'));
-                })
-                .on('focus', function (){
-                    var $this = $(this);
-                    if ( $this.val() ===  $this.attr('placeholder')) $this.val('').removeClass('blur');
-                })
-                .on('blur', function (){
-                    var $this = $(this);
-                    if ( $this.val() ===  '') $this.val($this.attr('placeholder')).addClass('blur');
-                });
+            $inputText
+            .each(function () {
+                var $this = $(this);
+                $this.addClass('blur').attr('value', $this.attr('placeholder'));
+            })
+            .on('focus', function () {
+                var $this = $(this);
+                if ($this.val() === $this.attr('placeholder')) {
+                    $this.val('').removeClass('blur');
+                }
+            })
+            .on('blur', function () {
+                var $this = $(this);
+                if ($this.val() ===  '') {
+                    $this.val($this.attr('placeholder')).addClass('blur');
+                }
+            });
             // }
         })();
 
 
         /* Backstretch Alternative */
-        (function (){
+        (function () {
             var $backStretch = $('.backstretch');
 
-            $backStretch.each(function (){
+            $backStretch.each(function () {
                 var $this = $(this);
-                if(Modernizr.bgsizecover === true) {
+                if (Modernizr.bgsizecover === true) {
                     $this.css({ 'background-image'  : 'url(' + $this.data('background') + ')' });
-                } else {
-                    // Do your alternative background cover magic
                 }
             });
         })();
@@ -112,27 +115,27 @@
         /* JRespond Functions(Desktop) */
         jRes.addFunc({
             breakpoint: ['desktop'],
-            enter: function() {
+            enter: function () {
             },
-            exit: function (){
+            exit: function () {
             }
         });
 
         /* JRespond Functions(Tablet) */
         jRes.addFunc({
             breakpoint: ['tablet'],
-            enter: function() {
+            enter: function () {
             },
-            exit: function() {
+            exit: function () {
             }
         });
 
         /* JRespond Functions(Mobile) */
         jRes.addFunc({
             breakpoint: ['mobile'],
-            enter: function() {
+            enter: function () {
             },
-            exit: function() {
+            exit: function () {
             }
         });
     });
@@ -140,28 +143,28 @@
 
 
 // Simple Service Worker to make App Install work
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     var outputElement = document.getElementById('output');
 
     navigator.serviceWorker.register('service-worker.js', { scope: './' })
-        .then(function(r) {
+        .then(function (r) {
           console.log('registered service worker');
       })
-    .catch(function(whut) {
+    .catch(function (whut) {
         console.error('uh oh... ');
         console.error(whut);
     });
 
-    window.addEventListener('beforeinstallprompt', function(e) {
+    window.addEventListener('beforeinstallprompt', function (e) {
         outputElement.textContent = 'beforeinstallprompt Event fired';
     });
 });
 
-window.addEventListener('beforeinstallprompt', function(e) {
+window.addEventListener('beforeinstallprompt', function (e) {
     outputElement.textContent = 'beforeinstallprompt Event fired';
 
     // e.userChoice will return a Promise. For more details read: http://www.html5rocks.com/en/tutorials/es6/promises/
-    e.userChoice.then(function(choiceResult) {
+    e.userChoice.then(function (choiceResult) {
         console.log(choiceResult.outcome);
 
         if (choiceResult.outcome == 'dismissed') {

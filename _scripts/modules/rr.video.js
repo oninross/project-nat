@@ -4,7 +4,7 @@
 /**
  * RR - Video / Emotion
  */
-var RR = (function (parent, $){
+var RR = (function (parent, $) {
     'use strict';
 
     var vid = document.getElementById('videoel'),
@@ -12,9 +12,9 @@ var RR = (function (parent, $){
         ec = new emotionClassifier(),
         emotionWrapper;
 
-    var setup = function (){
+    var setup = function () {
 
-        if ( RR.mobileCheck.isMobile.any() ) {
+        if (RR.mobileCheck.isMobile.any()) {
             offline();
             $('.widget').remove();
             $('.icon-ic_videocam').addClass('inactive');
@@ -37,14 +37,14 @@ var RR = (function (parent, $){
                 }
             };
 
-            navigator.getUserMedia(videoSelector, function( stream ) {
+            navigator.getUserMedia(videoSelector, function (stream) {
                 if (vid.mozCaptureStream) {
                     vid.mozSrcObject = stream;
                 } else {
                     vid.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
                 }
                 vid.play();
-            }, function() {
+            }, function () {
                 console.log("There was some problem trying to fetch video from your webcam. If you have a webcam, please make sure to accept when the browser asks for access to your webcam.");
 
                 offline();
@@ -128,10 +128,10 @@ var RR = (function (parent, $){
                 // ["happy", "sad", "surprised", "angry"]
 
                 data: [
-                  { y: 0, color: '#54606e'},
-                  { y: 0, color: '#54606e'},
-                  { y: 0, color: '#54606e'},
-                  { y: 0, color: '#54606e'}
+                  { y: 0, color: '#383838'},
+                  { y: 0, color: '#383838'},
+                  { y: 0, color: '#383838'},
+                  { y: 0, color: '#383838'}
                 ],
                 marker: {
                     states: {
@@ -160,10 +160,10 @@ var RR = (function (parent, $){
         if (er) {
             // ["angry", "sad", "surprised", "happy"]
             // console.log(Math.round(er[0].value * 100))
-            emotionWrapper.series[0].data[0].update( Math.round(er[3].value * 100) );
-            emotionWrapper.series[0].data[1].update( Math.round(er[1].value * 100) );
-            emotionWrapper.series[0].data[2].update( Math.round(er[2].value * 100) );
-            emotionWrapper.series[0].data[3].update( Math.round(er[0].value * 100) );
+            emotionWrapper.series[0].data[0].update(Math.round(er[3].value * 100));
+            emotionWrapper.series[0].data[1].update(Math.round(er[1].value * 100));
+            emotionWrapper.series[0].data[2].update(Math.round(er[2].value * 100));
+            emotionWrapper.series[0].data[3].update(Math.round(er[0].value * 100));
         }
     };
 
@@ -173,7 +173,7 @@ var RR = (function (parent, $){
         startbutton.disabled = null;
     };
 
-    var startVideo = function() {
+    var startVideo = function () {
         vid.play();
         // start tracking
         ctrack.start(vid);
@@ -191,7 +191,7 @@ var RR = (function (parent, $){
 
 }(RR || {}, jQuery));
 
-jQuery(function($){
+jQuery(function ($) {
     // Self-init Call
     RR.video.setup();
 });
