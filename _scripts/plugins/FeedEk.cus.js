@@ -22,11 +22,11 @@
         var xhr;
 
         xhr = $.ajax({
-            url: "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=" + def.MaxCount + "&output=json&q=" + encodeURIComponent(def.FeedUrl) + "&hl=en&callback=?",
+            url: "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(def.FeedUrl) + "&api_key=ejrvzkxjws1zoggpho7zy0wbsgzraolsuawgr8fj&order_by=pubDate&order_dir=desc&count=" + def.MaxCount,
             dataType: "json",
             success: function (data) {
-                $("#" + id).empty().parent().find('.news-source').html( data.responseData.feed.title );
-                $.each(data.responseData.feed.entries, function (e, item) {
+                $("#" + id).empty().parent().find('.news-source').html( data.feed.title );
+                $.each(data.items, function (e, item) {
                     s += '<li><div class="itemTitle"><a href="' + item.link + '" target="' + def.TitleLinkTarget + '" >' + item.title + "</a></div>";
 
                     if (def.ShowPubDate){

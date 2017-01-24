@@ -4,7 +4,7 @@
 /**
  * RR - Audio Spectrum
  */
-var RR = (function (parent, $){
+var RR = (function (parent, $) {
     'use strict';
 
     var voices;
@@ -12,9 +12,9 @@ var RR = (function (parent, $){
     // Establish all variables that your Analyser will use
     var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
 
-    var setup = function() {
+    var setup = function () {
 
-        if ( RR.mobileCheck.isMobile.any() ) {
+        if (RR.mobileCheck.isMobile.any()) {
             offline();
             return false;
         }
@@ -30,21 +30,21 @@ var RR = (function (parent, $){
         if (navigator.getUserMedia) {
             navigator.getUserMedia(
                 {
-                    video:false,
-                    audio:true
+                    video: false,
+                    audio: true
                 },
-                function(stream) {
+                function (stream) {
                     var mic = context.createMediaStreamSource(stream);
 
                     mic.connect(analyser);
 
                     analyser.connect(context.destination);
                 },
-                function(error) {
+                function (error) {
                     console.log("There was some problem trying to fetch audio from your microphone. If you have a microphone, please make sure to accept when the browser asks for access to your microphone.");
                     offline();
                 }
-            );
+           );
         } else {
             console.log('Sorry, the browser you are using doesn\'t support getUserMedia');
             offline();
@@ -55,12 +55,12 @@ var RR = (function (parent, $){
 
         canITalk();
 
-        window.speechSynthesis.onvoiceschanged = function(e) {};
+        window.speechSynthesis.onvoiceschanged = function (e) {};
     };
 
     // frameLooper() animates any style of graphics you wish to the audio frequency
     // Looping at the default frame rate that the browser provides(approx. 60 FPS)
-    var frameLooper = function() {
+    var frameLooper = function () {
         window.requestAnimationFrame(frameLooper);
         fbc_array = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(fbc_array);
@@ -74,7 +74,7 @@ var RR = (function (parent, $){
             bar_x = (i * barWidth);
             bar_width = canvas.width / bars;
             bar_height = -(fbc_array[i] / 2);
-            //  fillRect( x, y, width, height ) // Explanation of the parameters below
+            //  fillRect(x, y, width, height) // Explanation of the parameters below
             // ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
 
             ctx.fillRect(0, (canvas.height / 2), canvas.width, 2);
@@ -103,7 +103,7 @@ var RR = (function (parent, $){
 
         // If a voice has been selected, find the voice and set the
         // utterance instance's voice attribute.
-        msg.voice = speechSynthesis.getVoices().filter(function(voice) {
+        msg.voice = speechSynthesis.getVoices().filter(function (voice) {
             return voice.name == 'Google UK English Female';
             // native
             // Google Deutsch
@@ -130,7 +130,7 @@ var RR = (function (parent, $){
 
         window.speechSynthesis.speak(msg);
 
-        // msg.onend = function(e) {
+        // msg.onend = function (e) {
         //     console.log('Finished in ' + event.elapsedTime + ' seconds.');
         // };
     };
@@ -343,13 +343,13 @@ var RR = (function (parent, $){
     };
 
     var canITalk = function () {
-        if ( RR.mobileCheck.isMobile.iOS() || !RR.localStorage.getAudio() ){
+        if (RR.mobileCheck.isMobile.iOS() || !RR.localStorage.getAudio()) {
             return false;
         }
 
         var SpeechSynthesisUtterance = window.webkitSpeechSynthesisUtterance || window.mozSpeechSynthesisUtterance || window.msSpeechSynthesisUtterance || window.oSpeechSynthesisUtterance || window.SpeechSynthesisUtterance;
 
-        if ( SpeechSynthesisUtterance === undefined ) {
+        if (SpeechSynthesisUtterance === undefined) {
             return false;
         }
     };
@@ -365,7 +365,7 @@ var RR = (function (parent, $){
 
 }(RR || {}, jQuery));
 
-jQuery(function($){
+jQuery(function ($) {
     // Self-init Call
     RR.audio.setup();
 });
