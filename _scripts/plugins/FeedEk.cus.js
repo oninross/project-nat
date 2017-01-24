@@ -22,11 +22,11 @@
         var xhr;
 
         xhr = $.ajax({
-            url: "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=" + def.MaxCount + "&output=json&q=" + encodeURIComponent(def.FeedUrl) + "&hl=en&callback=?",
+            url: "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(def.FeedUrl) + "&api_key=ejrvzkxjws1zoggpho7zy0wbsgzraolsuawgr8fj&order_by=pubDate&order_dir=desc&count=" + def.MaxCount,
             dataType: "json",
             success: function (data) {
-                $("#" + id).empty().parent().find('.news-source').html( data.responseData.feed.title );
-                $.each(data.responseData.feed.entries, function (e, item) {
+                $("#" + id).empty().parent().find('.news-source').html( data.feed.title );
+                $.each(data.items, function (e, item) {
                     s += '<li><div class="itemTitle"><a href="' + item.link + '" target="' + def.TitleLinkTarget + '" >' + item.title + "</a></div>";
 
                     if (def.ShowPubDate){
@@ -57,12 +57,12 @@
 
                 xhr.abort();
 
-                if ( !RR.listeners.getIsLoaded() ) {
-                    RR.listeners.moduleComplete();
-                } else {
+                if ( RR.listeners.getModuleCompletes() === 5 ) {
                     TweenMax.to( '.news-listing .news-source', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut });
                     TweenMax.staggerTo( '.news-listing .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 0.2 }, 0.1 );
                     TweenMax.staggerTo( '.news-listing .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 0.4 }, 0.1 );
+                } else {
+                    RR.listeners.moduleComplete();
                 }
             },
             error: function (error) {

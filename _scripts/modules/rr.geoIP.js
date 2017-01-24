@@ -4,23 +4,29 @@
 /**
  * RR - Geo IP
  */
-var RR = (function (parent, $){
+var RR = (function (parent, $) {
     'use strict';
 
     var $location = $('.location');
 
-    var setup = function (){
-        if ( RR.localStorage.getGeoIpData() === undefined ) {
+    var setup = function () {
+        if (RR.localStorage.getGeoIpData() === undefined) {
             $.ajax({
-                url: 'https://www.telize.com/geoip',
-                // url: 'https://freegeoip.net/json/',
-                // url: 'https://www.geoplugin.net/json.gp?jsoncallback=?',
+                url: '//freegeoip.net/json/',
+                // url: '//www.geoplugin.net/json.gp?jsoncallback=?',
                 dataType: 'json',
-                success: function(data) {
-                    RR.localStorage.setGeoIpData( data );
-                    populateLocation(data);
+                success: function (data) {
+                    console.log(data);
+                    if (data.city == '') {
+                        ajaxError();
+                        $('.preloader-text p').text('Whoops! We can\'t determine your location.  Did you enable your location?');
+                        $('.preloader-wrapper .btn').hide();
+                    } else {
+                        RR.localStorage.setGeoIpData(data);
+                        populateLocation(data);
+                    }
                 },
-                error: function (error){
+                error: function (error) {
                     console.log(error);
                     ajaxError();
                 },
@@ -29,21 +35,22 @@ var RR = (function (parent, $){
                 }
             });
         } else {
-            populateLocation( RR.localStorage.getGeoIpData() );
+            populateLocation(RR.localStorage.getGeoIpData());
         }
     };
 
     var populateLocation = function (data) {
-        $location.find('.ip').text( data.ip );
-        $location.find('.long').text( deg_to_dms(data.longitude, true) );
-        $location.find('.lat').text( deg_to_dms(data.latitude, false) );
-        $location.find('.loc').text( data.country );
-        $location.find('.loc').text( data.country_name );
+        // https://freegeoip.net/json/
+        $location.find('.ip').text(data.ip);
+        $location.find('.long').text(deg_to_dms(data.longitude, true));
+        $location.find('.lat').text(deg_to_dms(data.latitude, false));
+        $location.find('.loc').text(data.country_name);
 
-        // $location.find('.ip').text( data.geoplugin_request );
-        // $location.find('.long').text( deg_to_dms(data.geoplugin_longitude, true) );
-        // $location.find('.lat').text( deg_to_dms(data.geoplugin_latitude, false) );
-        // $location.find('.loc').text( data.geoplugin_countryName );
+        // http://www.geoplugin.net/json.gp?jsoncallback=?
+        // $location.find('.ip').text(data.geoplugin_request);
+        // $location.find('.long').text(deg_to_dms(data.geoplugin_longitude, true));
+        // $location.find('.lat').text(deg_to_dms(data.geoplugin_latitude, false));
+        // $location.find('.loc').text(data.geoplugin_countryName);
 
         $('.preloader-input').show();
 
@@ -64,9 +71,9 @@ var RR = (function (parent, $){
 
     var deg_to_dms = function (deg, _bool) {
         var d = Math.floor (deg),
-            minfloat = (deg-d)*60,
+            minfloat = (deg - d) * 60,
             m = Math.floor(minfloat),
-            secfloat = (minfloat-m)*60,
+            secfloat = (minfloat - m) * 60,
             s = secfloat.toFixed(4), //Math.round(secfloat);
             _dir;
 
@@ -81,14 +88,14 @@ var RR = (function (parent, $){
             m = 0;
         }
 
-        if ( _bool ){
-            if (d > 0){
+        if (_bool) {
+            if (d > 0) {
                 _dir = 'N';
             } else {
                 _dir = 'S';
             }
         } else {
-            if (d > 0){
+            if (d > 0) {
                 _dir = 'E';
             } else {
                 _dir = 'W';
@@ -107,7 +114,7 @@ var RR = (function (parent, $){
 
 }(RR || {}, jQuery));
 
-jQuery(function($){
+jQuery(function ($) {
     // Self-init Call
     RR.geoIP.setup();
 });

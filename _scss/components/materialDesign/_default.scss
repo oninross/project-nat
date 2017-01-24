@@ -374,16 +374,16 @@ input[type="checkbox"]{
     	@include scale(0.5);
     	@extend .shadow-z1;
 
-    	background: $ui-white;
+    	background: $white;
+    	height: 275px;
     	overflow: hidden;
-        opacity: 0;
     	padding: 0;
     	position: absolute;
     	right: 0;
     	top: -20px;
     	visibility: hidden;
     	width: 50%;
-    	z-index: 20;
+    	z-index: 10;
 
     	ul {
     		@include normalise-list;

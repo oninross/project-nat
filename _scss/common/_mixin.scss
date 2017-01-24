@@ -155,3 +155,12 @@ Results in blurry rendering of edges and text in some cases
     max-width: 100%;
     width: 100%;
 }
+
+// Reset CSS3 Animations to none
+@mixin no-transition {
+    -webkit-transition: none !important;
+       -moz-transition: none !important;
+         -o-transition: none !important;
+        -ms-transition: none !important;
+            transition: none !important;
+}

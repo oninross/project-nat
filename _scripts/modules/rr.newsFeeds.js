@@ -4,10 +4,10 @@
 /**
  * RR - News Feeds
  */
-var RR = (function (parent, $){
+var RR = (function (parent, $) {
     'use strict';
 
-    var setup = function (){
+    var setup = function () {
         $('#rssFeed1').FeedEk({
             FeedUrl: RR.localStorage.getNewsFeedURL(0),
             ShowDesc: true,
@@ -28,6 +28,13 @@ var RR = (function (parent, $){
             ShowPubDate: false,
             TitleLinkTarget: '_blank'
         });
+
+        $('#rssFeed4').FeedEk({
+            FeedUrl: RR.localStorage.getNewsFeedURL(3),
+            ShowDesc: true,
+            ShowPubDate: false,
+            TitleLinkTarget: '_blank'
+        });
     };
 
     var setNewsFeedValue = function (idx, url) {
@@ -36,12 +43,13 @@ var RR = (function (parent, $){
     };
 
     var updateNewsFeed = function (idx, url) {
-        TweenMax.to( '.news-listing:nth-child('+ (idx + 1) +') .news-source', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, onComplete: function () {
-                TweenMax.set( '.news-listing:nth-child('+ (idx + 1) +') .news-source', { top: 25 });
+        TweenMax.to('.news-listing:nth-child(' + (idx + 1) + ') .news-source', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, onComplete: function () {
+                TweenMax.set('.news-listing:nth-child(' + (idx + 1) + ') .news-source', { top: 25 });
             }
         });
-        TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemTitle', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.2 }, 0.1 );
-        TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemContent', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.4 }, 0.1, function () {
+
+        TweenMax.staggerTo('.news-listing:nth-child(' + (idx + 1) + ') .itemTitle', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.2 }, 0.1);
+        TweenMax.staggerTo('.news-listing:nth-child(' + (idx + 1) + ') .itemContent', 0.75, { opacity: 0, top: -25, ease: Expo.easeOut, delay: 0.4 }, 0.1, function () {
             switch (idx) {
                 case 0:
                     $('#rssFeed1').empty();
@@ -72,10 +80,20 @@ var RR = (function (parent, $){
                         TitleLinkTarget: '_blank'
                     });
                     break;
+
+                case 3:
+                    $('#rssFeed4').empty();
+                    $('#rssFeed4').FeedEk({
+                        FeedUrl: url,
+                        ShowDesc: true,
+                        ShowPubDate: false,
+                        TitleLinkTarget: '_blank'
+                    });
+                    break;
             }
 
-            TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut }, 0.1 );
-            TweenMax.staggerTo( '.news-listing:nth-child('+ (idx + 1) +') .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut }, 0.1 );
+            TweenMax.staggerTo('.news-listing:nth-child(' + (idx + 1) + ') .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut }, 0.1);
+            TweenMax.staggerTo('.news-listing:nth-child(' + (idx + 1) + ') .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut }, 0.1);
         });
     };
 
@@ -88,19 +106,17 @@ var RR = (function (parent, $){
             success: function (data) {
                 xhr.abort();
 
-                console.log(idx)
-
-                switch ( data.responseStatus ) {
+                switch (data.responseStatus) {
                     case 200:
                         // valid
-                        TweenMax.set( '.rssSelection:nth-child('+ idx + 1 +') input[type="text"]', { 'border-bottom': '1px solid #4caf50' });
-                        updateNewsFeed( idx, url );
-                        setNewsFeedValue( idx, url );
+                        TweenMax.set('.rssSelection:nth-child(' + idx + 1 + ') input[type="text"]', { 'border-bottom': '1px solid #4caf50' });
+                        updateNewsFeed(idx, url);
+                        setNewsFeedValue(idx, url);
                         break;
 
                     case 400:
                         // invalid
-                        TweenMax.set( '.rssSelection:nth-child('+ idx + 1 +') input[type="text"]', { 'border-bottom': '1px solid #f44336' });
+                        TweenMax.set('.rssSelection:nth-child(' + idx + 1 + ') input[type="text"]', { 'border-bottom': '1px solid #f44336' });
                         break;
                 }
             },
@@ -121,7 +137,7 @@ var RR = (function (parent, $){
 
 }(RR || {}, jQuery));
 
-jQuery(function($){
+jQuery(function ($) {
     // Self-init Call
     // RR.newsFeeds.setup();
 });

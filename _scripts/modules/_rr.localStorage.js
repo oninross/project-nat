@@ -9,14 +9,19 @@ var RR = (function (parent, $) {
 
 
     var setDefault = function () {
-        if ( !localStorage.length ) {
-            console.log('localStorage is empty');
+        if (!localStorage.length) {
             localStorage.username = '';
             localStorage.audio = true;
             localStorage.sidebar = true;
-            localStorage.newsFeedUrl0 = 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml';
-            localStorage.newsFeedUrl1 = 'http://feeds.bbci.co.uk/news/world/rss.xml';
-            localStorage.newsFeedUrl2 = 'http://www.theguardian.com/world/rss';
+            localStorage.newsFeedUrl0 = 'http://rss.cnn.com/rss/edition.rss';
+            localStorage.newsFeedUrl1 = 'https://feeds.bbci.co.uk/news/world/rss.xml';
+            localStorage.newsFeedUrl2 = 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml';
+            localStorage.newsFeedUrl3 = 'https://www.theguardian.com/world/rss';
+
+            $('.preloader-wrapper .btn').show();
+        }
+
+        if (localStorage.username == '') {
             $('.preloader-wrapper .btn').show();
         }
     };
@@ -30,10 +35,10 @@ var RR = (function (parent, $) {
     var getGeoIpData = function () {
         var cookieData = localStorage.geoIpData;
 
-        if ( cookieData === undefined ) {
+        if (cookieData === undefined) {
             return undefined;
         } else {
-            return JSON.parse( cookieData );
+            return JSON.parse(cookieData);
         }
     };
 
@@ -50,27 +55,26 @@ var RR = (function (parent, $) {
 
     // Audio On/Off
     var getAudio = function () {
-        return $.parseJSON( localStorage.audio );
+        return $.parseJSON(localStorage.audio);
     };
 
     var setAudio = function (bool) {
-        localStorage.audio = $.parseJSON( bool );
+        localStorage.audio = $.parseJSON(bool);
     };
-
 
     // Side bar On/Off
     var getSidebar = function () {
-        return $.parseJSON( localStorage.sidebar );
+        return $.parseJSON(localStorage.sidebar);
     };
 
     var setSidebar = function (bool) {
-        localStorage.sidebar = $.parseJSON( bool );
+        localStorage.sidebar = $.parseJSON(bool);
     };
 
 
     // News Feed URL
     var getNewsFeedURL = function (idx) {
-        switch ( idx ) {
+        switch (idx) {
             case 0:
                 return localStorage.newsFeedUrl0;
 
@@ -80,11 +84,13 @@ var RR = (function (parent, $) {
             case 2:
                 return localStorage.newsFeedUrl2;
 
+            case 3:
+                return localStorage.newsFeedUrl3;
         }
     };
 
     var setNewsFeedURL = function (idx, url) {
-        switch ( idx ) {
+        switch (idx) {
             case 0:
                 localStorage.newsFeedUrl0 = url;
                 break;
@@ -97,6 +103,10 @@ var RR = (function (parent, $) {
                 localStorage.newsFeedUrl2 = url;
                 break;
 
+            case 3:
+                localStorage.newsFeedUrl3 = url;
+                break;
+
         }
     };
 
@@ -106,10 +116,10 @@ var RR = (function (parent, $) {
         setGeoIpData: setGeoIpData,
         getUsername: getUsername,
         setUsername: setUsername,
-        getAudio: getAudio,
-        setAudio: setAudio,
         getSidebar: getSidebar,
         setSidebar: setSidebar,
+        getAudio: getAudio,
+        setAudio: setAudio,
         getNewsFeedURL: getNewsFeedURL,
         setNewsFeedURL: setNewsFeedURL,
         setDefault: setDefault

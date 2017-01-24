@@ -43,6 +43,16 @@ DEPENDENCIES
    	text-align: center;
 }
 
+.dashboard {
+	.container {
+		padding: 0 $gutter;
+	}
+}
+
+.rssSelections {
+	padding: 0;
+}
+
 .dateStamp {
     float: none;
     text-align: left;
@@ -66,6 +76,10 @@ DEPENDENCIES
 	.line {
 		display: none;
 	}
+
+	.icon {
+		display: block;
+	}
 }
 
 
@@ -78,6 +92,10 @@ DEPENDENCIES
 /* =======================================================================
 05 Homepage
 ========================================================================== */
+.mainbar {
+	width: 100% !important;
+}
+
 .weather {
 	&:after {
 		display: none;
@@ -128,7 +146,14 @@ DEPENDENCIES
 	.forecast {
 		border-bottom: 0 !important;
 		float: left;
-		width: 33.3333%;
+		margin-bottom: 0;
+		width: 25%;
+
+		&:nth-child(4) {
+			.line {
+				display: none;
+			}
+		}
 
 		.icon {
 		    font-size: 5em;
@@ -136,9 +161,12 @@ DEPENDENCIES
 		    // margin-bottom: 20px;
 		}
 
-		.text,
 		.hilow {
-			font-size: 1.8em;
+			font-size: 1.4em;
+		}
+
+		.text {
+			display: none;
 		}
 	}
 
