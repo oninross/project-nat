@@ -1,37 +1,4 @@
 // dashboard styles
-.header {
-    margin: 20px 0 30px;
-    padding: 0 $gutter;
-    position: relative;
-
-    &.all,
-    &.mobile,
-    &.tablet {
-        .logo {
-            padding: 8px $gutter;
-            position: absolute;
-            z-index: 25;
-
-            .container { padding: 0; }
-
-        }
-    }
-
-    &.absolute {
-        height: auto;
-        position: fixed !important;
-        top: 0;
-        width: 100%;
-        z-index: 10;
-    }
-
-    .line {
-        height: 4px;
-        margin-top: 15px;
-        position: static;
-    }
-}
-
 .dateStamp {
     float: left;
 
@@ -69,8 +36,7 @@
         display: none;
 
         @include desktop {
-            @include inline-block;
-
+            display: inline-block;
             font-size: 0.75em;
             height: 26px;
             margin-top: 6px;
@@ -91,8 +57,8 @@
 
 .time {
     @include clearfix;
-    @include inline-block;
 
+    display: inline-block;
     vertical-align: bottom;
 
     span {
@@ -113,15 +79,15 @@
 
         &:hover {
             .icon {
-                @include rotate(360deg);
+                tranform: rotate(360deg);
             }
         }
 
         .icon {
             @include transition( all, 0.5s, $easeOutExpo );
-            @include rotate(0);
 
             height: 23px;
+            tranform: rotate(0);
             width: 23px;
         }
     }
@@ -145,18 +111,18 @@
 
     h2 {
         font-size: 2em;
+        margin-bottom: 0;
     }
 
     h3 {
         font-size: 1.8em;
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
 
     input[type="text"] {
-        @include inline-block;
-
         background: none;
         color: $ui-white;
+        display: inline-block;
         font-size: 1em;
         padding: 0;
         width: auto;
@@ -167,6 +133,8 @@
     }
 
     label {
+        margin-bottom: 0;
+
         &.checkbox:before {
             border: 2px solid $ui-white;
         }
@@ -183,9 +151,13 @@
     }
 
     .container {
+        padding: 20px 0;
+
         @include tablet {
-            padding: 0 $gutterTablet;
+            padding-left: $gutterTablet;
+            padding-right: $gutterTablet;
         }
+
     }
 
     .wrap {
@@ -206,15 +178,15 @@
 
         &:hover {
             .icon {
-                @include rotate(360deg);
+                tranform: rotate(360deg);
             }
         }
 
         .icon {
             @include transition( all, 0.5s, $easeOutExpo );
-            @include rotate(0);
 
             height: 23px;
+            tranform: rotate(0);
             width: 23px;
         }
     }
@@ -245,15 +217,15 @@
 
             &:hover {
                 .icon {
-                    @include rotate(180deg);
+                    tranform: rotate(180deg);
                 }
             }
 
             .icon {
                 @include transition( all, 0.5s, $easeOutExpo );
-                @include rotate(0);
 
                 height: 23px;
+                tranform: rotate(0);
                 width: 23px;
             }
         }
