@@ -1,0 +1,283 @@
+// dashboard styles
+.header {
+    margin: 20px 0 30px;
+    padding: 0 $gutter;
+    position: relative;
+
+    &.all,
+    &.mobile,
+    &.tablet {
+        .logo {
+            padding: 8px $gutter;
+            position: absolute;
+            z-index: 25;
+
+            .container { padding: 0; }
+
+        }
+    }
+
+    &.absolute {
+        height: auto;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .line {
+        height: 4px;
+        margin-top: 15px;
+        position: static;
+    }
+}
+
+.dateStamp {
+    float: left;
+
+    .day,
+    .date {
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .day {
+        font-size: 3.2em;
+        font-weight: $bold;
+    }
+
+    .date {
+        font-size: 2.4em;
+        font-weight: $light;
+    }
+}
+
+.timeStamp {
+    font-size: 3.2em;
+    font-weight: $bold;
+    float: right;
+
+    .icon,
+    .time {
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .icon {
+        display: none;
+
+        @include desktop {
+            @include inline-block;
+
+            font-size: 0.75em;
+            height: 26px;
+            margin-top: 6px;
+            width: 26px;
+        }
+    }
+
+    .inactive {
+        color: #d6d6d6;
+    }
+
+    button {
+        .icon {
+            display: block;
+        }
+    }
+}
+
+.time {
+    @include clearfix;
+    @include inline-block;
+
+    vertical-align: bottom;
+
+    span {
+        float: left;
+    }
+}
+
+.settings {
+    float: right;
+    margin-left: 15px;
+    padding-left: 10px;
+    position: relative;
+
+    button {
+        background: none;
+        border: 0;
+        color: $ui-black;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .line {
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+
+        height: 0;
+    }
+}
+
+.dashboard {
+    background: darken($ui-black, 10%);
+    color: $ui-white;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 150;
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        @include inline-block;
+
+        background: none;
+        color: $ui-white;
+        font-size: 1em;
+        padding: 0;
+        width: auto;
+
+        &:focus {
+            color: inherit;
+        }
+    }
+
+    label {
+        &.checkbox:before {
+            border: 2px solid $ui-white;
+        }
+    }
+
+    input[type="checkbox"]{
+        &:checked + label {
+            &:before { border: 2px solid $ui-white; }
+            &:after {
+                background: $ui-white;
+                color: $ui-black;
+            }
+        }
+    }
+
+    .container {
+        @include tablet {
+            padding: 0 $gutterTablet;
+        }
+    }
+
+    .wrap {
+        @include clearfix();
+    }
+
+    .close {
+        background: none;
+        border: 0;
+        color: $ui-white;
+        font-size: 2em;
+        height: 40px;
+        padding: 8px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 40px;
+
+        &:hover {
+            .icon {
+                @include rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            @include rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .username {
+        font-weight: $light;
+    }
+
+    .material-wrapper {
+        height: 0;
+        overflow: hidden;
+        position: relative;
+
+        button {
+            background: none;
+            border: 0;
+            bottom: 0;
+            color: $ui-white;
+            font-size: 1.8em;
+            height: 25px;
+            margin: auto;
+            padding: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 25px;
+            z-index: 25;
+
+            &:hover {
+                .icon {
+                    @include rotate(180deg);
+                }
+            }
+
+            .icon {
+                @include transition( all, 0.5s, $easeOutExpo );
+                @include rotate(0);
+
+                height: 23px;
+                width: 23px;
+            }
+        }
+    }
+
+    .material-select-wrapper {
+        padding: 0;
+
+        .material-label {
+            padding-top: 0;
+        }
+
+        .card-wrapper {
+            color: $ui-black;
+            width: 100%;
+
+            button:hover {
+                background: $ui-black;
+                color: $ui-white;
+            }
+        }
+    }
+
+    .sidebar-icon {
+        display: block;
+    }
+}

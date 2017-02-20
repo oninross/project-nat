@@ -1,0 +1,50 @@
+mixin weather(spec)
+    - spec = spec || {}
+    - spec.__class = spec.__class || ''
+
+    section.lines.weather
+        h1.sr-only Weather Report
+        .clearfix
+            .current-wrapper.matchHeight.col-3
+                h2.batch2 Current Conditions
+                .clearfix
+                    .current
+                        .batch2.temp 0°
+                        .batch2.hilow 0° / 0°
+                    .condition
+                        .batch2.icon
+                    .batch2.text
+                .line.line-r
+                .line.line-b
+            .col-9.matchHeight
+                .clearfix
+                    .forecast.matchHeight
+                        h3.batch3
+                        .batch3.icon
+                        .batch3.hilow 0° / 0°
+                        .batch3.text
+                        .line.line-r
+                    .forecast.matchHeight
+                        h3.batch4
+                        .batch4.icon
+                        .batch4.hilow 0° / 0°
+                        .batch4.text
+                        .line.line-r
+                    .forecast.matchHeight
+                        h3.batch5
+                        .batch5.icon
+                        .batch5.hilow 0° / 0°
+                        .batch5.text
+                        .line.line-r
+                    .forecast.matchHeight
+                        h3.batch6
+                        .batch6.icon
+                        .batch6.hilow 0° / 0°
+                        .batch6.text
+                        .line.line-r
+                    .forecast.matchHeight
+                        h3.batch7
+                        .batch7.icon
+                        .batch7.hilow 0° / 0°
+                        .batch7.text
+        .line.line-b

@@ -1,0 +1,24 @@
+mixin header(spec)
+    - spec = spec || {}
+    - spec.__class = spec.__class || ''
+
+    header.header.lines
+        h1.sr-only
+            a(href='/') Project NAT
+        .container
+            .clearfix
+                .dateStamp
+                    span.batch1.day
+                    span.batch1.date
+                .timeStamp
+                    .batch1.time
+                        span.h 12
+                        span.colon :
+                        span.m 00
+                        span.dn pm
+                    .settings
+                        .line.line-l
+                        button.js-settings
+                            i.batch1.icon.icon-ic_settings
+                            span.sr-only Settings
+            .line.line-b

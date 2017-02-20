@@ -1,0 +1,95 @@
+// timedate styles
+.dateStamp {
+    float: left;
+
+    .day,
+    .date {
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .day {
+        font-size: 3.2em;
+        font-weight: $bold;
+    }
+
+    .date {
+        font-size: 2.4em;
+        font-weight: $light;
+    }
+}
+
+.timeStamp {
+    font-size: 3.2em;
+    font-weight: $bold;
+    float: right;
+
+    .icon,
+    .time {
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .icon {
+        display: none;
+        font-size: 0.75em;
+        height: 26px;
+        margin-top: 6px;
+        width: 26px;
+
+        @include desktop {
+            display: inline-block;
+        }
+    }
+
+    .inactive {
+        color: #d6d6d6;
+    }
+
+    button {
+        .icon {
+            display: block;
+        }
+    }
+}
+
+.time {
+    @include clearfix;
+
+    display: inline-block;
+    vertical-align: bottom;
+
+    span {
+        float: left;
+    }
+}
+
+.pm {
+    color: $ui-white;
+
+    .lines .line {
+        background: $ui-white;
+    }
+
+    p,
+    .settings button,
+    .news-reports a {
+        color: $ui-white;
+    }
+
+    .climacon_component-stroke {
+        fill: $ui-white;
+        stroke: $ui-white;
+    }
+
+    .preloader-text p,
+    .floating .placeholder {
+        color: $ui-black;
+    }
+
+    .preloader-wrapper .preloader {
+        background: $ui-black;
+    }
+}
