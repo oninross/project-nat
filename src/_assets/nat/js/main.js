@@ -156,7 +156,6 @@ $(() => {
         }
     });
 
-
     $dashboard
         .find('.username').val(localStorage.getUsername()).end()
         .find('#audio').attr('checked', localStorage.getAudio()).end()
