@@ -1,0 +1,73 @@
+// preloader styles
+.preloader-wrapper {
+    @include centering-the-unknown();
+
+    margin: auto;
+    max-width: 300px;
+    width: 100%;
+    z-index: 100;
+
+    .preloader {
+        background: $ui-white;
+        border-radius: 50%;
+        // box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+        color: $ui-black;
+        height: 75px;
+        margin: 0 auto 20px;
+        position: relative;
+        transform: scale(0);
+        width: 75px;
+        z-index: 10;
+
+        .icon {
+            @include absolute-center;
+
+            font-size: 4em;
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    .preloader-text {
+        display: none;
+        font-size: 1.4em;
+        font-weight: $light;
+        opacity: 0;
+        position: relative;
+        text-align: center;
+        top: 25px;
+    }
+
+    .preloader-input {
+        display: none;
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .floating {
+        margin: 0 auto 20px;
+        max-width: 300px;
+        width: 100%;
+
+        input {
+            background: none;
+            border-radius: 0;
+            font-size: 2em;
+        }
+    }
+
+    .btn {
+        @include no-transition;
+
+        display: none;
+        font-weight: $bold;
+        margin: auto;
+        max-width: 100px;
+        width: 100%;
+
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+}

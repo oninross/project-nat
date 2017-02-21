@@ -1,0 +1,8 @@
+extends _layouts/base
+
+include _modules/weather/weather
+
+block content
+    .container
+        .wrapper
+            +weather()

@@ -1,0 +1,19 @@
+mixin dashboard(spec)
+    - spec = spec || {}
+    - spec.__class = spec.__class || ''
+
+    .dashboard
+        button.close.js-close
+            i.icon.icon-ic_close
+        .container
+            .wrap
+                .col-2
+                    h2 Settings
+
+                .col-6
+                    h3 Hello
+                        input#dashboard-username.username(type='text')
+
+                .col-4
+                    input#audio(type='checkbox', name='name', checked='')
+                    label.checkbox(for='audio') Mute N.A.T.

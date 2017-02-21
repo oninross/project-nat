@@ -1,0 +1,12 @@
+mixin preloader(spec)
+    - spec = spec || {}
+    - spec.__class = spec.__class || ''
+
+    .preloader-wrapper
+        .preloader
+            i.icon.icon-ic_cached
+        .preloader-text
+            p Oops! This is embarrasing. Can you please refresh the page? Thank you!
+        .preloader-input
+            input#username.floating-input(type='text', placeholder='Hello! May I know your name?', autocomplete='off')
+        button.btn.colored.js-enter Enter

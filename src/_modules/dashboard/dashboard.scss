@@ -1,0 +1,250 @@
+// dashboard styles
+.dashboard {
+    background: darken($ui-black, 10%);
+    color: $ui-white;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    padding: 20px $gutter;
+    z-index: 150;
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 0;
+    }
+
+    input[type="text"] {
+        background: none;
+        color: $ui-white;
+        display: inline-block;
+        font-size: 1em;
+        padding: 0;
+        width: auto;
+
+        &:focus {
+            color: inherit;
+        }
+    }
+
+    label {
+        margin-bottom: 0;
+
+        &.checkbox:before {
+            border: 2px solid $ui-white;
+        }
+    }
+
+    input[type="checkbox"]{
+        &:checked + label {
+            &:before { border: 2px solid $ui-white; }
+            &:after {
+                // background: $ui-white;
+                // color: $ui-black;
+            }
+        }
+    }
+
+    .wrap {
+        @include clearfix();
+    }
+
+    .close {
+        background: none;
+        border: 0;
+        color: $ui-white;
+        font-size: 2em;
+        height: 40px;
+        padding: 8px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 40px;
+        z-index: 10;
+
+        &:hover {
+            .icon {
+                tranform: rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+
+            height: 23px;
+            tranform: rotate(0);
+            width: 23px;
+        }
+    }
+
+    .username {
+        font-weight: $light;
+    }
+
+    .material-wrapper {
+        height: 0;
+        overflow: hidden;
+        position: relative;
+
+        button {
+            background: none;
+            border: 0;
+            bottom: 0;
+            color: $ui-white;
+            font-size: 1.8em;
+            height: 25px;
+            margin: auto;
+            padding: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 25px;
+            z-index: 25;
+
+            &:hover {
+                .icon {
+                    tranform: rotate(180deg);
+                }
+            }
+
+            .icon {
+                @include transition( all, 0.5s, $easeOutExpo );
+
+                height: 23px;
+                tranform: rotate(0);
+                width: 23px;
+            }
+        }
+    }
+
+    .material-select-wrapper {
+        padding: 0;
+
+        .material-label {
+            padding-top: 0;
+        }
+
+        .card-wrapper {
+            color: $ui-black;
+            width: 100%;
+
+            button:hover {
+                background: $ui-black;
+                color: $ui-white;
+            }
+        }
+    }
+
+    .sidebar-icon {
+        display: block;
+    }
+}
+
+.lines {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+
+    .line {
+        background: $ui-black;
+        display: block;
+        position: absolute;
+    }
+}
+
+.line-t {
+    top: 0;
+    height: 1px;
+    left: 0;
+
+    // width: 100%;
+    width: 0;
+}
+
+.line-r {
+    // height: 100%;
+    display: none;
+
+    @include tablet {
+        display: block;
+        height: 0;
+        right: 0;
+        top: 0;
+        width: 1px;
+    }
+}
+
+.line-b {
+    bottom: 0;
+    height: 1px;
+    left: 0;
+
+    // width: 100%;
+    width: 0;
+}
+
+.line-l {
+    // height: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 1px;
+}
+
+.lines-tb {
+    position: absolute;
+    transform: scale(0);
+
+    &:before,
+    &:after {
+        background: $ui-black;
+        content: '';
+        display: block;
+        position: absolute;
+        height: 1px;
+        left: 0;
+        margin: auto;
+        right: 0;
+        width: 100%;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+}
+
+.lines-lr {
+    position: absolute;
+    transform: scale(0);
+
+    &:before,
+    &:after {
+        background: $ui-black;
+        bottom: 0;
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        margin: auto;
+        top: 0;
+        width: 1px;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
+    }
+}

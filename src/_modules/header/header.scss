@@ -1,0 +1,66 @@
+// header styles
+.header {
+    line-height: 1.25;
+    margin: 15px 0 20px;
+    padding: 0 $gutter;
+    position: relative;
+
+    .container {
+        @include clearfix;
+
+        padding-bottom: 20px;
+    }
+
+    .line {
+        height: 4px;
+        margin-top: 15px;
+        position: static;
+    }
+}
+
+.settings {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+
+    @include tablet {
+        float: right;
+        margin-left: 15px;
+        padding-left: 10px;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    button {
+        background: none;
+        border: 0;
+        color: $ui-black;
+
+        &:hover {
+            .icon {
+                tranform: rotate(360deg);
+            }
+        }
+
+        .icon {
+            @include transition( all, 0.5s, $easeOutExpo );
+            tranform: rotate(0);
+
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    .line {
+        display: none !important;
+        height: 0;
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+
+        @include tablet {
+            display: inline-block !important;
+        }
+    }
+}

@@ -1,0 +1,120 @@
+// timedate styles
+.dateStamp {
+    float: left;
+
+    .comma {
+        display: none;
+
+        @include tablet {
+            display: inline-block;
+        }
+    }
+
+    .day,
+    .date {
+        font-size: 1.8em;
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .day {
+        font-weight: $bold;
+
+        @include tablet {
+            font-size: 3.2em;
+        }
+    }
+
+    .date {
+        display: block;
+        font-weight: $light;
+
+        @include tablet {
+            font-size: 2.4em;
+            display: inline-block;
+        }
+    }
+}
+
+.timeStamp {
+    font-size: 1.8em;
+    font-weight: $bold;
+    text-align: right;
+    margin-top: 20px;
+
+    @include tablet {
+        font-size: 3.2em;
+        float: right;
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .icon,
+    .time {
+        opacity: 0;
+        position: relative;
+        top: 25px;
+    }
+
+    .icon {
+        display: none;
+        font-size: 0.75em;
+        height: 26px;
+        margin-top: 6px;
+        width: 26px;
+
+        @include desktop {
+            display: inline-block;
+        }
+    }
+
+    .inactive {
+        color: #d6d6d6;
+    }
+
+    button {
+        .icon {
+            display: block;
+        }
+    }
+}
+
+.time {
+    @include clearfix;
+
+    display: inline-block;
+    vertical-align: bottom;
+
+    span {
+        float: left;
+    }
+}
+
+.pm {
+    color: $ui-white;
+
+    .lines .line {
+        background: $ui-white;
+    }
+
+    p,
+    .settings button,
+    .news-reports a {
+        color: $ui-white;
+    }
+
+    .climacon_component-stroke {
+        fill: $ui-white;
+        stroke: $ui-white;
+    }
+
+    .preloader-text p,
+    .floating .placeholder {
+        color: $ui-black;
+    }
+
+    .preloader-wrapper .preloader {
+        background: $ui-black;
+    }
+}
