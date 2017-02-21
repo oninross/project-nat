@@ -5,7 +5,7 @@ console.log('WORKER: executing.');
 /* A version number is useful when updating the worker logic,
    allowing you to remove outdated cache entries during the update.
 */
-var version = '1.2.0';
+var version = '0.4.0';
 
 /* These resources will be downloaded and cached by the service worker
    during the installation process. If any resource fails to be downloaded,
@@ -15,6 +15,9 @@ var offlineFundamentals = [
     'assets/nat/css/main.css',
     'assets/nat/js/main.js',
     'assets/nat/css/fonts/icomoon.woff',
+    'assets/nat/css/fonts/HelveticaNeue-Light.woff',
+    'assets/nat/css/fonts/HelveticaNeue-Bold.woff',
+    'assets/nat/css/fonts/HelveticaNeue.woff',
     'index.html',
     '/'
 ];
