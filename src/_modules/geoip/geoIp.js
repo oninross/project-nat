@@ -1,6 +1,5 @@
 'use strict';
 
-import Localstorage from '../localStorage/localStorage';
 import Weather from '../weather/weather';
 
 var $location = $('.location');
@@ -8,44 +7,36 @@ var $location = $('.location');
 export default class Geoip {
 
     constructor() {
-        var that = this,
-            localStorage = new Localstorage();
+        var that = this;
 
-        if (localStorage.getGeoIpData() === undefined) {
-            $.ajax({
-                url: '//freegeoip.net/json/',
-                // url: '//www.geoplugin.net/json.gp?jsoncallback=?',
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    if (data.city == '') {
-                        ajaxError();
-                        $('.preloader-text p').text('Whoops! We can\'t determine your location.  Did you enable your location?');
-                        $('.preloader-wrapper .btn').hide();
-                    } else {
-                        localStorage.setGeoIpData(data);
-                        that.populateLocation(data);
-                    }
-                },
-                error: function (error) {
-                    console.log(error);
+        $.ajax({
+            url: '//freegeoip.net/json/',
+            // url: '//www.geoplugin.net/json.gp?jsoncallback=?',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.city == '') {
                     ajaxError();
-                },
-                statusCode: function (code) {
-                    console.log(code);
+                    $('.preloader-text p').text('Whoops! We can\'t determine your location.  Did you enable your location?');
+                    $('.preloader-wrapper .btn').hide();
+                } else {
+                    that.populateLocation(data);
                 }
-            });
-        } else {
-            that.populateLocation(localStorage.getGeoIpData());
-        }
+            },
+            error: function (error) {
+                console.log(error);
+                ajaxError();
+            },
+            statusCode: function (code) {
+                console.log(code);
+            }
+        });
     }
 
     populateLocation(data) {
         // https://freegeoip.net/json/
 
         // http://www.geoplugin.net/json.gp?jsoncallback=?
-
-        console.log(data)
 
         $('.weather .location').text(data.city + ', ' + data.country_name);
         $('.preloader-input').show();

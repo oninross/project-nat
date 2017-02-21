@@ -18,22 +18,6 @@ export default class Localstorage {
     }
 
 
-    // GeoIP Data
-    setGeoIpData(data) {
-        localStorage.geoIpData = JSON.stringify(data);
-    }
-
-    getGeoIpData() {
-        var cookieData = localStorage.geoIpData;
-
-        if (cookieData === undefined) {
-            return undefined;
-        } else {
-            return JSON.parse(cookieData);
-        }
-    }
-
-
     // UserName
     setUsername(username) {
         localStorage.username = username;
