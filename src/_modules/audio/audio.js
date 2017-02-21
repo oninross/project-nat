@@ -14,22 +14,16 @@ var voices,
 export default class Audio {
     constructor() {
         if (isAny()) {
-            this.offline();
             return false;
         }
-
-        this.canITalk();
 
         window.speechSynthesis.onvoiceschanged = function (e) {};
     }
 
-    offline() {
-        $('.icon-ic_keyboard_voice').addClass('inactive');
-        $('.voice .offline').show();
-    }
-
     speak(string) {
-        this.canITalk();
+        if (!this.canITalk()) {
+            return false;
+        }
 
         // Create a new instance of SpeechSynthesisUtterance.
         var msg = new SpeechSynthesisUtterance();
@@ -285,7 +279,7 @@ export default class Audio {
     canITalk() {
         var Localstorage;
 
-        if (isiOS() || !localStorage.getAudio()) {
+        if (isiOS() || localStorage.getAudio()) {
             return false;
         }
 
@@ -294,5 +288,7 @@ export default class Audio {
         if (SpeechSynthesisUtterance === undefined) {
             return false;
         }
+
+        return true;
     }
 }

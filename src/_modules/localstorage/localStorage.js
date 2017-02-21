@@ -7,7 +7,7 @@ export default class Localstorage {
     init() {
         if (!localStorage.length) {
             localStorage.username = '';
-            localStorage.audio = true;
+            localStorage.isMute = false;
 
             $('.preloader-wrapper .btn').show();
         }
@@ -30,10 +30,10 @@ export default class Localstorage {
 
     // Audio On/Off
     getAudio() {
-        return $.parseJSON(localStorage.audio);
+        return $.parseJSON(localStorage.isMute);
     }
 
     setAudio(bool) {
-        localStorage.audio = $.parseJSON(bool);
+        localStorage.isMute = $.parseJSON(bool);
     }
 }
