@@ -7,11 +7,12 @@
     "gsap": "^1.19.0",
     "jquery": "~2.2.0",
     "jquery-lazyload": "^1.9.7",
+    "jquery-match-height": "^0.7.2",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
     "normalize.css": "~3.0.3",
     "scrollmonitor": "^1.0.12"
-  },  "devDependencies": {
-
+  },
+  "devDependencies": {
     "babelify": "~7.3.0",
     "babel-core": "~6.9.1",
     "babel-preset-es2015": "~6.9.0",
@@ -76,7 +77,8 @@
     "lazyload": "./node_modules/jquery-lazyload/jquery.lazyload.js",
     "TweenMax": "./node_modules/gsap/src/uncompressed/TweenMax.js",
     "mCustomScrollbar": "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
-    "scrollMonitor": "./node_modules/scrollmonitor/scrollmonitor.js"
+    "scrollMonitor": "./node_modules/scrollmonitor/scrollmonitor.js",
+    "jquery-match-height": "./node_modules/jquery-match-height/dist/jquery.matchHeight.js"
   },
   "browserify-shim": {
     "jquery": "jQuery",

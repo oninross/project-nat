@@ -13,13 +13,12 @@ var voices,
 
 export default class Audio {
     constructor() {
-        var that = this;
         if (isAny()) {
-            offline();
+            this.offline();
             return false;
         }
 
-        that.canITalk();
+        this.canITalk();
 
         window.speechSynthesis.onvoiceschanged = function (e) {};
     }

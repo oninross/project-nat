@@ -8,6 +8,7 @@ import 'lazyload';
 import 'TweenMax';
 import 'doT';
 import './_modernizr';
+import 'jquery-match-height';
 
 import Localstorage from '../../../_modules/localStorage/localStorage';
 import Geoip from '../../../_modules/geoIp/geoIp';
@@ -17,7 +18,7 @@ import Header from '../../../_modules/header/header';
 import Navigation from '../../../_modules/navigation/navigation';
 import TablePreview from '../../../_modules/table-preview/table-preview';
 
-import { debounce, isMobile } from './_helper';
+import { debounce, isMobile, easeOutExpo } from './_helper';
 
 // Variable declaration
 let $window = $(window),
@@ -49,12 +50,9 @@ $(() => {
     //////////////////
     // Match Height //
     //////////////////
-    // $('.matchHeight').matchHeight();
-    // $.fn.matchHeight._afterUpdate = function (event, groups) {
-    //     moduleComplete();
-    // };
-
-
+    if (!isMobileDevice) {
+        $('.matchHeight').matchHeight();
+    }
 
     var debug = false,
         moduleCompletes = 0,
@@ -90,7 +88,7 @@ $(() => {
         TweenMax.to('.preloader .icon', 2, { rotation: -360, repeat: -1, ease: Power0.easeNone });
         TweenMax.to('.preloader', 0.75, { scale: 1, ease: Expo.easeOut, delay: 1 });
 
-        // TweenMax.to('.time .colon', 1, { alpha: 0, repeat:-1, ease: Power0.easeNone, yoyo: true });
+        TweenMax.to('.time .colon', 1, { alpha: 0, repeat: -1, ease: Power0.easeNone, yoyo: true });
 
         if (getUsername === '') {
             TweenMax.to('.preloader-input', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.25 });
@@ -152,13 +150,9 @@ $(() => {
         $this.toggleClass('active');
 
         if ($this.hasClass('active')) {
-            TweenMax.set('.dashboard', { height: 'auto' });
-            TweenMax.from('.dashboard', 1, { height: 0, ease: Expo.easeOut, onComplete: function () {
-                    TweenMax.set('.dashboard', { overflow: 'visible' });
-                }
-            });
+            $dashboard.slideDown(easeOutExpo);
         } else {
-            TweenMax.to('.dashboard', 1, { height: 0, overflow: 'hidden', ease: Expo.easeOut });
+            $dashboard.slideUp(easeOutExpo);
         }
     });
 
@@ -182,10 +176,11 @@ $(() => {
     window.II = {};
     window.II.moduleComplete = function () {
         moduleCompletes++;
-        console.log(moduleCompletes)
 
         if (moduleCompletes === 1) {
-            // $.fn.matchHeight._update();
+            if (!isMobileDevice) {
+                $.fn.matchHeight._update();
+            }
 
             if (localStorage.getUsername() === undefined || localStorage.getUsername() === '') {
                 TweenMax.to('.preloader', 0.5, { boxShadow: '0 1px 6px 0 rgba(0, 0, 0, 0), 0 1px 6px 0 rgba(0, 0, 0, 0)', scale: 0, ease: Expo.easeIn });
@@ -252,27 +247,6 @@ $(() => {
         TweenMax.staggerTo('.batch5', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.0 }, 0.1);
         TweenMax.staggerTo('.batch6', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.25 }, 0.1);
         TweenMax.staggerTo('.batch7', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.5 }, 0.1);
-
-
-        TweenMax.staggerTo('.news-listing:nth-child(1) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.5 }, 0.1);
-        TweenMax.staggerTo('.news-listing:nth-child(1) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 2.75 }, 0.1);
-
-        TweenMax.staggerTo('.news-listing:nth-child(2) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 3.0 }, 0.1);
-        TweenMax.staggerTo('.news-listing:nth-child(2) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 3.25 }, 0.1);
-
-        TweenMax.staggerTo('.news-listing:nth-child(3) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 3.5 }, 0.1);
-        TweenMax.staggerTo('.news-listing:nth-child(3) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 3.75 }, 0.1);
-
-        TweenMax.staggerTo('.news-listing:nth-child(4) .itemTitle', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 4.0 }, 0.1);
-        TweenMax.staggerTo('.news-listing:nth-child(4) .itemContent', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 4.25 }, 0.1);
-
-        TweenMax.staggerTo('.widget .ui-ul', 0.75, { opacity: 1, left: 0, top: 0, ease: Expo.easeOut, delay: 2.6 }, 0.1);
-        TweenMax.staggerTo('.widget .ui-ur', 0.75, { opacity: 1, right: 0, top: 0, ease: Expo.easeOut, delay: 2.6 }, 0.1);
-        TweenMax.staggerTo('.widget .ui-dr', 0.75, { opacity: 1, right: 0, bottom: 0, ease: Expo.easeOut, delay: 2.6 }, 0.1);
-        TweenMax.staggerTo('.widget .ui-dl', 0.75, { opacity: 1, left: 0, bottom: 0, ease: Expo.easeOut, delay: 2.6 }, 0.1);
-
-        TweenMax.staggerTo('.widget .lines-tb', 0.75, { scale: 1, ease: Expo.easeOut, delay: 2.7 }, 0.1);
-        TweenMax.staggerTo('.widget .lines-lr', 0.75, { scale: 1, ease: Expo.easeOut, delay: 2.7 }, 0.1);
     };
 
 

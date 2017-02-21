@@ -1,112 +1,11 @@
 // dashboard styles
-.dateStamp {
-    float: left;
-
-    .day,
-    .date {
-        opacity: 0;
-        position: relative;
-        top: 25px;
-    }
-
-    .day {
-        font-size: 3.2em;
-        font-weight: $bold;
-    }
-
-    .date {
-        font-size: 2.4em;
-        font-weight: $light;
-    }
-}
-
-.timeStamp {
-    font-size: 3.2em;
-    font-weight: $bold;
-    float: right;
-
-    .icon,
-    .time {
-        opacity: 0;
-        position: relative;
-        top: 25px;
-    }
-
-    .icon {
-        display: none;
-
-        @include desktop {
-            display: inline-block;
-            font-size: 0.75em;
-            height: 26px;
-            margin-top: 6px;
-            width: 26px;
-        }
-    }
-
-    .inactive {
-        color: #d6d6d6;
-    }
-
-    button {
-        .icon {
-            display: block;
-        }
-    }
-}
-
-.time {
-    @include clearfix;
-
-    display: inline-block;
-    vertical-align: bottom;
-
-    span {
-        float: left;
-    }
-}
-
-.settings {
-    float: right;
-    margin-left: 15px;
-    padding-left: 10px;
-    position: relative;
-
-    button {
-        background: none;
-        border: 0;
-        color: $ui-black;
-
-        &:hover {
-            .icon {
-                tranform: rotate(360deg);
-            }
-        }
-
-        .icon {
-            @include transition( all, 0.5s, $easeOutExpo );
-
-            height: 23px;
-            tranform: rotate(0);
-            width: 23px;
-        }
-    }
-
-    .line {
-        margin-top: 0;
-        position: absolute;
-        top: 0;
-
-        height: 0;
-    }
-}
-
 .dashboard {
     background: darken($ui-black, 10%);
     color: $ui-white;
-    height: 0;
+    display: none;
     overflow: hidden;
     position: relative;
+    padding: 20px $gutter;
     z-index: 150;
 
     h2 {
@@ -144,20 +43,10 @@
         &:checked + label {
             &:before { border: 2px solid $ui-white; }
             &:after {
-                background: $ui-white;
-                color: $ui-black;
+                // background: $ui-white;
+                // color: $ui-black;
             }
         }
-    }
-
-    .container {
-        padding: 20px 0;
-
-        @include tablet {
-            padding-left: $gutterTablet;
-            padding-right: $gutterTablet;
-        }
-
     }
 
     .wrap {
@@ -172,9 +61,10 @@
         height: 40px;
         padding: 8px;
         position: absolute;
-        right: 0;
+        right: 10px;
         top: 10px;
         width: 40px;
+        z-index: 10;
 
         &:hover {
             .icon {
@@ -251,5 +141,110 @@
 
     .sidebar-icon {
         display: block;
+    }
+}
+
+.lines {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+
+    .line {
+        background: $ui-black;
+        display: block;
+        position: absolute;
+    }
+}
+
+.line-t {
+    top: 0;
+    height: 1px;
+    left: 0;
+
+    // width: 100%;
+    width: 0;
+}
+
+.line-r {
+    // height: 100%;
+    display: none;
+
+    @include tablet {
+        display: block;
+        height: 0;
+        right: 0;
+        top: 0;
+        width: 1px;
+    }
+}
+
+.line-b {
+    bottom: 0;
+    height: 1px;
+    left: 0;
+
+    // width: 100%;
+    width: 0;
+}
+
+.line-l {
+    // height: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 1px;
+}
+
+.lines-tb {
+    position: absolute;
+    transform: scale(0);
+
+    &:before,
+    &:after {
+        background: $ui-black;
+        content: '';
+        display: block;
+        position: absolute;
+        height: 1px;
+        left: 0;
+        margin: auto;
+        right: 0;
+        width: 100%;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+}
+
+.lines-lr {
+    position: absolute;
+    transform: scale(0);
+
+    &:before,
+    &:after {
+        background: $ui-black;
+        bottom: 0;
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        margin: auto;
+        top: 0;
+        width: 1px;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
     }
 }

@@ -45,6 +45,9 @@ export default class Geoip {
 
         // http://www.geoplugin.net/json.gp?jsoncallback=?
 
+        console.log(data)
+
+        $('.weather .location').text(data.city + ', ' + data.country_name);
         $('.preloader-input').show();
 
         var weather = new Weather();

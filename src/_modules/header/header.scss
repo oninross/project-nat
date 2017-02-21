@@ -1,9 +1,13 @@
 // header styles
 .header {
-    margin: 10px 0 30px;
+    line-height: 1.25;
+    margin: 15px 0 20px;
+    padding: 0 $gutter;
     position: relative;
 
     .container {
+        @include clearfix;
+
         padding-bottom: 20px;
     }
 
@@ -15,10 +19,18 @@
 }
 
 .settings {
-    float: right;
-    margin-left: 15px;
-    padding-left: 10px;
-    position: relative;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+
+    @include tablet {
+        float: right;
+        margin-left: 15px;
+        padding-left: 10px;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
 
     button {
         background: none;
@@ -41,137 +53,14 @@
     }
 
     .line {
+        display: none !important;
+        height: 0;
         margin-top: 0;
         position: absolute;
         top: 0;
 
-        height: 0;
-    }
-}
-
-.logo {
-    padding: 8px $gutter;
-    position: absolute;
-    z-index: 25;
-
-    h1 {
-        margin: 0;
-    }
-
-    a {
-        font-size: 0.8em;
-        color: $white;
-    }
-
-    .container {
-        padding: 0;
-
-        @include desktop {
-            padding: 0 $gutter;
-        }
-    }
-
-    @include desktop {
-        position: relative;
-    }
-}
-
-.menu {
-    @include transition(background-color, $animTime, $easeOutExpo);
-
-    background-color: transparent;
-    border: 0;
-    height: 45px;
-    padding: 8px;
-    width: 45px;
-    position: absolute;
-    right: 0;
-    z-index: 10;
-
-    &.active {
-        background-color: $white;
-        z-index: 30;
-
-        .top {
-            background-color: $black;
-            transform: translateY(4px) rotate(225deg);
-        }
-
-        .bot {
-            background-color: $black;
-            transform: translateY(-4px) rotate(-225deg);
-        }
-
-        .mid {
-            opacity: 0;
-        }
-    }
-
-    .line {
-        background: $white;
-        display: block;
-        height: 2px;
-        margin: 2px auto;
-        opacity: 1;
-        position: relative;
-        top: 0;
-        transform: none;
-        @include transition(all, $animTime, $easeOutExpo);
-        will-change: transform;
-        width: 15px;
-    }
-
-    @include desktop {
-        display: none;
-    }
-}
-
-.sub-nav {
-    background: none;
-    border: 0;
-    color: $white;
-    display: block;
-    height: 45px;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 45px;
-    z-index: 5;
-
-    &.icon-arrow {
-        &:before,
-        &:after {
-            @include transition(all, $animTime, $easeOutExpo);
-
-            background: $grey;
-            content: "";
-            display: block;
-            height: 8px;
-            position: absolute;
-            margin: auto;
-            top: 20px;
-            width: 2px;
-        }
-
-        &:before {
-            left: 19px;
-            transform: rotate(-45deg);
-        }
-
-        &:after {
-            right: 19px;
-            transform: rotate(45deg);
-        }
-
-        &.active {
-            &:before {
-                transform: rotate(-135deg);
-            }
-
-            &:after {
-                transform: rotate(135deg);
-            }
+        @include tablet {
+            display: inline-block !important;
         }
     }
 }

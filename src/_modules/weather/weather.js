@@ -49,7 +49,7 @@ export default class Weather {
             dataMain = json.query.results.channel.item;
 
         $weather.find('.current .temp').text(Math.round(dataMain.condition.temp) + '°');
-        $weather.find('.current .hilow').text(Math.round(dataMain.forecast[0].high) + '° / ' + Math.round(dataMain.forecast[0].low) + '°');
+        $weather.find('.current .hilow').text('H ' + Math.round(dataMain.forecast[0].high) + '° L ' + Math.round(dataMain.forecast[0].low) + '°');
         $weather.find('.current-wrapper .text').text(dataMain.forecast[0].text);
 
         $weather.find('.condition .icon').html(that.getWeatherIcon(dataMain.condition.code));
@@ -66,7 +66,7 @@ export default class Weather {
 
             $forecast.find('h3').html(days[n.getDay()] + '<br/>' + n.getDate() + '/' + n.getMonth());
             $forecast.find('.icon').html(that.getWeatherIcon(dataForecast.code));
-            $forecast.find('.hilow').text(Math.round(dataForecast.high) + '° / ' + Math.round(dataForecast.low) + '°');
+            $forecast.find('.hilow').text('H ' + Math.round(dataForecast.high) + '° L ' + Math.round(dataForecast.low) + '°');
             $forecast.find('.text').text(dataForecast.text);
         };
 
@@ -87,7 +87,7 @@ export default class Weather {
 
             $forecast.find('h3').html(days[n.getDay()] + '<br/>' + n.getDate() + '/' + n.getMonth());
             $forecast.find('.icon').html(that.getWeatherIcon(dataWeather.weather[0].icon));
-            $forecast.find('.hilow').text(Math.round(dataWeather.temp.max) + '° / ' + Math.round(dataWeather.temp.min) + '°');
+            $forecast.find('.hilow').text('H ' + Math.round(dataWeather.temp.max) + '° L' + Math.round(dataWeather.temp.min) + '°');
             $forecast.find('.text').text(dataWeather.weather[0].main);
         };
 

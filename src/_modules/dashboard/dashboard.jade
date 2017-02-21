@@ -3,6 +3,8 @@ mixin dashboard(spec)
     - spec.__class = spec.__class || ''
 
     .dashboard
+        button.close.js-close
+            i.icon.icon-ic_close
         .container
             .wrap
                 .col-2
@@ -15,6 +17,3 @@ mixin dashboard(spec)
                 .col-4
                     input#audio(type='checkbox', name='name', checked='')
                     label.checkbox(for='audio') Mute N.A.T.
-
-                button.close.js-close
-                    i.icon.icon-ic_close
