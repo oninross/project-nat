@@ -73,6 +73,7 @@ $(() => {
         el += '.weather .text';
 
         TweenMax.set(el, { opacity: 1, top: 0 });
+        TweenMax.set('.line-t', { width: '100%' });
         TweenMax.set('.line-b', { width: '100%' });
         TweenMax.set('.line-r', { height: '100%' });
         TweenMax.set('.line-l', { height: '100%' });
@@ -235,9 +236,11 @@ $(() => {
     var animate = function () {
         audio.greetUser();
 
-        TweenMax.staggerTo('.line-b', 0.75, { width: '100%', ease: Expo.easeOut }, 0.2);
-        TweenMax.staggerTo('.line-r', 0.75, { height: '100%', ease: Expo.easeOut, delay: 0.5 }, 0.2);
-        TweenMax.staggerTo('.line-l', 0.75, { height: '100%', ease: Expo.easeOut, delay: 1 }, 0.2);
+        TweenMax.to('.header .line-b', 0.75, { width: '100%', ease: Expo.easeOut }, 0.2);
+        TweenMax.to('.weather .line-t', 0.75, { width: '100%', ease: Expo.easeOut, delay: 0.2 }, 0.2);
+        TweenMax.to('.weather .line-b', 0.75, { width: '100%', ease: Expo.easeOut, delay: 0.4 }, 0.2);
+        TweenMax.staggerTo('.line-r', 0.75, { height: '100%', ease: Expo.easeOut, delay: 0.6 }, 0.2);
+        TweenMax.staggerTo('.line-l', 0.75, { height: '100%', ease: Expo.easeOut, delay: 0.8 }, 0.2);
 
         TweenMax.staggerTo('.batch1', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1 }, 0.1);
         TweenMax.staggerTo('.batch2', 0.75, { opacity: 1, top: 0, ease: Expo.easeOut, delay: 1.25 }, 0.1);
@@ -253,7 +256,7 @@ $(() => {
 });
 
 
-// Simple Service Worker to make App Install work (OPTIONAL)
+// // Simple Service Worker to make App Install work (OPTIONAL)
 window.addEventListener('load', function () {
     let outputElement = document.getElementById('output');
 

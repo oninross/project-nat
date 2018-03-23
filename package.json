@@ -1,6 +1,6 @@
 {
   "name": "NAT",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "dependencies": {
     "browserify-shim": "^3.8.12",
     "dot": "^1.0.3",
@@ -51,7 +51,7 @@
     "imagemin-svgo": "~4.2.0",
     "imagemin-pngquant": "~4.2.0",
     "gulp-eslint": "~1.1.1",
-    "gulp-sass": "~2.1.1",
+    "gulp-sass": "~3.1.0",
     "gulp-newer": "~1.1.0",
     "js-yaml": "~3.5.2",
     "watchify": "~3.7.0 ",
