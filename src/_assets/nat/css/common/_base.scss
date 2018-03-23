@@ -287,10 +287,18 @@ svg.ripple {
 Layout
 ========================================================================== */
 #main {
+    display: flex;
+    height: calc(100vh - 100px);
+
     .col {
         @include desktop {
             @include transition( all, 0.5s, $easeOutExpo );
         }
+    }
+
+    .container {
+        height: auto;
+        margin: auto;
     }
 }
 

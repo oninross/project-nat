@@ -22,7 +22,7 @@
     }
 
     h3 {
-        font-size: 2em;
+        font-size: 1.5em;
         font-weight: $bold;
         margin-top: 0;
         opacity: 0;
@@ -30,8 +30,15 @@
         top: 25px;
 
         @include tablet {
+            font-size: 2em;
             margin-top: 4px;
         }
+    }
+
+    .line-t {
+        height: 2px;
+        margin-bottom: 25px;
+        position: static;
     }
 
     .line-b {
@@ -158,10 +165,10 @@
         h3,
         .icon,
         .text {
-            float: left;
-            width: 33.333333%;
 
             @include tablet {
+                // float: left;
+                // width: 33.333333%;
                 float: none;
                 width: 100%;
             }
@@ -186,6 +193,7 @@
 
             @include tablet {
                 display: block;
+                font-size: 2em;
             }
         }
     }
@@ -193,11 +201,11 @@
     .forecast {
         @include clearfix;
                 // display: none;
-        // float: left;
+        float: left;
         // margin-bottom: 20px;
         position: relative;
         text-align: center;
-        width: 100%;
+        width: 20%;
 
         @include tablet {
             float: left;
@@ -225,9 +233,18 @@
         }
 
         .text {
-            font-size: 1.6em;
-            font-weight: $bold;
-            margin-bottom: 10px;
+            display: none;
+
+            @include tablet {
+                display: block;
+                font-size: 1.2em;
+                font-weight: $bold;
+                margin-bottom: 10px;
+            }
+
+            @include desktop {
+                font-size: 1.6em;
+            }
         }
     }
 }
@@ -297,6 +314,7 @@ rect {
     animation-duration: 18s;
     -webkit-animation-direction: normal;
     animation-direction: normal;
+    transform-box: fill-box;
 }
 
 /* SUN */
